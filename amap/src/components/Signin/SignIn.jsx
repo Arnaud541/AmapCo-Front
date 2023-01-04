@@ -23,7 +23,7 @@ function SignIn() {
 
   return (
     <div className="login">
-      <h1>LOGIN</h1>
+      <h1>Connexion</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
