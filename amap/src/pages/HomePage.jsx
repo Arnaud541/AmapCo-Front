@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar/Navbar";
-import Paniers from "../components/Home/Paniers";
+import Carts from "../components/Home/Carts";
 
 function HomePage() {
   return (
     <>
       <Navbar />
-      <Paniers />
+      <Carts />
     </>
   );
 }

@@ -28,12 +28,12 @@ function SignIn() {
         <input
           type="text"
           name="email"
-          placeholder="Exemple@gmail.com"
+          placeholder="Email"
           onChange={handleChange}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Mot de passe"
           name="password"
           onChange={handleChange}
         />
