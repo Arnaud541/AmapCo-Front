@@ -15,10 +15,10 @@ function SignIn() {
               }));
         }
 
-        const handleSubmit = (event) => {
-            event.preventDefault();
-            console.log(user);
-        }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(user);
+    }
 
     return (
         <div className='login'>
