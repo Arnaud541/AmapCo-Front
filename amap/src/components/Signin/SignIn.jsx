@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 
 function SignIn() {
 
@@ -13,17 +15,22 @@ function SignIn() {
               }));
         }
 
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            console.log(user);
+        }
+
     return (
-        <div class='login'>
+        <div className='login'>
             <h1>LOG IN</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     <p>Username:</p>
-                    <input type="text" onChange={handleChange} />
+                    <input type="text" name="username" onChange={handleChange} />
                 </label>
                 <label>
                     <p>Password:</p>
-                    <input type="password" onChange={handleChange} />
+                    <input type="password" name='password' onChange={handleChange} />
                 </label>
                 <div>
                     <button type="submit">Submit</button>
@@ -31,6 +38,9 @@ function SignIn() {
             </form>
         </div>
     )
+
+
+
 }
 
 export default SignIn;
