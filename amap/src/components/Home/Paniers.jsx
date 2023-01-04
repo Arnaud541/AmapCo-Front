@@ -1,20 +1,17 @@
 import { useState } from "react";
 
-function Paniers(){
+function Paniers() {
+  const [paniers, setPaniers] = useState({
+    paniers: ["item1", "item2", "item3"],
+  });
 
-const [paniers, setPaniers] = useState({
-    paniers: ['item1', 'item2', 'item3']
-})
-
-console.log(paniers);
-
-const listItems = paniers.paniers.map((panier) =>
-    {console.log(panier), <li>{panier}</li>});
-
-return (<ul>{listItems}</ul>)
-
+  return (
+    <ul>
+      {paniers.paniers.map((p) => (
+        <li>{p}</li>
+      ))}
+    </ul>
+  );
 }
-
-
 
 export default Paniers;
