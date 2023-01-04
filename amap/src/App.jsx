@@ -1,11 +1,11 @@
 import './App.css'
 
-import { Router, Routes, Route} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
-import Recettes from "./pages/Recipes";
-import Producteurs from './pages/Grower';
-import Connexion from './pages/SignIn';
-import Inscription from './pages/SignUp';
+import Recipes from './pages/Recipes';
+import Grower from './pages/Grower';
+import SignIn from './components/SignIn';
+import SignUp from './pages/SignUp';
 
 
 
@@ -16,10 +16,10 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Recettes' element={<Recettes />} />
-        <Route path='/Producteurs' element={<Producteurs />} />
-        <Route path='/Connexion' element={<Connexion />} />
-        <Route path='/Inscription' element={<Inscription />} />
+        <Route path='/recipes' element={<Recipes />} />
+        <Route path='/grower' element={<Grower />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/signup' element={<SignUp />} />
       </Routes>
   )
 }
