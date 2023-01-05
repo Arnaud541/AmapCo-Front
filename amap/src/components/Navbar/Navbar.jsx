@@ -1,19 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Component } from "react";
+import { MenuData } from "./MenuData";
 
 import "./Navbar.css";
 
 function Navbar() {
     return (
         <>
-        <ul>
-            <li><Link to="/"><img className="brand-logo" src="https://cdn.discordapp.com/attachments/1029748840015863830/1052562377893232800/Hamapiens.png"/></Link></li>
-            <li> <Link to="/recipes" >recipes</Link></li>
-            <li> <Link to="/grower" >growers</Link></li>
+        <nav className="NavbarItems">
+        
+            <h1 className="logo_1">
+                <Link to="/">home</Link>
+            </h1>
 
-            <li> <button className="button"><Link to="/signin" >signin</Link></button></li>
-            <li> <button className="button"> <Link to="/signup" >signup</Link></button></li>
+            <ul className="nav-menu">
+            {MenuData.map((item, index)=>{console.log(index)
+                return (
+                   <li key={index}>
+                    <Link to={item.url} className="cName">{item.title}</Link>
+                   </li>
+                )
+            })}
         </ul>
+        </nav>
         </>
     );
 };
