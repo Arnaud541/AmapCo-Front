@@ -48,6 +48,7 @@ function SignUp() {
           placeholder="Prenom"
           onChange={handleChange}
         />
+        <label for="file"> Choisir un avatar : </label>
         <input
           type="file"
           name="profilePicture"
@@ -66,7 +67,7 @@ function SignUp() {
           placeholder="Confirmer le mot de passe"
           onChange={handleChange}
         />
-        <button type="submit">Envoyer</button>
+        <button type="submit">S'inscrire</button>
       </form>
     </div>
   );

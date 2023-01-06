@@ -37,7 +37,7 @@ function SignIn() {
           name="password"
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Se connecter</button>
       </form>
     </div>
   );
