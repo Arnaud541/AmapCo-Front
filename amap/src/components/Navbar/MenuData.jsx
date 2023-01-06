@@ -1,21 +1,21 @@
 export const MenuData = [
     {
-        title: "Recipes",
+        title: "Recettes",
         url: "/recipes",
         cName: "navLinks-left"
     },
     {
-        title: "Growers",
+        title: "Producteurs",
         url: "/grower",
         cName: "navLinks-left"
     },
     {
-        title: "signin",
+        title: "Connexion",
         url: "/signin",
         cName: "navLinks"
     },
     {
-        title: "signup",
+        title: "Inscription",
         url: "/signup",
         cName: "navLinks"
     }
