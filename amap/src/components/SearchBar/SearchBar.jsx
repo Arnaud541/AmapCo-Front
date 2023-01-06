@@ -5,19 +5,61 @@ import { FaSearch, FaSlidersH } from "react-icons/fa";
 import { useState } from "react";
 
 function SearchBar(props) {
-  const [saisons, setSaisons] = useState([
-    { value: "hiver", label: "Hiver" },
-    { value: "été", label: "Eté" },
-    { value: "printemps", label: "Printemps" },
-    { value: "automne", label: "Automne" },
-  ]);
+  const seasons = [
+    {
+      value: "hiver",
+      nom: "Hiver",
+    },
+    {
+      value: "été",
+      nom: "Eté",
+    },
+    {
+      value: "printemps",
+      nom: "Printemps",
+    },
+    {
+      value: "automne",
+      nom: "Automne",
+    },
+  ];
+
+  const notes = [
+    { value: 1, nom: "1" },
+    { value: 2, nom: "2" },
+    { value: 3, nom: "3" },
+    { value: 4, nom: "4" },
+    { value: 5, nom: "5" },
+  ];
+
+  const typeDishes = [
+    { value: "Entrée", nom: "Entrée" },
+    { value: "Plat", nom: "Plat" },
+    { value: "Dessert", nom: "Dessert" },
+  ];
+
+  const difficulties = [
+    { value: "Facile", nom: "Facile" },
+    { value: "Moyen", nom: "Moyen" },
+    { value: "Difficile", nom: "Difficile" },
+  ];
+
+  const diets = [
+    { value: "Flexitarien", nom: "Flexitarien" },
+    { value: "Végétarien", nom: "Végétarien" },
+    { value: "Omnivore", nom: "Omnivore" },
+    { value: "Sans Gluten", nom: "Sans Gluten" },
+  ];
 
   const [search, setSearch] = useState({
     search: "",
     filters: {
       ingredient: [],
       saison: [],
+      difficulte: [],
       regimeAlimentaire: [],
+      typePlat: [],
+      note: [],
     },
   });
 
@@ -39,15 +81,23 @@ function SearchBar(props) {
       });
       let filtre = event.name.split("-")[1];
       switch (filtre) {
-        case "region":
-          copySearch.filtres.region.push(event.target.value);
+        case "difficulte":
+          copySearch.filters.difficulte = array;
           break;
         case "saison":
           copySearch.filters.saison = array;
           break;
         case "ingredient":
           copySearch.filters.ingredient = array;
-        default:
+          break;
+        case "typePlat":
+          copySearch.filters.typePlat = array;
+          break;
+        case "note":
+          copySearch.filters.note = array;
+          break;
+        case "regimeAlimentaire":
+          copySearch.filters.regimeAlimentaire = array;
           break;
       }
       setSearch(copySearch);
@@ -102,6 +152,7 @@ function SearchBar(props) {
             getOptionLabel={(option) => option.nom}
             getOptionValue={(option) => option.nom}
             onChange={handleFilters}
+            placeholder="Ingrédients"
             name="filter-ingredient"
             styles={customStyles}
           />
@@ -109,9 +160,60 @@ function SearchBar(props) {
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
-            options={props.recipes}
+            options={seasons}
+            getOptionLabel={(option) => option.nom}
+            getOptionValue={(option) => option.value}
             onChange={handleFilters}
+            placeholder="Saisons"
             name="filter-saison"
+            styles={customStyles}
+          />
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={difficulties}
+            getOptionLabel={(option) => option.nom}
+            getOptionValue={(option) => option.value}
+            onChange={handleFilters}
+            placeholder="Difficultés"
+            name="filter-difficulte"
+            styles={customStyles}
+          />
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={typeDishes}
+            getOptionLabel={(option) => option.nom}
+            getOptionValue={(option) => option.value}
+            onChange={handleFilters}
+            name="filter-typePlat"
+            placeholder="Type de plat"
+            styles={customStyles}
+          />
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={notes}
+            getOptionLabel={(option) => option.nom}
+            getOptionValue={(option) => option.value}
+            onChange={handleFilters}
+            name="filter-note"
+            placeholder="Notation"
+            styles={customStyles}
+          />
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={diets}
+            getOptionLabel={(option) => option.nom}
+            getOptionValue={(option) => option.value}
+            onChange={handleFilters}
+            name="filter-regimeAlimentaire"
+            placeholder="Regime alimentaire"
             styles={customStyles}
           />
         </div>

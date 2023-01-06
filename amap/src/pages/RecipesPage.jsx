@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import SearchBar from "../components/SearchBar/SearchBar";
 import axios from "axios";
+import Recipes from "../components/Recipes/Recipes";
 
 function RecipesPage() {
   const [ingredients, setIngredients] = useState([]);
@@ -11,18 +12,20 @@ function RecipesPage() {
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=ingredient")
       .then((response) => {
+        console.log(response);
         setIngredients(response.data);
       });
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipe")
       .then((response) => {
-        setRecipes(response.data);
+        setRecipes(response.data.recettes);
       });
   }, []);
   return (
     <>
       <Navbar />
-      <SearchBar ingredients={ingredients} recipes={recipes} />
+      <SearchBar ingredients={ingredients} />
+      <Recipes recipes={recipes} />
     </>
   );
 }
