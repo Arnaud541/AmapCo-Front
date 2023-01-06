@@ -11,20 +11,24 @@
     left: 50%;
     transform: translate(-50%);
 
-
     position: fixed;
     top: 0;
 }
 
-a {
-    color: white;
+img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+li {
     text-decoration: none;
 }
 
 
 .logo_1 {
     padding-left: 10px;
-    color: white;
     justify-self: start;
     cursor: pointer;
 }
@@ -39,6 +43,14 @@ a {
     justify-content: end;
 }
 
-.nav-links {
+
+
+.navLinks {
     text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+    border: solid 1px whitesmoke;
+    padding: 5px;
+    border-radius: 10%;
+    background-color: whitesmoke;
 }
