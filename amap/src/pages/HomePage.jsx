@@ -5,12 +5,8 @@ import Carts from "../components/Home/Carts";
 function HomePage() {
   return (
     <>
-    <div>
       <Navbar />
-      </div>
-      <div>
       <Carts />
-      </div>
     </>
   );
 }

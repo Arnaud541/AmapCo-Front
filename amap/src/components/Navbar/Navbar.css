@@ -15,10 +15,12 @@
     top: 0;
 }
 
-img {
+.logo_1 {
+    margin-left: 8px;
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 
@@ -27,11 +29,6 @@ li {
 }
 
 
-.logo_1 {
-    padding-left: 10px;
-    justify-self: start;
-    cursor: pointer;
-}
 
 .nav-menu {
     display: grid;

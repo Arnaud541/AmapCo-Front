@@ -1,13 +1,14 @@
 import React from 'react'
 import Growers from '../components/Growers/Growers';
+import Navbar from "../components/Navbar/Navbar";
+
 
 function GrowersPage() {
 
   return (
+
     <>
-    <header>
-      <div></div>
-    </header>
+    <Navbar />
     <Growers />
     </>
   );

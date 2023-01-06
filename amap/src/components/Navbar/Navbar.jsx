@@ -10,9 +10,7 @@ function Navbar() {
         <>
         <nav className="NavbarItems">
         
-            <h1 className="logo_1">
-                <Link style={{color: 'white'}} to="/"><img src="https://media.discordapp.net/attachments/1029748840015863830/1052562377893232800/Hamapiens.png"/></Link>
-            </h1>
+                <Link style={{color: 'white'}} to="/"><img className="logo_1" src="https://media.discordapp.net/attachments/1029748840015863830/1052562377893232800/Hamapiens.png"/></Link>
 
             <ul className="nav-menu">
             {MenuData.map((item, index)=>
