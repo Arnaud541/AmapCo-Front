@@ -3,8 +3,10 @@ import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import { FaSearch, FaSlidersH } from "react-icons/fa";
 import { useState } from "react";
+import axios from "axios";
 
 function SearchBar(props) {
+  const { ingredients, setRecipes } = props;
   const seasons = [
     {
       value: "hiver",
@@ -68,7 +70,15 @@ function SearchBar(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(search);
+    axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeSearch", {
+        params: {
+          search: search,
+        },
+      })
+      .then((response) => {
+        setRecipes(response.data.recettes);
+      });
   };
 
   const handleFilters = (data, event) => {
@@ -148,7 +158,7 @@ function SearchBar(props) {
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
-            options={props.ingredients.ingredient}
+            options={ingredients}
             getOptionLabel={(option) => option.nom}
             getOptionValue={(option) => option.nom}
             onChange={handleFilters}

@@ -3,32 +3,43 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
-import "./Recipes.css";
 
-function Recipes(props) {
-  const { recipes } = props;
+function Growers(props) {
+  const { growers } = props;
   const [currentItems, setCurrentItems] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCount, setPageCount] = useState(0);
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(recipes.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(recipes.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, recipes]);
+    setCurrentItems(growers.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(growers.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, growers]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % recipes.length;
+    const newOffset = (event.selected * itemsPerPage) % growers.length;
     setItemOffset(newOffset);
   };
   return (
     <>
-      <div className="recipes">
-        {currentItems.map((recipe) => (
-          <Link to={`/recipes/${recipe.id}`}>
-            <div className="recipe" key={recipe.id}>
-              <h3>{recipe.titre}</h3>
+      <div className="growers">
+        {currentItems.map((grower) => (
+          <Link to={`/growers/${grower.id}`}>
+            <div className="grower" key={grower.id}>
+              <img src={"./src/assets/default.png"} alt="Avatar" />
+              <div className="grower-description">
+                <h2>Producteur</h2>
+                <h3>
+                  {grower.prenom} {grower.nom}
+                </h3>
+                <h4>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut,
+                  rem! Fugit molestiae, enim eligendi nam porro similique cum
+                  vel rem animi quibusdam? Iste odit asperiores enim? Minima
+                  corrupti voluptates nihil.
+                </h4>
+              </div>
             </div>
           </Link>
         ))}
@@ -54,4 +65,4 @@ function Recipes(props) {
   );
 }
 
-export default Recipes;
+export default Growers;

@@ -12,8 +12,7 @@ function RecipesPage() {
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=ingredient")
       .then((response) => {
-        console.log(response);
-        setIngredients(response.data);
+        setIngredients(response.data.ingredients);
       });
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipe")
@@ -24,7 +23,7 @@ function RecipesPage() {
   return (
     <>
       <Navbar />
-      <SearchBar ingredients={ingredients} />
+      <SearchBar ingredients={ingredients} setRecipes={setRecipes} />
       <Recipes recipes={recipes} />
     </>
   );
