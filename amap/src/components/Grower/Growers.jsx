@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
+import "./Growers.css";
 
 function Growers(props) {
   const { growers } = props;
@@ -29,10 +30,9 @@ function Growers(props) {
             <div className="grower" key={grower.id}>
               <img src={"./src/assets/default.png"} alt="Avatar" />
               <div className="grower-description">
-                <h2>Producteur</h2>
-                <h3>
+                <h2>
                   {grower.prenom} {grower.nom}
-                </h3>
+                </h2>
                 <h4>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut,
                   rem! Fugit molestiae, enim eligendi nam porro similique cum

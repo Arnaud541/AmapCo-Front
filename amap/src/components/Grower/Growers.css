@@ -1,0 +1,52 @@
+.grower>img{
+    width: 150px;
+    height: 150px;
+}
+
+.grower{
+    background-color: rgb(70, 181, 69);
+    border-radius: 1em;
+    padding: 1.5em;
+    color:white;
+}
+
+.grower:hover{
+    background: linear-gradient(2deg, #a4c27e, #7a8e5e);
+    background-size: 1000% 1000%;
+    -webkit-animation: AnimationName 3s ease infinite;
+    -moz-animation: AnimationName 3s ease infinite;
+    animation: AnimationName 3s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+.growers{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5em;
+    grid-auto-rows: minmax(100px, auto);
+} 
+@media screen and (max-width:900px) {
+    .growers{
+        grid-template-columns: repeat(2, 1fr);   
+    }
+}
+
+@media screen and (max-width:500px) {
+    .growers{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
