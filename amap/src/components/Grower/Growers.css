@@ -35,6 +35,7 @@
 }
 .growers{
     display: grid;
+    margin:2em;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5em;
     grid-auto-rows: minmax(100px, auto);
