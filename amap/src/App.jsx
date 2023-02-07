@@ -7,6 +7,7 @@ import SignIn from "./components/Signin/SignIn";
 import SignUp from "./components/Signup/SignUp";
 import HomePage from "./pages/HomePage";
 import RecipeDetailsPage from "./pages/RecipeDetailsPage";
+import GrowerDetailsPage from "./pages/GrowerDetailsPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/growers" element={<GrowersPage />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/growers/:id" element={<GrowerDetailsPage />} />
     </Routes>
   );
 }

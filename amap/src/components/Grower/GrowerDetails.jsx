@@ -2,9 +2,13 @@ import React from 'react'
 import { useState } from "react";
 import { useEffect } from "react";
 
-function GrowerDetails() {
+function GrowerDetails(props) {
+  const{grower}=props
   return (
-    <div>GrowerDetails</div>
+    <div class="container">
+    <h1>hello</h1>
+    </div>
+    
   )
 }
 
