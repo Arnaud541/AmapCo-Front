@@ -5,13 +5,13 @@ import Navbar from '../components/Navbar/Navbar';
 import axios from 'axios';
 
 function GrowerDetailsPage() {
-    const [grower, setGrower] = useState([]);
+    const [grower, setGrower] = useState({});
   
     useEffect(() => {
       axios
         .get("http://127.0.0.1/AmapCo-Back/index.php?action=GrowerById")
         .then((response) => {
-          setGrower(response.data.producteurs);
+          setGrower(response.data.producteur[0]);
         });
     }, []);
   
