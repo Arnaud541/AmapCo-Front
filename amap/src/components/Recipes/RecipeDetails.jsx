@@ -2,8 +2,7 @@ import React from "react";
 import Stars from "./Stars";
 
 function RecipeDetails(props) {
-  const { recipe, comments, ustensils, ingredients, steps, note, idRecipe } =
-    props;
+  const { recipe, comments } = props;
 
   return (
     <div className="container">
@@ -69,6 +68,7 @@ function RecipeDetails(props) {
             ))}
           </div>
         </div>
+        <div className="recipe-like"></div>
       </div>
     </div>
   );
