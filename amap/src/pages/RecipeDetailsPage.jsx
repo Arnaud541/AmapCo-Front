@@ -4,28 +4,28 @@ import { useParams } from "react-router-dom";
 import RecipeDetails from "../components/Recipes/RecipeDetails";
 
 function RecipeDetailsPage() {
-  const [recipe, setRecipe] = useState([]);
+  const [recipe, setRecipe] = useState({});
   const [ingredients, setIngredients] = useState([]);
   const [ustensils, setUstensils] = useState([]);
   const [steps, setSteps] = useState([]);
   const [comments, setComments] = useState([]);
-  const [notes, setNotes] = useState([]);
+  const [note, setNote] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeById", {
         params: {
-          id: id,
+          id,
         },
       })
       .then((response) => {
-        setRecipe(response.data.recette);
+        setRecipe(response.data.recette[0]);
       });
 
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=ustensils", {
         params: {
-          id: id,
+          id,
         },
       })
       .then((response) => {
@@ -35,7 +35,7 @@ function RecipeDetailsPage() {
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=ingredient", {
         params: {
-          id: id,
+          id,
         },
       })
       .then((response) => {
@@ -45,7 +45,7 @@ function RecipeDetailsPage() {
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=comments", {
         params: {
-          id: id,
+          id,
         },
       })
       .then((response) => {
@@ -55,16 +55,34 @@ function RecipeDetailsPage() {
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=steps", {
         params: {
-          id: id,
+          id,
         },
       })
       .then((response) => {
         setSteps(response.data.steps);
       });
+
+    axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeNote", {
+        params: {
+          id,
+        },
+      })
+      .then((response) => {
+        setNote(response.data.note);
+      });
   }, []);
   return (
     <>
-      <RecipeDetails recipe={recipe} comments={comments} />
+      <RecipeDetails
+        recipe={recipe}
+        idRecipe={id}
+        comments={comments}
+        ustensils={ustensils}
+        ingredients={ingredients}
+        steps={steps}
+        note={note}
+      />
     </>
   );
 }
