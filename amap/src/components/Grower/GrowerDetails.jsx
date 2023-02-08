@@ -1,40 +1,50 @@
 import React from "react";
 import "./GrowerDetails.css";
 import growerimg from  "../../assets/img/backgroundgrower.png"
-import GrowerCart from "./GrowerCart";
 
 
 function GrowerDetails(props) {
-  const{grower}=props
-  console.log(grower)
+  const{grower, growercart, growerriew}=props
+  console.log(growercart)
     return (
     <div className="container">
       
       <img id="growerimg" src={growerimg}/>
 
       <div className="growerinfo">
-        <h1>div1 remplir les infos du grower</h1>
         {grower.avatar}
-        <p>{grower.nom}</p>
+        {grower.nom}
         {grower.created_at}
       </div>
 
-      <div className="growercart">
-        <h1>div2 paniers de producteur</h1>
-        <h2>{GrowerCart.nom}</h2>
-      </div>
+      <div className="growerCarts">
 
-      
+        {growercart.map((cart) => (
+          <div className="growerCart">
+              <h2>{cart.nom}</h2>
+          </div>
+            
+        ))}
+
+        {growercart.map((cart) => {
+          cart.nom
+        })}
+
+      </div>
       <div className="userReview">
         <h2 id="titleUserReview">Avis des amapiens</h2>
         <hr />
+
+        {growerreview.map((gr) => (
+          
+          <div className="growerReview">
+            
+              <h2>{gr.avis}</h2>
+          </div>
+            
+        ))}
       </div>
-      
-
-
-
-    </div>
-    
+    </div>   
   )
 }
 
