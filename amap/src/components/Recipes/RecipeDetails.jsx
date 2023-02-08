@@ -4,7 +4,6 @@ import Stars from "./Stars";
 function RecipeDetails(props) {
   const { recipe, comments, ustensils, ingredients, steps, note, idRecipe } =
     props;
-  console.log(idRecipe);
 
   return (
     <div className="container">

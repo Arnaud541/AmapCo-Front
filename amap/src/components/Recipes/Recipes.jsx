@@ -33,6 +33,7 @@ function Recipes(props) {
           </Link>
         ))}
       </div>
+      <Link to={"/recipe/create"}>Créer ma recette</Link>
       <ReactPaginate
         breakLabel="..."
         nextLabel="next >"

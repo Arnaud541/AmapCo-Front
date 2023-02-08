@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import RecipeDetailsPage from "./pages/RecipeDetailsPage";
 import GrowerDetailsPage from "./pages/GrowerDetailsPage";
 import GrowerCartPage from "./pages/GrowerCartPage";
+import FormRecipePage from "./pages/FormRecipePage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/recipes" element={<RecipesPage />} />
       <Route path="/recipes/:id" element={<RecipeDetailsPage />} />
+      <Route path="/recipe/create" element={<FormRecipePage />} />
       <Route path="/growers" element={<GrowersPage />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
