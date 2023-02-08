@@ -6,7 +6,7 @@ function SignUpPage() {
 
     useEffect(() => {
         axios
-          .post("http://127.0.0.1/AmapCo-Back/index.php?action=user")
+          .post("http://127.0.0.1/AmapCo-Back/index.php?action=signUp")
           .then((response) => {
             console.log(response);
           })
