@@ -10,11 +10,18 @@ function GrowerDetailsPage() {
     const {id}=useParams();
     useEffect(() => {
       axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=GrowerById",{params:{id}})
+        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerbyid",{params:{id}})
         .then((response) => {
-          console.log(response.data.producteur)
-          console.log(response)
-          setGrower(response.data.producteur[0]);
+          console.log(response);
+          console.log("la");
+          setGrower(response.data.producteur[2]);
+        });
+      axios
+        .get("http://127.0.0.1/AmapCo-Back/index.php?action=getgrowercart",{params:{id}})
+        .then((response) => {
+          console.log(response);
+          console.log("la");
+          setGrowerCart(response.data.producteur);
         });
     }, []);
   
