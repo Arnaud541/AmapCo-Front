@@ -2,7 +2,8 @@ import React from "react";
 import Stars from "./Stars";
 
 function RecipeDetails(props) {
-  const { recipe, comments } = props;
+  const { recipe, comments, ustensils, ingredients, steps, note, idRecipe } =
+    props;
 
   return (
     <div className="container">
