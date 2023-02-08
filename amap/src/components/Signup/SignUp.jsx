@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function SignUp() {
   const [user, setUser] = useState({
@@ -22,8 +23,16 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    axios
+          .post("http://127.0.0.1/AmapCo-Back/index.php?action=signUp")
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          }),[];
     console.log(user);
-    navigate("/signin");
+    //navigate("/signin");
   };
 
   return (
