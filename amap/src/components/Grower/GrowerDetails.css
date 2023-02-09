@@ -4,22 +4,63 @@ height: 200px;
 object-fit: cover; 
 }
 .growerinfo{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
     color:black;
     margin:1em;
     padding-top:2em;
+    width:50%;
+    margin: auto;
+    margin-top: 2em;
+    padding: 3em;
 }
+
+
+.growerdata{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.data{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .growercart{
     color: black;
     margin:1em;
     padding-top:2em;
     padding-bottom:2em;
 }
+
 .growerCarts{
+    display: grid;
+    margin:2em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
     color: black;
     margin:1em;
     padding-top:2em;
     padding-bottom:2em;
 }
+
+.titlewithgrowercart{
+    background-color: rgb(70, 181, 69);
+    padding: 0.5em;
+}
+
+.titlecart{
+    width: fit-content;
+    margin: auto;
+}
+
+.title4grower{
+    width: fit-content;
+    margin:auto;
+}
+
 .userReview{
     color:black;
     margin:1em;

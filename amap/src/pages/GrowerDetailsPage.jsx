@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 function GrowerDetailsPage() {
     const [grower, setGrower] = useState({});
     const [growercart, setGrowerCart] = useState([]);
-    const [growerreview, setGrowerReview] = useState([]);
+    // const [growerreview, setGrowerReview] = useState([]);
     const {id}=useParams();
     useEffect(() => {
       axios
@@ -23,18 +23,18 @@ function GrowerDetailsPage() {
           console.log(response)
           setGrowerCart(response.data.carts);
         });
-        axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerreview",{params:{id}})
-        .then((response) => {
-          console.log(response.data.review);
-          setGrowerReview(response.data.review);
-        });
+        // axios
+        // .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerreview",{params:{id}})
+        // .then((response) => {
+        //   console.log(response.data.review);
+        //   setGrowerReview(response.data.review);
+        // });
     }, []);
   
     return (
       <>
         <Navbar />
-        <GrowerDetails grower={grower} growercart={growercart}  growerreview={growerreview} />
+        <GrowerDetails grower={grower} growercart={growercart}  /*growerreview={growerreview}*/ />
       </>
     );
   }
