@@ -10,7 +10,7 @@ function GrowerDetails(props) {
       
       <img id="growerimg" src={growerimg}/>
       <div className="growerinfo">
-        <img src={"../../assets/default.png"}alt="Avatar"></img>
+        <img id="avatargrowerprofile" src={"../../assets/default.png"} alt="Avatar"></img>
         <div className="growerdata"><p className="data">{grower.nom}<br></br>Date d'inscription {grower.created_at}</p></div>
       </div>
 

@@ -75,6 +75,10 @@ object-fit: cover;
     margin:1em;
 }
 
+#avatargrowerprofile{
+    width: 40%;
+}
+
 
 #titleUserReview{
     text-align: left;
