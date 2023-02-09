@@ -12,20 +12,25 @@ function GrowerDetailsPage() {
     const {id}=useParams();
     useEffect(() => {
       axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerbyid",{params:{id}})
-        .then((response) => {
-         
+        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerbyid",{
+          params:{
+            id
+          }
+        }).then((response) => {
+          console.log(response)
           setGrower(response.data.producteur);
         });
       axios
         .get("http://127.0.0.1/AmapCo-Back/index.php?action=growercart",{params:{id}})
         .then((response) => {
+          console.log(response)
           setGrowerCart(response.data.carts);
         });
         axios
         .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerreview",{params:{id}})
         .then((response) => {
-          setGrowerReview(response.data.review);
+          console.log(response)
+          setGrowerReview(response.data.reviews);
         });
 
     }, []);
@@ -33,7 +38,7 @@ function GrowerDetailsPage() {
     return (
       <>
         <Navbar />
-        <GrowerDetails grower={grower} growercart={growercart}  growerreview={growerreview} />
+        <GrowerDetails grower={grower} growerreview={growerreview} growercart={growercart} />
       </>
     );
   }

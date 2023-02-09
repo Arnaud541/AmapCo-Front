@@ -4,14 +4,13 @@ import growerimg from  "../../assets/img/backgroundgrower.png"
 
 
 function GrowerDetails(props) {
-  const{grower, growercart, growerreview}=props
-  console.log(growercart)
+  const{grower, growerreview, growercart }=props
     return (
     <div className="container">
       
       <img id="growerimg" src={growerimg}/>
       <div className="growerinfo">
-        <img src={"{grower.avatar}"}alt="Avatar"></img>
+        <img src={"../../assets/default.png"}alt="Avatar"></img>
         <div className="growerdata"><p className="data">{grower.nom}<br></br>Date d'inscription {grower.created_at}</p></div>
       </div>
 
@@ -37,14 +36,14 @@ function GrowerDetails(props) {
         <h2 id="titleUserReview">Avis des amapiens</h2>
         <hr />
 
-        {growerreview.map((gr) => (
+        { growerreview.map((gr) => (
           
           <div className="growerReview">
               <p className="note">{gr.note}</p>
               <p className="growerReviews">{gr.avis}</p>
           </div>
             
-        ))}
+        ))} 
       </div>
     </div>   
   )
