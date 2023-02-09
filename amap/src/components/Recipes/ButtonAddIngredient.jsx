@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import SelectIngredient from "./SelectIngredient";
 
 function ButtonAddIngredient(props) {
-  const { handleChangeSelectArray, style, animatedComponents, setRecipe } =
-    props;
+  const { handleChangeSelectArray, style, animatedComponents } = props;
 
   const [div, setDiv] = useState([]);
   const handleAdd = () => {

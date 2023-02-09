@@ -55,8 +55,6 @@ function FormRecipe() {
   const handleChangeSelectArray = (data, event) => {
     let copyRecipe = { ...recipe };
     let array = [];
-    console.log(data);
-    console.log(event.name);
 
     data.forEach((e) => {
       array.push(e.nom);
@@ -67,7 +65,7 @@ function FormRecipe() {
         copyRecipe.ustensiles = array;
         break;
     }
-    setSearch(copyRecipe);
+    setRecipe(copyRecipe);
   };
 
   return (

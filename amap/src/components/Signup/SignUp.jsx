@@ -30,8 +30,7 @@ function SignUp() {
       .then((response) => {
         console.log(response);
       });
-    console.log(user);
-    //navigate("/signin");
+    navigate("/signup");
   };
 
   return (
