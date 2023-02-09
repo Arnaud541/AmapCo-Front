@@ -9,7 +9,6 @@ function GrowerDetailsPage() {
     const [grower, setGrower] = useState({});
     const [growercart, setGrowerCart] = useState([]);
     const [growerreview, setGrowerReview] = useState([]);
-    // const [growerreview, setGrowerReview] = useState([]);
     const {id}=useParams();
     useEffect(() => {
       axios
