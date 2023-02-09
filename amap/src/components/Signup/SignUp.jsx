@@ -24,13 +24,12 @@ function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-          .post("http://127.0.0.1/AmapCo-Back/index.php?action=signUp")
-          .then((response) => {
-            console.log(response);
-          })
-          .catch((error) => {
-            console.log(error);
-          }),[];
+      .post("http://127.0.0.1/AmapCo-Back/index.php?action=signUp", {
+        user,
+      })
+      .then((response) => {
+        console.log(response);
+      });
     console.log(user);
     //navigate("/signin");
   };
