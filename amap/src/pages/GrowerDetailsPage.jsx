@@ -28,11 +28,7 @@ function GrowerDetailsPage() {
         .then((response) => {
           setGrowerReview(response.data.review);
         });
-        // axios
-        // .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerreviewbyuserid",{params:{id}})
-        // .then((response) => {
-        //   console.log(response.data.review);
-        //   setGrowerReviewByUserId(response.data.review);
+
     }, []);
   
     return (
