@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +19,16 @@ function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/");
+    axios
+      .post("http://127.0.0.1/AmapCo-Back/index.php?action=signIn", {
+        user: user,
+      })
+      .then((response) => {
+        if (response.data.status === 200) {
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+          navigate("/");
+        }
+      });
   };
 
   return (
