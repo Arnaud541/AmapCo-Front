@@ -67,15 +67,25 @@ object-fit: cover;
     padding-top:2em;
     padding-bottom:1em;
 }
+
+.growerReview{
+    text-align: justify;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 2em;
+    margin:1em;
+}
+
+
 #titleUserReview{
     text-align: left;
-    margin-left: 2.5em;
+    margin-left: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 hr {
     padding-top:1em;
     opacity: 15%;
-    width: 92%;
+    width: 95%;
     border: none;
     border-top: 5px dotted #524747;
     color: #333;
