@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
   
   function GrowerCartPage() {
     const {id} = useParams();
-    const [cartDetails, setCart] = useState({});
+    const [cartDetails, setCart] = useState([]);
     useEffect(() => {
     axios
         .get("http://127.0.0.1/AmapCo-Back/index.php?action=cartDetails",{

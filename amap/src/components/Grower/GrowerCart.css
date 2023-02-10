@@ -1,3 +1,8 @@
 .cartvue{
     color:black;
 }
+
+.cartimg{
+    width: 40%;
+    object-fit: cover;
+}
