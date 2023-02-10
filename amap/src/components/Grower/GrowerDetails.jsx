@@ -1,6 +1,8 @@
 import React from "react";
 import "./GrowerDetails.css";
 import growerimg from  "../../assets/img/backgroundgrower.png"
+import avatarimg from "../../assets/default.png"
+import { Link } from "react-router-dom";
 
 
 function GrowerDetails(props) {
@@ -10,27 +12,33 @@ function GrowerDetails(props) {
       
       <img id="growerimg" src={growerimg}/>
       <div className="growerinfo">
-        <img id="avatargrowerprofile" src={"../../assets/default.png"} alt="Avatar"></img>
-        <div className="growerdata"><p className="data">{grower.nom}<br></br>Date d'inscription {grower.created_at}</p></div>
+        <img id="avatargrowerprofile" src={avatarimg} alt="Avatar"/>
+        <div className="growerdata"><p className="data">{grower.nom}<br></br>Date d'inscription {grower.created_at}</p><p className="growerdesc"> {grower.description}</p></div>
       </div>
 
-      <div className="growerCarts">
+      <div className="growerpresentation">
+        <h2 id="titleCartspresentation">Paniers disponibles</h2>
+          <hr />
+        <div className="growerCarts">
 
-        {growercart.map((cart) => (
-          <div className="growerCart">
-              <img src={"cart.img_url"}alt="CartPicture"></img>
-              <div className="titlewithgrowercart">
-                <h3 className="titlecart">{cart.nom}</h3>
-                <h4 className="title4grower">{grower.nom}</h4>
-              </div>
-          </div>
-            
-        ))}
+          {growercart.map((cart) => (
+            <Link to={`/growers/${grower.id}/cart/${cart.id}`}>
+            <div className="growerCart">
+                <img id="growercartimg" src={cart.img_url} alt="CartPicture"></img>
+                <div className="titlewithgrowercart">
+                  <h3 className="titlecart">{cart.nom}</h3>
+                  <h4 className="title4grower">{grower.nom}</h4>
 
-        {growercart.map((cart) => {
-          cart.nom
-        })}
+                </div>
+            </div>
+            </Link> 
+          ))}
+          
+          {growercart.map((cart) => {
+            {cart.nom}
+          })}
 
+        </div>
       </div>
       <div className="userReview">
         <h2 id="titleUserReview">Avis des amapiens</h2>
@@ -39,7 +47,7 @@ function GrowerDetails(props) {
         { growerreview.map((gr) => (
           
           <div className="growerReview">
-              <p className="note">{gr.note}</p>
+              <span className="note">{gr.nom} {gr.created_at} {gr.note}/5 </span>
               <p className="growerReviews">{gr.avis}</p>
           </div>
             

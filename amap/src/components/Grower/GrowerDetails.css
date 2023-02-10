@@ -1,38 +1,40 @@
 #growerimg{
 width: 100%; 
-height: 200px;
+height: 275px;
 object-fit: cover; 
 }
-.growerinfo{
-    display:flex;
-    align-items: center;
-    justify-content: space-evenly;
-    color:black;
-    margin:1em;
-    padding-top:2em;
-    width:50%;
-    margin: auto;
-    margin-top: 2em;
-    padding: 3em;
+
+
+#growercartimg{
+    width: 100%;
 }
+
 
 
 .growerdata{
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: justify;
 }
 
 .data{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
 }
 
-.growercart{
+.growerdesc{
+    width: 100%;
+}
+
+.growerCart{
     color: black;
     margin:1em;
     padding-top:2em;
     padding-bottom:2em;
+    backdrop-filter: blur(2px);
 }
+
+
 
 .growerCarts{
     display: grid;
@@ -52,16 +54,18 @@ object-fit: cover;
 }
 
 .titlecart{
+    color:rgb(255, 255, 255);
     width: fit-content;
     margin: auto;
 }
 
 .title4grower{
+    color:rgb(255, 255, 255);
     width: fit-content;
     margin:auto;
 }
 
-.userReview{
+.userReview,.growerpresentation{
     color:black;
     margin:1em;
     padding-top:2em;
@@ -76,11 +80,12 @@ object-fit: cover;
 }
 
 #avatargrowerprofile{
-    width: 40%;
+    width: 20%;
 }
 
 
-#titleUserReview{
+#titleUserReview,#titleCartspresentation{
+    color:black;
     text-align: left;
     margin-left: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -103,4 +108,36 @@ hr:after {
     background: #524747;
     position: relative;
     top: -13px;
+}
+
+.growerinfo{
+    align-items: center;
+    justify-content: space-evenly;
+    color:black;
+    margin:1em;
+    padding-top:2em;
+    margin: auto;
+    margin-top: 2em;
+    padding: 3em;
+}
+
+@media screen and (min-width:750px) {
+    .growerCarts{
+        grid-template-columns: repeat(2, 1fr);   
+    }
+    .growerinfo{
+        display:flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+}
+
+@media screen and (max-width:750px) {
+    .growerCarts{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .data{
+        text-align: center;
+    }
 }

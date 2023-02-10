@@ -8,6 +8,7 @@ import SignUp from "./components/Signup/SignUp";
 import HomePage from "./pages/HomePage";
 import RecipeDetailsPage from "./pages/RecipeDetailsPage";
 import GrowerDetailsPage from "./pages/GrowerDetailsPage";
+import GrowerCartPage from "./pages/GrowerCartPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/growers/:id" element={<GrowerDetailsPage />} />
+      <Route path="/growers/:id/cart/:idcart" element={<GrowerCartPage />} />
     </Routes>
   );
 }
