@@ -7,14 +7,15 @@ function GrowerCart(props) {
   console.log(cartDetails)
     return (
     <div className="container">
-      <h2>la</h2>
+      
       <div className="cartvue">
-      <img className="cartimg" src={cartDetails[0].img_url} alt="CartPicture"/>
+      <h2>la</h2>
+      <img id="cartimg" src={cartDetails[0].img_url} alt="CartPicture"/>
       {/* {
         cartDetails.map((c) => (
-          <div>{c.img_url}</div>
+          <div>{c.Ingredient.id}</div>
         ))
-      } */}
+      }  */}
 
       
 

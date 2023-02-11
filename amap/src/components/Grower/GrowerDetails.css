@@ -17,13 +17,11 @@ object-fit: cover;
     text-align: justify;
 }
 
-.data{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    width: 100%;
-}
+
 
 .growerdesc{
     width: 100%;
+    font-family: system-ui;
 }
 
 .growerCart{
@@ -39,6 +37,7 @@ object-fit: cover;
 .growerCarts{
     display: grid;
     margin:2em;
+    align-items:stretch;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1em;
     grid-auto-rows: minmax(100px, auto);
@@ -49,7 +48,7 @@ object-fit: cover;
 }
 
 .titlewithgrowercart{
-    background-color: rgb(70, 181, 69);
+    background: linear-gradient(90deg, rgb(197, 157, 87) 0%, rgb(64, 183, 62) 50%,rgb(197, 157, 87) 100%);
     padding: 0.5em;
 }
 
@@ -74,9 +73,19 @@ object-fit: cover;
 
 .growerReview{
     text-align: justify;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: system-ui;
     padding-bottom: 2em;
     margin:1em;
+}
+.note{
+    font-family: system-ui;
+    font-weight: bold;
+}
+
+.data{
+    font-family: system-ui;
+    font-weight: bold;
+    width: 100%;
 }
 
 #avatargrowerprofile{

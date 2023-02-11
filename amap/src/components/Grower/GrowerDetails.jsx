@@ -24,7 +24,7 @@ function GrowerDetails(props) {
           {growercart.map((cart) => (
             <Link to={`/growers/${grower.id}/cart/${cart.id}`}>
             <div className="growerCart">
-                <img id="growercartimg" src={cart.img_url} alt="CartPicture"></img>
+                <div className="growercartimgprofile"><img id="growercartimg" src={cart.img_url} alt="CartPicture"></img></div>
                 <div className="titlewithgrowercart">
                   <h3 className="titlecart">{cart.nom}</h3>
                   <h4 className="title4grower">{grower.nom}</h4>
@@ -43,11 +43,11 @@ function GrowerDetails(props) {
       <div className="userReview">
         <h2 id="titleUserReview">Avis des amapiens</h2>
         <hr />
-
+        
         { growerreview.map((gr) => (
           
           <div className="growerReview">
-              <span className="note">{gr.nom} {gr.created_at} {gr.note}/5 </span>
+              <span className="note">{gr.nom} {gr.note}/5 <br></br>Publié le  {gr.created_at}</span>
               <p className="growerReviews">{gr.avis}</p>
           </div>
             

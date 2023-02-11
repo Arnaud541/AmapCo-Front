@@ -14,7 +14,8 @@ import { useParams } from "react-router-dom";
           params:{
             id
           }
-        }).then((response) => {
+        })
+        .then((response) => {
           console.log(response)
           setCart(response.data.detail);
         });

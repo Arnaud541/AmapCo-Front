@@ -2,7 +2,7 @@
     color:black;
 }
 
-.cartimg{
+#cartimg{
     width: 40%;
     object-fit: cover;
 }
