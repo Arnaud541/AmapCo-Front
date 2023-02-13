@@ -9,6 +9,7 @@ object-fit: cover;
     width: 100%;
     height: 350px;
     object-fit:cover ;
+    transition: ease-in-out.4s;
 }
 
 
@@ -52,6 +53,7 @@ object-fit: cover;
 .titlewithgrowercart{
     background: linear-gradient(90deg, rgb(197, 157, 87) 0%, rgb(64, 183, 62) 50%,rgb(197, 157, 87) 100%);
     padding: 0.5em;
+    margin-top: -4px;
     border-radius: 4px;
     transition: ease-in-out.4s;
 }
@@ -66,7 +68,7 @@ object-fit: cover;
 
 img#growercartimg:hover {
     filter: blur(2px);
-    transition: 0.3s;
+    transition: ease-in-out.4s;
     content: 'Voir le panier';
 }
 
