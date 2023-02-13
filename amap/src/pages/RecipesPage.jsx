@@ -13,6 +13,7 @@ function RecipesPage() {
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=allIngredients")
       .then((response) => {
         setIngredients(response.data.ingredients);
+        console.log(response.data.ingredients);
       });
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipe")
