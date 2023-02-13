@@ -6,11 +6,36 @@
 .grower{
     background-color: rgb(70, 181, 69);
     border-radius: 1em;
-    padding: 1.5em;
     color:white;
+    height: 100%;
+    width: 100%;
+    transition: ease-in-out.6s;
+    
+}
+.grower:hover{
+    border-radius: 1em;
+    box-shadow: 0px 0px 10px 2px rgb(153 255 0 / 70%);
+    transition: ease-in-out.4s;
 }
 
+.avatargrow{
+    padding-top: 1em;
+}
+
+.growername{
+    font-family: system-ui;
+}
+
+.growerdescript{
+    font-family: 'Allerta Stencil';
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+}
+
+
 .grower:hover{
+    transition: ease-in-out.4s;
     background: linear-gradient(2deg, #a4c27e, #7a8e5e);
     background-size: 1000% 1000%;
     -webkit-animation: AnimationName 3s ease infinite;
@@ -39,14 +64,17 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5em;
     grid-auto-rows: minmax(100px, auto);
+    padding-bottom: 3em;
+    justify-items: center;
 } 
-@media screen and (max-width:900px) {
+@media screen and (max-width:1000px) {
     .growers{
         grid-template-columns: repeat(2, 1fr);   
+        
     }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:650px) {
     .growers{
         grid-template-columns: repeat(1, 1fr);
     }

@@ -28,12 +28,12 @@ function Growers(props) {
         {currentItems.map((grower) => (
           <Link to={`/growers/${grower.id}`}>
             <div className="grower" key={grower.id}>
-              <img src={"./src/assets/default.png"} alt="Avatar" />
+              <img className="avatargrow" src={"./src/assets/default.png"} alt="Avatar" />
               <div className="grower-description">
-                <h2>
+                <h2 className="growername">
                   {grower.prenom} {grower.nom}
                 </h2>
-                <h4>
+                <h4 className="growerdescript">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut,
                   rem! Fugit molestiae, enim eligendi nam porro similique cum
                   vel rem animi quibusdam? Iste odit asperiores enim? Minima
