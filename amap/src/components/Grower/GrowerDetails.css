@@ -1,6 +1,6 @@
 #growerimg{
 width: 100%; 
-height: 275px;
+height: 250px;
 object-fit: cover; 
 }
 
@@ -25,6 +25,7 @@ object-fit: cover;
 .growerdesc{
     width: 100%;
     font-family: 'Allerta Stencil';
+    margin-left: 0.5em;
 }
 
 .growerCart{
@@ -46,8 +47,6 @@ object-fit: cover;
     grid-auto-rows: minmax(100px, auto);
     color: black;
     margin:1em;
-    padding-top:2em;
-    padding-bottom:2em;
 }
 
 .titlewithgrowercart{
@@ -91,8 +90,6 @@ img#growercartimg:hover {
 .userReview,.growerpresentation{
     color:black;
     margin:1em;
-    padding-top:2em;
-    padding-bottom:1em;
 }
 
 .growerReview{
@@ -118,10 +115,15 @@ img#growercartimg:hover {
     font-weight: bold;
     font-size: 32px;
     width: 100%;
+    margin-left: 5px;
 }
 
 #avatargrowerprofile{
     width: 20%;
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 195px;
+    min-height: 195px;
 }
 
 
@@ -137,6 +139,7 @@ img#growercartimg:hover {
     font-family: system-ui;
     font-weight: bold;
     font-size: 12px;
+    margin-left: 6px;
 }
 
 hr {
@@ -148,7 +151,6 @@ hr {
     color: #333;
     overflow: visible;
     text-align: center;
-    height: 10px;
 }
 
 hr:after {
@@ -185,7 +187,20 @@ hr:after {
     .growerCarts{
         grid-template-columns: repeat(1, 1fr);
     }
-    .data{
+    .data,.inscriptionDate{
         text-align: center;
+    }
+    #titleCartspresentation,#titleUserReview{
+        text-align: center;
+        margin-left:0;
+    }
+    #avatargrowerprofile{
+        height:150px;
+        width:150px;
+    }
+    #growerimg {
+        width: 100%;
+        height: 175px;
+        object-fit: cover;
     }
 }
