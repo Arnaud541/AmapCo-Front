@@ -13,7 +13,11 @@ function GrowerDetails(props) {
       <img id="growerimg" src={growerimg}/>
       <div className="growerinfo">
         <img id="avatargrowerprofile" src={avatarimg} alt="Avatar"/>
-        <div className="growerdata"><p className="data">{grower.nom}<br></br>Date d'inscription {grower.created_at}</p><p className="growerdesc"> {grower.description}</p></div>
+        <div className="growerdata">
+          <span className="data">{grower.nom}</span>
+          <span className="inscriptionDate">Date d'inscription {grower.created_at}</span>
+          <p className="growerdesc"> {grower.description}</p>
+        </div>
       </div>
 
       <div className="growerpresentation">
@@ -47,7 +51,7 @@ function GrowerDetails(props) {
         { growerreview.map((gr) => (
           
           <div className="growerReview">
-              <span className="note">{gr.nom} {gr.note}/5 <br></br>Publié le  {gr.created_at}</span>
+              <span className="note">{gr.nom} {gr.note}/5 </span><br></br><span className="publication">Publié le  {gr.created_at}</span>
               <p className="growerReviews">{gr.avis}</p>
           </div>
             
