@@ -9,14 +9,14 @@ function GrowerCart(props) {
     <div className="container">
       
       <div className="cartvue">
-      <h2>la</h2>
+      <h2>la
       <img id="cartimg" src={cartDetails[0].img_url} alt="CartPicture"/>
       {/* {
         cartDetails.map((c) => (
           <div>{c.Ingredient.id}</div>
         ))
       }  */}
-
+      </h2>
       
 
 

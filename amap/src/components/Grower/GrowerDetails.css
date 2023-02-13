@@ -140,6 +140,7 @@ img#growercartimg:hover {
     font-weight: bold;
     font-size: 12px;
     margin-left: 6px;
+    padding-top: 0.2em;
 }
 
 hr {
