@@ -1,16 +1,58 @@
+import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
+import ReactPaginate from "react-paginate";
 
-function Carts() {
-  const [carts, setCarts] = useState({
-    carts: ["item1", "item2", "item3"],
-  });
+
+function Carts(props){
+
+
+  const {carts} = props;
+  const [currentItems, setCurrentItems] = useState([]);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const itemsPerPage = 8;
+
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(carts?.slice(itemOffset,endOffset));
+    setPageCount(Math.ceil(carts?.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage,carts]);
+
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % carts?.length;
+    setItemOffset(newOffset);
+  };
 
   return (
-    <ul>
-      {carts.carts.map((c) => (
-        <li>{c}</li>
-      ))}
-    </ul>
+    <>
+      <div className="carts">
+        {currentItems?.map((cart) => (
+          <div className="cart" key={cart.id}>
+            <h3>{cart.nom}</h3>
+          </div>
+        ))}
+      </div>
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+        containerClassName="pagination"
+        activeClassName="active"
+        activeLinkClassName="active-link"
+        pageClassName="page-num"
+        previousLinkClassName="page-num"
+        nextLinkClassName="page-num"
+        pageLinkClassName="page-num-link"
+        disabledClassName="button-disabled"
+      />
+    </>
   );
 }
 

@@ -4,8 +4,10 @@ import makeAnimated from "react-select/animated";
 import { FaSearch, FaSlidersH } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import Recipes from "../Recipes/Recipes";
 
 function SearchBar(props) {
+  console.log(props)
   const { ingredients, setRecipes } = props;
   const seasons = [
     {
@@ -76,7 +78,7 @@ function SearchBar(props) {
           search: search,
         },
       })
-      .then((response) => {
+      .then((response) => { 
         setRecipes(response.data.recettes);
         console.log(response);
       });
@@ -92,11 +94,12 @@ function SearchBar(props) {
       });
       let filtre = event.name?.split("-")[1];
       switch (filtre) {
-        case "difficulte":
-          copySearch.filters.difficulte = array;
+        case "type":
+          copySearch.filters.type = array;
           break;
         case "saison":
           copySearch.filters.saison = array;
+          console.log(copySearch)
           break;
         case "ingredient":
           copySearch.filters.ingredient = array;
