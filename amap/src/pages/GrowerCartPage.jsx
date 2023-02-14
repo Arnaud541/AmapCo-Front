@@ -16,8 +16,10 @@ import { useParams } from "react-router-dom";
           }
         })
         .then((response) => {
+          
+          setCart(response.data.detail)
           console.log(response)
-          setCart(response.data.detail);
+          
         });
 
 

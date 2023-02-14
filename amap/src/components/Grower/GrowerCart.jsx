@@ -10,15 +10,16 @@ function GrowerCart(props) {
       
       <div className="cartvue">
       <h2>la
-      <img id="cartimg" src={cartDetails[0].img_url} alt="CartPicture"/>
+     
+      { cartDetails[0] && (<> <img id="cartimg" src={cartDetails[0].img_url} alt="CartPicture"/></>) }
+      <div>{cartDetails[0]?.PanierProducteurNom}</div>
       {/* {
         cartDetails.map((c) => (
-          <div>{c.Ingredient.id}</div>
+          <div>{c.PanierProducteurNom}</div>
         ))
       }  */}
       </h2>
       
-
 
         </div>  
     </div>
