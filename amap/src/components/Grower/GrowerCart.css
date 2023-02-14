@@ -2,7 +2,48 @@
     color:black;
 }
 
-#cartimg{
-    width: 40%;
+.cartimg{
+    width: 35%;
+    min-width: 400px;
+    height:300px;
     object-fit: cover;
+}
+
+.Cart-Name{
+    font-size:24px ;
+}
+
+.list{
+    list-style:circle;
+}
+
+.descriptioncart {
+    padding: 4em;
+    text-align: justify ;
+    font-size: 18px;
+}
+
+hr {
+    width: 95%;
+}
+.description{
+    width: 100%;
+    font-family: 'Allerta Stencil';
+    
+}
+
+.titldesc,.titleAssociatedRecipes,.productsTitle{
+    color:black;
+    text-align: left;
+    margin-left: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+}
+@media screen and (max-width:750px) {
+    
+    
+    .titldesc,.titleAssociatedRecipes,.productsTitle{
+        text-align: center;
+        margin-left:0;
+    }
 }
