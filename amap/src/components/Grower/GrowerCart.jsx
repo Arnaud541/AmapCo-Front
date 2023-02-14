@@ -1,5 +1,6 @@
 import React from "react";
 import "./GrowerCart.css";
+import { Link } from "react-router-dom";
 
 function GrowerCart(props) {
   const { cartDetails } = props;
@@ -13,12 +14,18 @@ function GrowerCart(props) {
             src={cartDetails[0]?.img_url}
             alt="CartPicture"
           />
+          
           <h3 className="growername">
-            {"Panier proposé par " +
-              cartDetails[0]?.ProducteurNom +
+            {"Panier proposé par "}
+             <Link className="backToGrower" to={`/growers/${cartDetails[0]?.ProducteurId}`}>
+              {cartDetails[0]?.ProducteurNom +
               " " +
               cartDetails[0]?.prenom}
+              </Link>
+              
+              
           </h3>
+         
         </div>
 
         <h3 className="titldesc">Description</h3>

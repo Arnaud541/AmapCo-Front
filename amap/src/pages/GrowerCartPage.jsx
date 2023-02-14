@@ -17,6 +17,7 @@ function GrowerCartPage() {
       })
       .then((response) => {
         if (response.data.status === 200) {
+          console.log(response.data.detail);
           setCartDetails(response.data.detail);
         }
       });
