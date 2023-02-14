@@ -33,9 +33,9 @@ function GrowerCart(props) {
           {cartDetails.map((c) => (
             <div className="cart_products_item">
               <h4>
-                <ul className="list">
-                  {c.IngredientNom} : {c.quantite}
-                </ul>
+                <p className="list">
+                ● {c.IngredientNom} : {c.quantite}
+                </p>
               </h4>
             </div>
           ))}
