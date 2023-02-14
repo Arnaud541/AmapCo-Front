@@ -14,18 +14,18 @@ function Recipes(props) {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(recipes.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(recipes.length / itemsPerPage));
+    setCurrentItems(recipes?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(recipes?.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, recipes]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % recipes.length;
+    const newOffset = (event.selected * itemsPerPage) % recipes?.length;
     setItemOffset(newOffset);
   };
   return (
     <>
       <div className="recipes">
-        {currentItems.map((recipe) => (
+        {currentItems?.map((recipe) => (
           <Link to={`/recipes/${recipe.id}`}>
             <div className="recipe" key={recipe.id}>
               <h3>{recipe.titre}</h3>

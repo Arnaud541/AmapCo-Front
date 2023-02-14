@@ -78,6 +78,7 @@ function SearchBar(props) {
       })
       .then((response) => {
         setRecipes(response.data.recettes);
+        console.log(response);
       });
   };
 
@@ -89,7 +90,7 @@ function SearchBar(props) {
       data.forEach((e) => {
         array.push(e.nom);
       });
-      let filtre = event.name.split("-")[1];
+      let filtre = event.name?.split("-")[1];
       switch (filtre) {
         case "difficulte":
           copySearch.filters.difficulte = array;

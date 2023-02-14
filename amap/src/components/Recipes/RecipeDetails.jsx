@@ -17,7 +17,6 @@ function RecipeDetails(props) {
           <h2>Commentaires : {comments.length}</h2>
         </div>
         <Stars recipeID={idRecipe} />
-
         <div className="ingredient">
           <h2>Ingredients</h2>
           <hr />
