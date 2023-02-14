@@ -1,25 +1,42 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import ProfileUser from "../components/User/ProfileUser";
 
 function ProfileUserPage() {
   const [user, setUser] = useState({});
+  const [myRecipes, setMyRecipes] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=userById")
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=userById", {
+        params: {
+          id,
+        },
+      })
       .then((response) => {
-        console.log(response);
+        response.data.user.id === JSON.parse(localStorage.getItem("user")).id
+          ? setUser(JSON.parse(localStorage.getItem("user")))
+          : setUser(response.data.user);
       });
-    const user = JSON.parse(localStorage.getItem("user"));
-    user ? setUser(user) : null;
+
+    axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipesByIdUser", {
+        params: {
+          id,
+        },
+      })
+      .then((response) => {
+        setMyRecipes(response.data.recipes);
+      });
   }, []);
+
   return (
     <>
       <Navbar />
-      <ProfileUser user={user} />
+      <ProfileUser user={user} myRecipes={myRecipes} />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
 import RecipeDetails from "../components/Recipes/RecipeDetails";
 
 function RecipeDetailsPage() {
@@ -74,6 +75,7 @@ function RecipeDetailsPage() {
   }, []);
   return (
     <>
+      <Navbar />
       <RecipeDetails
         recipe={recipe}
         idRecipe={id}

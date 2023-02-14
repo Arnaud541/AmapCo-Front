@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import SelectIngredientUnique from "./SelectIngredientUnique";
+import SelectStep from "./SelectStep";
 
-function ButtonAddIngredient(props) {
+function ButtonAddStep(props) {
   const { handleChangeSelect, style, animatedComponents, setRecipe, recipe } =
     props;
 
   const [div, setDiv] = useState([]);
   const handleAdd = () => {
-    const test = { ingredient: "", quantite: "", unite: "" };
+    const test = { etape: "", description: "" };
     const abc = [...div, []];
     const newRecipe = { ...recipe };
-    newRecipe["ingredients"].push(test);
+    newRecipe["etapes"].push(test);
 
     setRecipe(newRecipe);
     setDiv(abc);
@@ -18,19 +18,19 @@ function ButtonAddIngredient(props) {
   const handleChange = (event, i) => {
     let str = event.target.name.split("-");
 
-    const recipeChangeIngredient = { ...recipe };
-    recipeChangeIngredient["ingredients"][str[1]][str[0]] = event.target.value;
-    setRecipe(recipeChangeIngredient);
+    const recipeChangeEtape = { ...recipe };
+    recipeChangeEtape["etapes"][str[1]][str[0]] = event.target.value;
+    setRecipe(recipeChangeEtape);
   };
   return (
     <>
       <button type="button" onClick={() => handleAdd()}>
-        Ajouter un ingrédient
+        Ajouter une étape
       </button>
       {div.map((data, i) => {
         return (
-          <div className="recette-info-ingredients-item">
-            <SelectIngredientUnique
+          <div className="recette-info-etapes-item">
+            <SelectStep
               style={style}
               handleChangeSelect={handleChangeSelect}
               animatedComponents={animatedComponents}
@@ -38,15 +38,9 @@ function ButtonAddIngredient(props) {
             />
             <input
               type="text"
-              placeholder="Quantité"
+              placeholder="Description de l'étape"
               onChange={(e) => handleChange(e, i)}
-              name={"quantite-" + i}
-            />
-            <input
-              type="text"
-              placeholder="Unité de mesure"
-              onChange={(e) => handleChange(e, i)}
-              name={"unite-" + i}
+              name={"description-" + i}
             />
           </div>
         );
@@ -55,4 +49,4 @@ function ButtonAddIngredient(props) {
   );
 }
 
-export default ButtonAddIngredient;
+export default ButtonAddStep;

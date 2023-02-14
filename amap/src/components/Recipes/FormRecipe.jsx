@@ -6,10 +6,13 @@ import SelectDiet from "./SelectDiet";
 import SelectTypeDish from "./SelectTypeDish";
 import SelectUstensil from "./SelectUstensil";
 import ButtonAddIngredient from "./ButtonAddIngredient";
+import ButtonAddStep from "./ButtonAddStep";
+import axios from "axios";
 
 function FormRecipe() {
   const animatedComponents = makeAnimated();
   const [recipe, setRecipe] = useState({
+    id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
     nom: "",
     description: "",
     temps: 0,
@@ -35,21 +38,48 @@ function FormRecipe() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    axios
+      .post("http://127.0.0.1/AmapCo-Back/index.php?action=recipe", {
+        recipe: recipe,
+      })
+      .then((response) => {
+        if (response.data.status === 200) {
+          alert(response.data.message);
+        }
+      });
     console.log(recipe);
   };
 
   const handleChange = (event) => {
-    setSearch(() => ({
+    setRecipe(() => ({
       ...recipe,
       [event.target.name]: event.target.value,
     }));
   };
 
   const handleChangeSelect = (data, event) => {
-    setSearch(() => ({
-      ...recipe,
-      [event.name]: data.value,
-    }));
+    if (event.name.includes("-")) {
+      let str = event.name.split("-");
+
+      switch (true) {
+        case str[0] == "ingredient":
+          const copyRecipeIngredients = { ...recipe };
+          copyRecipeIngredients["ingredients"][str[1]][str[0]] = data.id;
+          setRecipe(copyRecipeIngredients);
+          break;
+        case str[0] === "etape":
+          const copyRecipeEtapes = { ...recipe };
+          copyRecipeEtapes["etapes"][str[1]][str[0]] = data.value;
+          setRecipe(copyRecipeEtapes);
+          break;
+      }
+    } else {
+      setRecipe(() => ({
+        ...recipe,
+        [event.name]: data.value,
+      }));
+    }
   };
 
   const handleChangeSelectArray = (data, event) => {
@@ -57,7 +87,7 @@ function FormRecipe() {
     let array = [];
 
     data.forEach((e) => {
-      array.push(e.nom);
+      array.push(e.id);
     });
 
     switch (event.name) {
@@ -133,13 +163,28 @@ function FormRecipe() {
           <hr />
           <div className="recette-info-ingredients-items">
             <ButtonAddIngredient
+              recipe={recipe}
+              handleChangeSelect={handleChangeSelect}
               style={customStyles}
               animatedComponents={animatedComponents}
               setRecipe={setRecipe}
             />
           </div>
         </div>
-        <button type="submit">Envoyer</button>
+        <div className="recette-info-etapes">
+          <h1>Etapes</h1>
+          <hr />
+          <div className="recette-info-etapes-items">
+            <ButtonAddStep
+              recipe={recipe}
+              handleChangeSelect={handleChangeSelect}
+              style={customStyles}
+              animatedComponents={animatedComponents}
+              setRecipe={setRecipe}
+            />
+          </div>
+        </div>
+        <button type="submit">Créer la recette</button>
       </form>
     </div>
   );
