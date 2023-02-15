@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./GrowerCart.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function GrowerCart(props) {
   const { cartDetails } = props;
@@ -8,24 +9,23 @@ function GrowerCart(props) {
     <div className="container">
       <div className="cart">
         <h1 className="Cart-Name">{cartDetails[0]?.PanierProducteurNom}</h1>
-        <div className="img-cart">
+        <div className="header-cart">
           <img
             className="cartimg"
             src={cartDetails[0]?.img_url}
             alt="CartPicture"
           />
-          
+
           <h3 className="growername">
             {"Panier proposé par "}
-             <Link className="backToGrower" to={`/growers/${cartDetails[0]?.ProducteurId}`}>
-              {cartDetails[0]?.ProducteurNom +
-              " " +
-              cartDetails[0]?.prenom}
-              </Link>
-              
-              
+            <Link
+              className="backToGrower"
+              to={`/growers/${cartDetails[0]?.ProducteurId}`}
+            >
+              {cartDetails[0]?.ProducteurNom + " " + cartDetails[0]?.prenom}
+            </Link>
           </h3>
-         
+          <button type="button">S'abonner</button>
         </div>
 
         <h3 className="titldesc">Description</h3>
@@ -41,7 +41,7 @@ function GrowerCart(props) {
             <div className="cart_products_item">
               <h4>
                 <p className="list">
-                ● {c.IngredientNom} : {c.quantite}
+                  ● {c.IngredientNom} : {c.quantite}
                 </p>
               </h4>
             </div>
