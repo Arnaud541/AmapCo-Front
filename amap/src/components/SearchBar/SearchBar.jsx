@@ -7,7 +7,6 @@ import axios from "axios";
 import Recipes from "../Recipes/Recipes";
 
 function SearchBar(props) {
-  console.log(props)
   const { ingredients, setRecipes } = props;
   const seasons = [
     {
@@ -78,7 +77,7 @@ function SearchBar(props) {
           search: search,
         },
       })
-      .then((response) => { 
+      .then((response) => {
         setRecipes(response.data.recettes);
         console.log(response);
       });
@@ -99,7 +98,7 @@ function SearchBar(props) {
           break;
         case "saison":
           copySearch.filters.saison = array;
-          console.log(copySearch)
+          console.log(copySearch);
           break;
         case "ingredient":
           copySearch.filters.ingredient = array;
