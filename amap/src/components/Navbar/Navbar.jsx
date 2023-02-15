@@ -13,11 +13,17 @@ function Navbar() {
     <div>
       <Link to="/recipes">Recettes</Link>
       <Link to="/growers">Producteurs</Link>
-
-      <Link to="/signin">Connexion</Link>
-      <Link to="/signup">Inscription</Link>
-
-      <Link to={`/profile/${idUser}`}>Mon profil</Link>
+      {JSON.parse(localStorage.getItem("connected")) ? (
+        <>
+          <Link to="/signout">Deconnexion</Link>
+          <Link to={`/profile/${idUser}`}>Mon profil</Link>
+        </>
+      ) : (
+        <>
+          <Link to="/signin">Connexion</Link>
+          <Link to="/signup">Inscription</Link>
+        </>
+      )}
     </div>
   );
 }

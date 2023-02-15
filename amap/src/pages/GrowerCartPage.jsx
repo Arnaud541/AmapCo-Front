@@ -17,16 +17,19 @@ function GrowerCartPage() {
       })
       .then((response) => {
         if (response.data.status === 200) {
-          console.log(response.data.detail);
           setCartDetails(response.data.detail);
         }
       });
-    axios.get(
-      "http://127.0.0.1/AmapCo-Back/index.php?action=associatedRecipes",
-      {
-        params: {},
-      }
-    );
+    axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
+        params: {
+          id_panier: idcart,
+          id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      });
   }, []);
   return (
     <>

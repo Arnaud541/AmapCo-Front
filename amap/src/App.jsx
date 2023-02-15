@@ -11,6 +11,7 @@ import GrowerCartPage from "./pages/GrowerCartPage";
 import FormRecipePage from "./pages/FormRecipePage";
 import SignInPage from "./pages/SignInPage";
 import ProfileUserPage from "./pages/ProfileUserPage";
+import SignOut from "./components/Signout/SignOut";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/recipe/create" element={<FormRecipePage />} />
       <Route path="/growers" element={<GrowersPage />} />
       <Route path="/signin" element={<SignInPage />} />
+      <Route path="/signout" element={<SignOut />} />
       <Route path="/profile/:id" element={<ProfileUserPage />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/growers/:id" element={<GrowerDetailsPage />} />

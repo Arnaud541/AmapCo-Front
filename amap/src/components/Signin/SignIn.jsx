@@ -26,6 +26,7 @@ function SignIn() {
       .then((response) => {
         if (response.data.status === 200) {
           localStorage.setItem("user", JSON.stringify(response.data.user));
+          localStorage.setItem("connected", JSON.stringify(true));
           navigate("/");
         }
       });
@@ -47,7 +48,7 @@ function SignIn() {
           name="password"
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Se connecter</button>
       </form>
     </div>
   );
