@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 
 function GrowerCartPage() {
   const [cartDetails, setCartDetails] = useState([]);
+  const [sub, setSub] = useState(false);
   const { idcart } = useParams();
   useEffect(() => {
     axios
@@ -28,13 +29,18 @@ function GrowerCartPage() {
         },
       })
       .then((response) => {
-        console.log(response);
+        setSub(response.data.sub);
       });
   }, []);
   return (
     <>
       <Navbar />
-      <GrowerCart cartDetails={cartDetails} />
+      <GrowerCart
+        cartDetails={cartDetails}
+        sub={sub}
+        idCart={idcart}
+        setSub={setSub}
+      />
     </>
   );
 }

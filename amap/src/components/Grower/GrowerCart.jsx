@@ -2,9 +2,25 @@ import React, { useEffect } from "react";
 import "./GrowerCart.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 function GrowerCart(props) {
-  const { cartDetails } = props;
+  const { cartDetails, sub, idCart, setSub } = props;
+
+  const handleClick = () => {
+    console.log("test");
+    axios
+      .post("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
+        id_panier: idCart,
+        id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+      })
+      .then((response) => {
+        console.log(response);
+        if (response.data.status === 200) {
+          setSub(!sub);
+        }
+      });
+  };
   return (
     <div className="container">
       <div className="cart">
@@ -25,7 +41,13 @@ function GrowerCart(props) {
               {cartDetails[0]?.ProducteurNom + " " + cartDetails[0]?.prenom}
             </Link>
           </h3>
-          <button type="button">S'abonner</button>
+          {sub ? (
+            <h3>Vous êtes abonné à ce panier</h3>
+          ) : (
+            <button type="button" onClick={handleClick}>
+              S'abonner <AiFillCheckCircle />
+            </button>
+          )}
         </div>
 
         <h3 className="titldesc">Description</h3>
