@@ -17,7 +17,7 @@ function ProfileUser(props) {
         </div>
       </div>
       <div className="my-recipes">
-        <h1>Les recettes de {user.nom?.split(" ")[1]}</h1>
+        <h1>Mes recettes</h1>
         <div className="my-recipes-items">
           {myRecipes.map((r) => (
             <Link to={`/recipes/${r.id}`}>
@@ -29,6 +29,7 @@ function ProfileUser(props) {
           ))}
         </div>
       </div>
+      <div className="my-carts-subscription"></div>
     </div>
   );
 }

@@ -22,6 +22,7 @@ function Navbar() {
       {JSON.parse(localStorage.getItem("connected")) ? (
         <>
           <Link to="/signout">Deconnexion</Link>
+
           {access == 2 ? (
             <Link to={`/profileGrower/${idUser}`}>Mon profil</Link>
           ) : (

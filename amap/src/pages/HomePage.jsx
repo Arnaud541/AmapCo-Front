@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import SearchBarCarts from "../components/SearchBarCarts/SearchBarCarts";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Carts from "../components/Home/Carts";
 
