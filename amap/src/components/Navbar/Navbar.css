@@ -18,15 +18,43 @@ nav.navbar{
     height: 75px;   
     margin-right: auto;
     margin-left:1em;
+    transition: 0.5s;
+}
+.logo:hover{
+    transition: 0.25s;
+}
+
+.signinNav,.signupNav,.growersNav,.recipesNav{
+    color: black;
+    transition: 0.5s;
+}
+.signinNav:hover,.signupNav:hover,.growersNav:hover,.recipesNav:hover{
+    color: rgb(64, 198, 151);
+    transition: 0.25s;
 }
 
 .signupNav{
     margin-right:2em;
 }
 
-.signinNav,.signupNav,.growersNav,.recipesNav{
-   color:black;
-}
+.growersNav::after,.recipesNav::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ca0000;
+    transition: transform 0.25s ease;
+    transform-origin: bottom right;
+  }
+  
+  .growersNav:hover::after,.recipesNav:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
 
 
 .signinNav,.signupNav{
