@@ -1,11 +1,29 @@
 import React, { useEffect } from "react";
 import "./GrowerCart.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AiFillCheckCircle } from "react-icons/ai";
 
 function GrowerCart(props) {
   const { cartDetails, sub, idCart, setSub } = props;
+  const navigate = useNavigate();
+
+  const profile = JSON.parse(localStorage.getItem("user"));
+
+  const handleDelete = () => {
+    axios
+      .delete("http://127.0.0.1/AmapCo-Back/index.php?action=growercart", {
+        data: {
+          id_panier: idCart,
+        },
+      })
+      .then((response) => {
+        if (response.data.success) {
+          navigate(`/profileGrower/${profile.id}`);
+        }
+        console.log(response);
+      });
+  };
 
   const handleClick = () => {
     console.log("test");
@@ -44,10 +62,20 @@ function GrowerCart(props) {
           {sub ? (
             <h3>Vous êtes abonné à ce panier</h3>
           ) : (
-            <button type="button" onClick={handleClick}>
+            <button
+              type="button"
+              className="btn-subscription"
+              onClick={handleClick}
+            >
               S'abonner <AiFillCheckCircle />
             </button>
           )}
+
+          {cartDetails[0]?.ProducteurId == profile.id && profile.acces == 2 ? (
+            <button type="button" className="btn-delete" onClick={handleDelete}>
+              Supprimer mon panier
+            </button>
+          ) : null}
         </div>
 
         <h3 className="titldesc">Description</h3>

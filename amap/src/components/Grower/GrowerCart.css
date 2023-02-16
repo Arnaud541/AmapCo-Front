@@ -1,3 +1,17 @@
+.header-cart > .btn-subscription {
+    background-color: green;
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+.header-cart > .btn-delete {
+    background-color: #dd1414;
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+
+
 .cartvue{
     color:rgb(36, 36, 36);
 }
