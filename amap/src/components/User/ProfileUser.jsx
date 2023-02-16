@@ -29,7 +29,9 @@ function ProfileUser(props) {
           ))}
         </div>
       </div>
-      <div className="my-carts-subscription"></div>
+      <div className="my-carts-subscription">
+        <h1>Mes paniers</h1>
+      </div>
     </div>
   );
 }

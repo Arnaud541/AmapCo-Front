@@ -9,10 +9,10 @@ function SearchBarCarts(props) {
   const { setCart } = props;
 
   const type = [
-    { value: "fruit", nom: "fruit" },
-    { value: "légume", nom: "légume" },
-    { value: "viande", nom: "viande" },
-    { value: "mélange", nom: "mélange" },
+    { value: "fruit", nom: "Fruit" },
+    { value: "légume", nom: "Légume" },
+    { value: "viande", nom: "Viande" },
+    { value: "mélange", nom: "Mélange" },
   ];
 
   const [search, setSearch] = useState({
