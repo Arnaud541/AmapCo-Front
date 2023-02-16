@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
+import "./carts.css";
 
 
 function Carts(props){
@@ -28,10 +29,10 @@ function Carts(props){
 
   return (
     <>
-      <div className="carts">
+      <div className="wecarts">
         {currentItems?.map((cart) => (
-          <div className="cart" key={cart.id}>
-            <h3>{cart.nom}</h3>
+          <div className="weekcart" key={cart.id}>
+            <h3 className="weekcarts">{cart.nom}</h3>
           </div>
         ))}
       </div>
