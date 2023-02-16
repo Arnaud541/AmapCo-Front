@@ -10,9 +10,11 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=producerCart")
-      .then((reponse) => {
-        setCart(reponse.data.producerCart);
+      .get(
+        "https://webetu.iutnc.univ-lorraine.fr/~demang163u/AmapCo-Back/index.php?action=producerCart"
+      )
+      .then((response) => {
+        setCart(response.data.producerCart);
       });
   }, []);
 
