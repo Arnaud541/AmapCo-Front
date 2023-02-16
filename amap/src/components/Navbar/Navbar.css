@@ -1,0 +1,42 @@
+nav.navbar{
+    display: flex;
+    justify-content: flex-end;
+    gap: 3em;
+    height: 60px;
+    background-color: #D3F8A4;
+    width: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    align-items: center;
+}
+
+.logo{
+    align-items: center;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;   
+    margin-right: auto;
+    margin-left:1em;
+}
+
+.signupNav{
+    margin-right:2em;
+}
+
+.signinNav,.signupNav,.growersNav,.recipesNav{
+   color:black;
+}
+
+
+.signinNav,.signupNav{
+    background-color:white;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:750px) {
+    .signinNav,.signupNav,.growersNav,.recipesNav{
+        display: none;
+    }
+}

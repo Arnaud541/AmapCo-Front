@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css";
+import logo from "../../assets/img/Ham'apiens.png";
 
 function Navbar() {
   const [idUser, setIdUser] = useState(0);
@@ -14,28 +16,29 @@ function Navbar() {
       : null;
   }, []);
   return (
-    <div>
+    <nav className="navbar">
       <>
-        <Link to="/recipes">Recettes</Link>
-        <Link to="/growers">Producteurs</Link>
+        <img className="logo" src={logo} alt="logo"/> 
+        <Link className="recipesNav" to="/recipes">Recettes</Link>
+        <Link className="growersNav"  to="/growers">Producteurs</Link>
       </>
       {JSON.parse(localStorage.getItem("connected")) ? (
         <>
-          <Link to="/signout">Deconnexion</Link>
+          <Link className="signoutNav" to="/signout">Deconnexion</Link>
 
           {access == 2 ? (
-            <Link to={`/profileGrower/${idUser}`}>Mon profil</Link>
+            <Link className="profileGrowerNav" to={`/profileGrower/${idUser}`}>Mon profil</Link>
           ) : (
-            <Link to={`/profile/${idUser}`}>Mon profil</Link>
+            <Link className="profileUserNav" to={`/profile/${idUser}`}>Mon profil</Link>
           )}
         </>
       ) : (
         <>
-          <Link to="/signin">Connexion</Link>
-          <Link to="/signup">Inscription</Link>
+          <Link className="signinNav" to="/signin">Connexion</Link>
+          <Link className="signupNav" to="/signup">Inscription</Link>
         </>
       )}
-    </div>
+    </nav>
   );
 }
 
