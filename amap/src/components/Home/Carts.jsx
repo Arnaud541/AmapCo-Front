@@ -2,25 +2,20 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import "./carts.css";
+// import "./carts.css";
 
-
-function Carts(props){
-
-
-  const {carts} = props;
+function Carts(props) {
+  const { carts } = props;
   const [currentItems, setCurrentItems] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const itemsPerPage = 8;
 
-
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(carts?.slice(itemOffset,endOffset));
+    setCurrentItems(carts?.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(carts?.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage,carts]);
-
+  }, [itemOffset, itemsPerPage, carts]);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % carts?.length;
