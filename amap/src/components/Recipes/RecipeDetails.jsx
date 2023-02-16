@@ -10,7 +10,7 @@ function RecipeDetails(props) {
       <div className="recipe">
         <div className="recipe-info">
           <h1>{recipe.titre}</h1>
-          <h2>{recipe.photo}</h2>
+          <img src={"../src/assets/default.png"} alt={recipe.titre} />
         </div>
         <div className="recipe-like">
           <h2>Note : {Math.round(note.note * 10) / 10}</h2>
