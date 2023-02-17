@@ -41,6 +41,7 @@ function GrowerCart(props) {
   };
   return (
     <div className="container">
+      {/* <> */}
       <div className="cart">
         <h1 className="Cart-Name">{cartDetails[0]?.PanierProducteurNom}</h1>
         <div className="header-cart">
@@ -102,6 +103,7 @@ function GrowerCart(props) {
         <h3 className="titleAssociatedRecipes">Recettes associées</h3>
         <hr></hr>
       </div>
+      {/* </> */}
     </div>
   );
 }

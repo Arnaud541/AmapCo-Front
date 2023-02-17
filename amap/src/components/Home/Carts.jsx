@@ -24,30 +24,35 @@ function Carts(props) {
 
   return (
     <>
-      <div className="wecarts">
-        {currentItems?.map((cart) => (
-          <div className="weekcart" key={cart.id}>
-            <h3 className="weekcarts">{cart.nom}</h3>
+      <div className="container">
+        <div className="wecarts">
+          <div className="cart">
+            <h3 className="cart-title">Les paniers de la semaine</h3>
           </div>
-        ))}
+          {currentItems?.map((cart) => (
+            <div className="weekcart" key={cart.id}>
+              <h3 className="weekcarts">{cart.nom}</h3>
+            </div>
+          ))}
+        </div>
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          activeClassName="active"
+          activeLinkClassName="active-link"
+          pageClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          pageLinkClassName="page-num-link"
+          disabledClassName="button-disabled"
+        />
       </div>
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        activeClassName="active"
-        activeLinkClassName="active-link"
-        pageClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        pageLinkClassName="page-num-link"
-        disabledClassName="button-disabled"
-      />
     </>
   );
 }

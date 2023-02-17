@@ -21,6 +21,7 @@ function RecipeDetailsPage() {
       })
       .then((response) => {
         setRecipe(response.data.recette[0]);
+        console.log(response.data.recette[0]);
       });
 
     axios
