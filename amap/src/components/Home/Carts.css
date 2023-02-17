@@ -5,6 +5,7 @@
     list-style: none;
     gap: 5px;
     text-decoration: none;
+    width: 100%;
 }
 
 .pagination .page-num {
@@ -42,20 +43,55 @@
     align-items: center;
 }
 
-.weekcart{
+.HomePageTitle{
+    background-color: #BA7D3C;
+    padding:2em;
+    border-radius: 10px;
+}
+
+.weekcart {
+    display: flex;
     background-color: rgb(70, 181, 69);
     padding: 1em;
     border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
-.wecarts{
-    display: grid;
 
-    margin:2em;
-    grid-template-columns: repeat(4, 2fr);
-    grid-gap: 5em;
-    grid-auto-rows: minmax(100px, auto);
-    padding-bottom: 3em;
-    justify-items: center;
-    width: 150px;
-    
+.cartsHomeTitle{
+    width: 100%;
 }
+
+.wecarts {
+    display: grid;
+    margin: 2em;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 4em;
+    grid-auto-rows: minmax(100px, auto);
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+
+.HomePage{
+    text-align: center;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+/* @media screen and (min-width:750px) {
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 4em;
+    grid-auto-rows: minmax(100px, auto);
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+@media screen and (max-width:750px) {
+ 
+} */
