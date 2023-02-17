@@ -8,7 +8,9 @@ function GrowerCart(props) {
   const { cartDetails, sub, idCart, setSub } = props;
   const navigate = useNavigate();
 
-  const profile = JSON.parse(localStorage.getItem("user"));
+  const profile = JSON.parse(localStorage.getItem("user"))
+    ? JSON.parse(localStorage.getItem("user"))
+    : null;
 
   const handleDelete = () => {
     axios
@@ -72,7 +74,8 @@ function GrowerCart(props) {
             </button>
           )}
 
-          {cartDetails[0]?.ProducteurId == profile?.id && profile?.acces == 2 ? (
+          {cartDetails[0]?.ProducteurId == profile?.id &&
+          profile?.acces == 2 ? (
             <button type="button" className="btn-delete" onClick={handleDelete}>
               Supprimer mon panier
             </button>

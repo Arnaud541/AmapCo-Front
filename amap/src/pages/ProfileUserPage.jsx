@@ -7,6 +7,7 @@ import ProfileUser from "../components/User/ProfileUser";
 function ProfileUserPage() {
   const [user, setUser] = useState({});
   const [myRecipes, setMyRecipes] = useState([]);
+  const [myCartsSubscription, setMyCartsSubscription] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -21,6 +22,8 @@ function ProfileUserPage() {
           ? setUser(JSON.parse(localStorage.getItem("user")))
           : setUser(response.data.user);
       });
+
+    axios.get("http://127.0.0.1/AmapCo-Back/index.php?action=userById");
 
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipesByIdUser", {

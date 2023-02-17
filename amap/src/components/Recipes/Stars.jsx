@@ -9,21 +9,23 @@ function Stars(props) {
   const { recipeID } = props;
 
   useEffect(() => {
-    axios
-      .get(
-        "http://127.0.0.1/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
-        {
-          params: {
-            id_recette: recipeID,
-            id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-          },
-        }
-      )
-      .then((response) => {
-        if (response.data.note) {
-          setRating(response.data.note.note);
-        }
-      });
+    if (localStorage.getItem("user")) {
+      axios
+        .get(
+          "http://127.0.0.1/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
+          {
+            params: {
+              id_recette: recipeID,
+              id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.note) {
+            setRating(response.data.note.note);
+          }
+        });
+    }
   });
 
   const handleRating = (rate) => {
