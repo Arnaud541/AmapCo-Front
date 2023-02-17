@@ -48,7 +48,6 @@ function FormRecipe() {
           alert(response.data.message);
         }
       });
-    console.log(recipe);
   };
 
   const handleChange = (event) => {

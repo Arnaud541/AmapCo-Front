@@ -32,6 +32,16 @@
     display: none;
 }
 
+.cart {
+    background-color: #BA7D3C;
+    color: #f1f1f1;
+    border-radius: 5px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .weekcart{
     background-color: rgb(70, 181, 69);
     padding: 1em;
