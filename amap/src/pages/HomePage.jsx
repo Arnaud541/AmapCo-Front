@@ -11,7 +11,7 @@ function HomePage() {
   useEffect(() => {
     axios
       .get(
-        "https://webetu.iutnc.univ-lorraine.fr/~demang163u/AmapCo-Back/index.php?action=producerCart"
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=producerCart"
       )
       .then((response) => {
         setCart(response.data.producerCart);
