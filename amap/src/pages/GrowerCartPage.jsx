@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 
 function GrowerCartPage() {
   const [cartDetails, setCartDetails] = useState([]);
+  const [associatedRecipes, setAssociatedRecipes] = useState([]);
   const [sub, setSub] = useState(false);
   const { idcart } = useParams();
   useEffect(() => {
@@ -19,6 +20,21 @@ function GrowerCartPage() {
       .then((response) => {
         if (response.data.status === 200) {
           setCartDetails(response.data.detail);
+        }
+      });
+
+    axios
+      .get(
+        "http://127.0.0.1/AmapCo-Back/index.php?action=getSimilarRecipeCart",
+        {
+          params: {
+            cart: idcart,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data.status === 200) {
+          setAssociatedRecipes(response.data.recettes);
         }
       });
 
@@ -40,6 +56,7 @@ function GrowerCartPage() {
       <Navbar />
       <GrowerCart
         cartDetails={cartDetails}
+        associatedRecipes={associatedRecipes}
         sub={sub}
         idCart={idcart}
         setSub={setSub}

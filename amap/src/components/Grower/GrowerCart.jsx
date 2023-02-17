@@ -5,7 +5,7 @@ import axios from "axios";
 import { AiFillCheckCircle } from "react-icons/ai";
 
 function GrowerCart(props) {
-  const { cartDetails, sub, idCart, setSub } = props;
+  const { cartDetails, sub, idCart, setSub, associatedRecipes } = props;
   const navigate = useNavigate();
 
   const profile = JSON.parse(localStorage.getItem("user"))
@@ -23,19 +23,16 @@ function GrowerCart(props) {
         if (response.data.success) {
           navigate(`/profileGrower/${profile.id}`);
         }
-        console.log(response);
       });
   };
 
   const handleClick = () => {
-    console.log("test");
     axios
       .post("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
         id_panier: idCart,
         id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
       })
       .then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           setSub(!sub);
         }
@@ -43,10 +40,10 @@ function GrowerCart(props) {
   };
   return (
     <div className="containerGrowerCart">
-    <div className="header-cart">
-      <div className="cart1">
-        <h1 className="Cart-Name">{cartDetails[0]?.PanierProducteurNom}</h1>
-        
+      <div className="header-cart">
+        <div className="cart1">
+          <h1 className="Cart-Name">{cartDetails[0]?.PanierProducteurNom}</h1>
+
           <img
             className="cartimg"
             src={cartDetails[0]?.img_url}
@@ -102,13 +99,20 @@ function GrowerCart(props) {
           ))}
         </div>
         <div className="associatedRecipes">
-        <h3 className="titleAssociatedRecipes">Recettes associées</h3>
-        
+          <h3 className="titleAssociatedRecipes">Recettes associées</h3>
+          <div className="associatedRecipesItems">
+            {associatedRecipes?.map((r) => (
+              <Link to={`/recipes/${r.id}`}>
+                <div className="associatedRecipesItem">
+                  <img src={r.photo} alt={r.titre} />
+                  <h3>{r.titre}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <hr></hr>
       </div>
-      <hr></hr>
-      </div>
-      
-  
     </div>
   );
 }
