@@ -30,6 +30,7 @@ function ProfileUserPage() {
         },
       })
       .then((response) => {
+        console.log(response.data.subscribedCart);
         setMyCartsSubscription(response.data.subscribedCart);
       });
 
@@ -47,7 +48,11 @@ function ProfileUserPage() {
   return (
     <>
       <Navbar />
-      <ProfileUser user={user} myRecipes={myRecipes} />
+      <ProfileUser
+        user={user}
+        myRecipes={myRecipes}
+        myCartsSubscription={myCartsSubscription}
+      />
     </>
   );
 }
