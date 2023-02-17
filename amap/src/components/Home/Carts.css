@@ -41,7 +41,7 @@
     display: grid;
 
     margin:2em;
-    grid-template-columns: repeat(6, 2fr);
+    grid-template-columns: repeat(4, 2fr);
     grid-gap: 5em;
     grid-auto-rows: minmax(100px, auto);
     padding-bottom: 3em;

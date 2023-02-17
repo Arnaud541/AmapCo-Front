@@ -4,6 +4,7 @@ import makeAnimated from "react-select/animated";
 import { FaSearch, FaSlidersH } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import './SearchBarCarts.css';
 
 function SearchBarCarts(props) {
   const { setCart } = props;
@@ -82,20 +83,17 @@ function SearchBarCarts(props) {
   };
 
   return (
+    
     <form className="search" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Votre recherche"
-        onChange={handleChange}
-        name="search"
-      />
-      <button type="submit">
+      <input className="input-home" type="text" placeholder="Votre recherche" onChange={handleChange} name="search"/>
+      <button className="search-button" type="submit">
         <FaSearch />
       </button>
-
-      <button type="button" onClick={handleClick}>
+    
+      <button className="burger-button" type="button" onClick={handleClick}>
         <FaSlidersH />
       </button>
+    
       {showFilters ? (
         <div className="filters">
           <Select

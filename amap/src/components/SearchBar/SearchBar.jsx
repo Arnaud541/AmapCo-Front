@@ -4,6 +4,7 @@ import makeAnimated from "react-select/animated";
 import { FaSearch, FaSlidersH } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
+import "./SearchBar.css";
 import Recipes from "../Recipes/Recipes";
 
 function SearchBar(props) {
@@ -142,17 +143,17 @@ function SearchBar(props) {
 
   return (
     <form className="search" onSubmit={handleSubmit}>
-      <input
+      <input className="input-home2"
         type="text"
         placeholder="Votre recherche"
         onChange={handleChange}
         name="search"
       />
-      <button type="submit">
+      <button className="search-button2" type="submit">
         <FaSearch />
       </button>
 
-      <button type="button" onClick={handleClick}>
+      <button className="burger-button2" type="button" onClick={handleClick}>
         <FaSlidersH />
       </button>
       {showFilters ? (
