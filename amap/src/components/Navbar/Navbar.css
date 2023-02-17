@@ -28,16 +28,16 @@ nav.navbar{
     transition: 0.25s;
 }
 
-.signinNav,.signupNav,.growersNav,.recipesNav{
+.signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav{
     color: black;
     transition: 0.5s;
 }
-.signinNav:hover,.signupNav:hover,.growersNav:hover,.recipesNav:hover{
+.signinNav:hover,.signupNav:hover,.growersNav:hover,.recipesNav:hover,.signoutNav:hover,.profileUserNav:hover{
     color: rgb(64, 198, 151);
     transition: 0.25s;
 }
 
-.signupNav{
+.signupNav,.profileUserNav{
     margin-right:2em;
 }
 
@@ -61,14 +61,14 @@ nav.navbar{
 
 
 
-.signinNav,.signupNav{
+.signinNav,.signupNav,.signoutNav,.profileUserNav{
     background-color:white;
     padding: 0.5em;
     border-radius: 10px;
 }
 
 @media screen and (max-width:750px) {
-    .signinNav,.signupNav,.growersNav,.recipesNav{
+    .signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav{
         display: none;
     }
 }

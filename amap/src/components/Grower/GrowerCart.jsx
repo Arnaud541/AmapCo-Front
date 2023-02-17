@@ -71,7 +71,7 @@ function GrowerCart(props) {
             </button>
           )}
 
-          {cartDetails[0]?.ProducteurId == profile.id && profile.acces == 2 ? (
+          {cartDetails[0]?.ProducteurId == profile?.id && profile?.acces == 2 ? (
             <button type="button" className="btn-delete" onClick={handleDelete}>
               Supprimer mon panier
             </button>
@@ -87,11 +87,11 @@ function GrowerCart(props) {
         <h2 className="productsTitle">Produits</h2>
         <hr />
         <div className="carts-products-items">
-          {cartDetails.map((c) => (
+          {cartDetails?.map((c) => (
             <div className="cart_products_item">
               <h4>
                 <p className="list">
-                  ● {c.IngredientNom} : {c.quantite}
+                  ● {c?.IngredientNom} : {c?.quantite}
                 </p>
               </h4>
             </div>
