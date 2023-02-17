@@ -21,16 +21,19 @@ function GrowerCartPage() {
           setCartDetails(response.data.detail);
         }
       });
-    axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
-        params: {
-          id_panier: idcart,
-          id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-        },
-      })
-      .then((response) => {
-        setSub(response.data.sub);
-      });
+
+    if (localStorage.getItem("user")) {
+      axios
+        .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
+          params: {
+            id_panier: idcart,
+            id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+          },
+        })
+        .then((response) => {
+          setSub(response.data.sub);
+        });
+    }
   }, []);
   return (
     <>

@@ -7,6 +7,7 @@ import ProfileUser from "../components/User/ProfileUser";
 function ProfileUserPage() {
   const [user, setUser] = useState({});
   const [myRecipes, setMyRecipes] = useState([]);
+  const [myCartsSubscription, setMyCartsSubscription] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,6 +24,17 @@ function ProfileUserPage() {
       });
 
     axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscribedCart", {
+        params: {
+          id,
+        },
+      })
+      .then((response) => {
+        console.log(response.data.subscribedCart);
+        setMyCartsSubscription(response.data.subscribedCart);
+      });
+
+    axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipesByIdUser", {
         params: {
           id,
@@ -36,7 +48,11 @@ function ProfileUserPage() {
   return (
     <>
       <Navbar />
-      <ProfileUser user={user} myRecipes={myRecipes} />
+      <ProfileUser
+        user={user}
+        myRecipes={myRecipes}
+        myCartsSubscription={myCartsSubscription}
+      />
     </>
   );
 }

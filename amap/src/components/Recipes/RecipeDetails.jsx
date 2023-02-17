@@ -33,8 +33,18 @@ function RecipeDetails(props) {
           <img src={"../src/assets/default.png"} alt={recipe.titre} />
         </div>
         <div className="recipe-like">
+          {profile &&
+          profile.id == recipe.id_utilisateur &&
+          profile.acces == 1 ? (
+            <Link to={`/recipe/edit/${idRecipe}`}>Modifier la recette</Link>
+          ) : null}
           <h2>Note : {Math.round(note.note * 10) / 10}</h2>
           <h2>Commentaires : {comments.length}</h2>
+          {profile &&
+          profile.id == recipe.id_utilisateur &&
+          profile.acces == 1 ? (
+            <button onClick={handleDelete}>Supprimer la recette</button>
+          ) : null}
         </div>
         <Stars recipeID={idRecipe} />
         <div className="ingredient">

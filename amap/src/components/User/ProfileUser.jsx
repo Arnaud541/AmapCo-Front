@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function ProfileUser(props) {
-  const { user, myRecipes } = props;
+  const { user, myRecipes, myCartsSubscription } = props;
   return (
     <div className="container">
       <div className="profile">
@@ -31,6 +31,13 @@ function ProfileUser(props) {
       </div>
       <div className="my-carts-subscription">
         <h1>Mes paniers</h1>
+        {myCartsSubscription.map((c) => (
+          <div className="my-carts-subscription-item">
+            <img src={c.img_url} alt={c.nom} />
+            <h2>{c.nom}</h2>
+            <h3>Panier par {c.Nom}</h3>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ import SignInPage from "./pages/SignInPage";
 import ProfileUserPage from "./pages/ProfileUserPage";
 import SignOut from "./components/Signout/SignOut";
 import ProfileGrowerPage from "./pages/ProfileGrowerPage";
+import FormRecipeEditPage from "./pages/FormRecipeEditPage";
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/recipes" element={<RecipesPage />} />
       <Route path="/recipes/:id" element={<RecipeDetailsPage />} />
-      <Route path="/recipe/:action" element={<FormRecipePage />} />
+      <Route path="/recipe/create" element={<FormRecipePage />} />
+      <Route path="/recipe/edit/:id" element={<FormRecipeEditPage />} />
       <Route path="/growers" element={<GrowersPage />} />
       <Route path="/signin" element={<SignInPage />} />
       <Route path="/signout" element={<SignOut />} />

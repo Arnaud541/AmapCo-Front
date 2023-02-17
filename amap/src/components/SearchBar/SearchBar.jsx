@@ -79,6 +79,7 @@ function SearchBar(props) {
         },
       })
       .then((response) => {
+        console.log(response);
         setRecipes(response.data.recettes);
       });
   };
@@ -98,6 +99,9 @@ function SearchBar(props) {
           break;
         case "saison":
           copySearch.filters.saison = array;
+          break;
+        case "difficulte":
+          copySearch.filters.difficulte = array;
           break;
         case "ingredient":
           copySearch.filters.ingredient = array;
@@ -141,7 +145,8 @@ function SearchBar(props) {
 
   return (
     <form className="search" onSubmit={handleSubmit}>
-      <input className="input-home2"
+      <input
+        className="input-home2"
         type="text"
         placeholder="Votre recherche"
         onChange={handleChange}
