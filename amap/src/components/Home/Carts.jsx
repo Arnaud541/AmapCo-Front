@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
-// import "./carts.css";
+import "./Carts.css";
 
 function Carts(props) {
   const { carts } = props;

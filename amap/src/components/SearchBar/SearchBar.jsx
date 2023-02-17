@@ -80,7 +80,6 @@ function SearchBar(props) {
       })
       .then((response) => {
         setRecipes(response.data.recettes);
-        console.log(response);
       });
   };
 
@@ -99,7 +98,6 @@ function SearchBar(props) {
           break;
         case "saison":
           copySearch.filters.saison = array;
-          console.log(copySearch);
           break;
         case "ingredient":
           copySearch.filters.ingredient = array;

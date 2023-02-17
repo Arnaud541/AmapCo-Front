@@ -7,7 +7,7 @@ import axios from "axios";
 import './SearchBarCarts.css';
 
 function SearchBarCarts(props) {
-  const { setCart } = props;
+  const { setCart, ingredients } = props;
 
   const type = [
     { value: "fruit", nom: "Fruit" },
@@ -20,6 +20,7 @@ function SearchBarCarts(props) {
     search: "",
     filters: {
       type: [],
+      ingredient: [],
     },
   });
 
@@ -53,6 +54,9 @@ function SearchBarCarts(props) {
       switch (filtre) {
         case "type":
           copySearch.filters.type = array;
+          break;
+        case "ingredient":
+          copySearch.filters.ingredient = array;
           break;
       }
       setSearch(copySearch);
@@ -100,11 +104,23 @@ function SearchBarCarts(props) {
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
+            options={ingredients}
+            getOptionLabel={(option) => option.nom}
+            getOptionValue={(option) => option.nom}
+            onChange={handleFilters}
+            placeholder="Ingrédients"
+            name="filter-ingredient"
+            styles={customStyles}
+          />
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
             options={type}
             getOptionLabel={(option) => option.nom}
             getOptionValue={(option) => option.value}
             onChange={handleFilters}
-            placeholder="type"
+            placeholder="Type"
             name="filter-type"
             styles={customStyles}
           />
