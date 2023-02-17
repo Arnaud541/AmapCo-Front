@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Signin.css";
 
 function SignIn() {
   const [user, setUser] = useState({
@@ -33,22 +34,22 @@ function SignIn() {
   };
 
   return (
-    <div className="login">
+    <div className="screen-log">
       <h1>Connexion</h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      <form screen__content onSubmit={handleSubmit}>
+        <input className="login__input"
           type="text"
           name="email"
           placeholder="Email"
           onChange={handleChange}
         />
-        <input
+        <input className="login__input"
           type="password"
           placeholder="Mot de passe"
           name="password"
           onChange={handleChange}
         />
-        <button type="submit">Se connecter</button>
+        <button className="login-submit" type="submit">Se connecter</button>
       </form>
     </div>
   );

@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <>
-        <img className="logo" src={logo} alt="logo"/> 
+        <Link className="a-logo" to='/.'><img className="logo" src={logo} alt="logo" /></Link>
         <Link className="recipesNav" to="/recipes">Recettes</Link>
         <Link className="growersNav"  to="/growers">Producteurs</Link>
       </>

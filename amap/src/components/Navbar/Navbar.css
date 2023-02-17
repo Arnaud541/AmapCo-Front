@@ -11,6 +11,10 @@ nav.navbar{
     align-items: center;
 }
 
+.a-logo{
+    display:contents;
+}
+
 .logo{
     align-items: center;
     border-radius: 50%;
