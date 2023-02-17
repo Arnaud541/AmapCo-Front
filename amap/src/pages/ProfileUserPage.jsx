@@ -23,7 +23,15 @@ function ProfileUserPage() {
           : setUser(response.data.user);
       });
 
-    axios.get("http://127.0.0.1/AmapCo-Back/index.php?action=userById");
+    axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscribedCart", {
+        params: {
+          id,
+        },
+      })
+      .then((response) => {
+        setMyCartsSubscription(response.data.subscribedCart);
+      });
 
     axios
       .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipesByIdUser", {
