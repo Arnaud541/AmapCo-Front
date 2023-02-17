@@ -26,14 +26,14 @@ function Recipes(props) {
     <>
       <div className="recipes">
         {currentItems?.map((recipe) => (
-          <Link to={`/recipes/${recipe.id}`}>
+          <Link className="Arecipes" to={`/recipes/${recipe.id}`}>
             <div className="recipe" key={recipe.id}>
-              <h3>{recipe.titre}</h3>
+              <h3 className="recipesh3">{recipe.titre}</h3>
             </div>
           </Link>
         ))}
       </div>
-      <Link to={"/recipe/create"}>Créer ma recette</Link>
+      <Link className="create-new-recipe" to={"/recipe/create"}>Créer ma recette</Link>
       <ReactPaginate
         breakLabel="..."
         nextLabel="next >"

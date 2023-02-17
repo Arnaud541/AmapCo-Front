@@ -24,7 +24,7 @@ function ButtonAddStep(props) {
   };
   return (
     <>
-      <button type="button" onClick={() => handleAdd()}>
+      <button className="create-new-recipe-btn" type="button" onClick={() => handleAdd()}>
         Ajouter une étape
       </button>
       {div.map((data, i) => {

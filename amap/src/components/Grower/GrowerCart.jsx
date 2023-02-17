@@ -40,11 +40,11 @@ function GrowerCart(props) {
       });
   };
   return (
-    <div className="container">
-      {/* <> */}
-      <div className="cart">
+    <div className="containerGrowerCart">
+    <div className="header-cart">
+      <div className="cart1">
         <h1 className="Cart-Name">{cartDetails[0]?.PanierProducteurNom}</h1>
-        <div className="header-cart">
+        
           <img
             className="cartimg"
             src={cartDetails[0]?.img_url}
@@ -98,12 +98,14 @@ function GrowerCart(props) {
             </div>
           ))}
         </div>
-      </div>
-      <div className="associatedRecipes">
+        <div className="associatedRecipes">
         <h3 className="titleAssociatedRecipes">Recettes associées</h3>
-        <hr></hr>
+        
       </div>
-      {/* </> */}
+      <hr></hr>
+      </div>
+      
+  
     </div>
   );
 }

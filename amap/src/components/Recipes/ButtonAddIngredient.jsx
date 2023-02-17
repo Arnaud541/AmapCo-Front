@@ -24,7 +24,7 @@ function ButtonAddIngredient(props) {
   };
   return (
     <>
-      <button type="button" onClick={() => handleAdd()}>
+      <button className="button-add-ingredient" type="button" onClick={() => handleAdd()}>
         Ajouter un ingrédient
       </button>
       {div.map((data, i) => {

@@ -10,7 +10,10 @@
     font-weight: bold;
 }
 
-
+.containerGrowerCart{
+    display: flex;
+    width: 100%;
+}
 
 .cartvue{
     color:rgb(36, 36, 36);

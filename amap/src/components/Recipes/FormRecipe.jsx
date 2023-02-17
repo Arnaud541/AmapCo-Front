@@ -101,19 +101,19 @@ function FormRecipe() {
     <div className="container">
       <form className="search" onSubmit={handleSubmit}>
         <div className="recette-info">
-          <input
+          <input  className="login__input"
             type="text"
             placeholder="Nom de la recette"
             onChange={handleChange}
             name="nom"
           />
-          <input
+          <input className="login__input"
             type="text"
             placeholder="Description"
             onChange={handleChange}
             name="description"
           />
-          <input
+          <input className="login__input"
             type="text"
             placeholder="Temps de la recette (minutes)"
             onChange={handleChange}
@@ -122,10 +122,10 @@ function FormRecipe() {
         </div>
         <div className="recette-info-caracteristiques">
           <div className="recette-info-caracteristiques-title">
-            <h1>Caracteristiques</h1>
+            <h1 className="h1-create-recipe">Caracteristiques</h1>
             <hr />
           </div>
-          <div className="recette-info-caracteristiques-items">
+          <div className="filters2">
             <SelectSeason
               style={customStyles}
               handleChangeSelect={handleChangeSelect}
@@ -149,19 +149,20 @@ function FormRecipe() {
           </div>
         </div>
         <div className="recette-info-ustensiles">
-          <h1>Ustensiles</h1>
-          <hr />
+          <h1 className="h1-create-recipe">Ustensiles</h1>
+          <hr /><div className="select-ustensil">
           <SelectUstensil
             style={customStyles}
             handleChangeSelectArray={handleChangeSelectArray}
             animatedComponents={animatedComponents}
           />
+          </div>
         </div>
         <div className="recette-info-ingredients">
-          <h1>Ingredients</h1>
+          <h1 className="h1-create-recipe">Ingredients</h1>
           <hr />
           <div className="recette-info-ingredients-items">
-            <ButtonAddIngredient
+            <ButtonAddIngredient 
               recipe={recipe}
               handleChangeSelect={handleChangeSelect}
               style={customStyles}
@@ -170,10 +171,11 @@ function FormRecipe() {
               type="button"
               o
             />
+            
           </div>
         </div>
         <div className="recette-info-etapes">
-          <h1>Etapes</h1>
+          <h1 className="h1-create-recipe">Etapes</h1>
           <hr />
           <div className="recette-info-etapes-items">
             <ButtonAddStep
@@ -185,7 +187,9 @@ function FormRecipe() {
             />
           </div>
         </div>
-        <button type="submit">Créer la recette</button>
+        <div className="button-create-recipe">
+        <button className="create-new-recipe-btn" type="submit">Créer la recette</button>
+        </div>
       </form>
     </div>
   );

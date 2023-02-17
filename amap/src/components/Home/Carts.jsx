@@ -24,17 +24,19 @@ function Carts(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="HomePage">
+        <div className="cartsHometitle">
+      <h3 className="HomePageTitle">Les paniers de la semaine</h3>
+      </div>
         <div className="wecarts">
-          <div className="cart">
-            <h3 className="cart-title">Les paniers de la semaine</h3>
-          </div>
+         
           {currentItems?.map((cart) => (
             <div className="weekcart" key={cart.id}>
               <h3 className="weekcarts">{cart.nom}</h3>
             </div>
           ))}
         </div>
+        <div className="pagination">
         <ReactPaginate
           breakLabel="..."
           nextLabel="next >"
@@ -52,6 +54,7 @@ function Carts(props) {
           pageLinkClassName="page-num-link"
           disabledClassName="button-disabled"
         />
+        </div>
       </div>
     </>
   );
