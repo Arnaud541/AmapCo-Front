@@ -112,6 +112,7 @@ a.create-new-recipe:hover{
     grid-gap: 1em;
     grid-auto-rows: minmax(100px, auto);
     height: 100%;
+    width:100%;
     justify-items: center;
     justify-content: center;
     align-content: center;
@@ -122,9 +123,12 @@ a.create-new-recipe:hover{
     width: 100%;
 }
 
-.button-add-ingredient{
-    width: 100%;
+.button-add-ingredient {
+    width: 200px;
+    margin-left: 5em;
 }
+
+
 
 
 
