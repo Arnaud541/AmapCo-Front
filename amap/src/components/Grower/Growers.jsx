@@ -14,21 +14,25 @@ function Growers(props) {
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(growers.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(growers.length / itemsPerPage));
+    setCurrentItems(growers?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(growers?.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, growers]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % growers.length;
+    const newOffset = (event.selected * itemsPerPage) % growers?.length;
     setItemOffset(newOffset);
   };
   return (
     <>
       <div className="growers">
-        {currentItems.map((grower) => (
+        {currentItems?.map((grower) => (
           <Link to={`/growers/${grower.id}`}>
             <div className="grower" key={grower.id}>
-              <img className="avatargrow" src={"./src/assets/default.png"} alt="Avatar" />
+              <img
+                className="avatargrow"
+                src={"./src/assets/default.png"}
+                alt="Avatar"
+              />
               <div className="grower-description">
                 <h2 className="growername">
                   {grower.prenom} {grower.nom}
@@ -45,23 +49,23 @@ function Growers(props) {
         ))}
       </div>
       <div className="paginationdiv">
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="page suivante >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="< page précédente"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        activeClassName="active"
-        activeLinkClassName="active-link"
-        pageClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        pageLinkClassName="page-num-link"
-        disabledClassName="button-disabled"
-      />
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="page suivante >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< page précédente"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          activeClassName="active"
+          activeLinkClassName="active-link"
+          pageClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          pageLinkClassName="page-num-link"
+          disabledClassName="button-disabled"
+        />
       </div>
     </>
   );

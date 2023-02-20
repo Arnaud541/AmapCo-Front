@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import makeAnimated from "react-select/animated";
+import ButtonAddIngredient from "./ButtonAddIngredient";
+import ButtonAddStep from "./ButtonAddStep";
+import SelectDiet from "./SelectDiet";
+import SelectDifficulty from "./SelectDifficulty";
+import SelectSeason from "./SelectSeason";
+import SelectTypeDish from "./SelectTypeDish";
+import SelectUstensil from "./SelectUstensil";
 
 function FormRecipeEdit(props) {
-  const { recipeToEdit } = props;
+  const { recipeToEdit, idRecipe } = props;
   console.log(recipeToEdit);
 
   const animatedComponents = makeAnimated();
 
   const [recipe, setRecipe] = useState({
     id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+    id_recette: idRecipe,
     nom: "",
     description: "",
     temps: 0,
@@ -35,7 +44,7 @@ function FormRecipeEdit(props) {
     event.preventDefault();
 
     axios
-      .post("http://127.0.0.1/AmapCo-Back/index.php?action=recipe", {
+      .put("http://127.0.0.1/AmapCo-Back/index.php?action=recipe", {
         recipe: recipe,
       })
       .then((response) => {
@@ -96,6 +105,7 @@ function FormRecipeEdit(props) {
       <form className="search" onSubmit={handleSubmit}>
         <div className="recette-info">
           <input
+            defaultValue={recipeToEdit.titre}
             className="login__input"
             type="text"
             placeholder="Nom de la recette"
@@ -103,6 +113,7 @@ function FormRecipeEdit(props) {
             name="nom"
           />
           <input
+            defaultValue={recipeToEdit.description}
             className="login__input"
             type="text"
             placeholder="Description"
@@ -110,6 +121,7 @@ function FormRecipeEdit(props) {
             name="description"
           />
           <input
+            defaultValue={recipeToEdit.dureeRealisation}
             className="login__input"
             type="text"
             placeholder="Temps de la recette (minutes)"

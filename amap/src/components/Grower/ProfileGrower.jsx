@@ -18,7 +18,7 @@ function ProfileGrower(props) {
             {new Date(profile.created_at).toLocaleDateString("fr-FR")}
           </h3>
         </div>
-        <button>Créer un panier</button>
+        <a href="/growers/cart/create">Créer un panier</a>
       </div>
       <div className="my-carts">
         <h1>Mes paniers de la semaine</h1>

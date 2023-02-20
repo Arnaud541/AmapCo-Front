@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 
 function SelectSeason(props) {
   const { handleChangeSelect, style, animatedComponents } = props;
+  const [seasonDefault, setSeasonDefault] = useState({});
   const seasons = [
     {
       value: "hiver",
@@ -21,6 +22,7 @@ function SelectSeason(props) {
       nom: "Automne",
     },
   ];
+
   return (
     <Select
       closeMenuOnSelect={false}
@@ -29,6 +31,7 @@ function SelectSeason(props) {
       getOptionLabel={(option) => option.nom}
       getOptionValue={(option) => option.value}
       onChange={handleChangeSelect}
+      defaultValue={seasons[3]}
       placeholder="Saisons"
       name="saison"
       styles={style}

@@ -83,7 +83,7 @@ function RecipeDetailsPage() {
       .then((response) => {
         setNote(response.data.note);
       });
-  }, []);
+  }, [id]);
   return (
     <>
       <Navbar />

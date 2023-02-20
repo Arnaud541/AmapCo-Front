@@ -16,7 +16,6 @@ function ProfileGrowerPage() {
         },
       })
       .then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           setMyCarts(response.data.carts);
         }

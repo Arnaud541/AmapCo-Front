@@ -23,7 +23,7 @@ function FormRecipeEditPage() {
   return (
     <>
       <Navbar />
-      <FormRecipeEdit recipeToEdit={recipeToEdit} />
+      <FormRecipeEdit recipeToEdit={recipeToEdit} idRecipe={id} />
     </>
   );
 }

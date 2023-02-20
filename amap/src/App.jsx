@@ -14,6 +14,7 @@ import ProfileUserPage from "./pages/ProfileUserPage";
 import SignOut from "./components/Signout/SignOut";
 import ProfileGrowerPage from "./pages/ProfileGrowerPage";
 import FormRecipeEditPage from "./pages/FormRecipeEditPage";
+import FormCartPage from "./pages/FormCartPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/growers/:id" element={<GrowerDetailsPage />} />
       <Route path="/growers/:id/cart/:idcart" element={<GrowerCartPage />} />
+      <Route path="/growers/cart/create" element={<FormCartPage />} />
     </Routes>
   );
 }

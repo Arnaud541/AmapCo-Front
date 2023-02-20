@@ -38,24 +38,27 @@ function RecipeDetails(props) {
       <div className="recipe">
         <h1 className="recipe-title">{recipe.titre}</h1>
         <div className="recipe-info">
-          <img id="avatar-grower-profile-recipe" src={"../src/assets/default.png"} alt={recipe.titre} />
-        
-        <div className="recipe-like">
-          {profile &&
-          profile.id == recipe.id_utilisateur &&
-          profile.acces == 1 ? (
-            <Link to={`/recipe/edit/${idRecipe}`}>Modifier la recette</Link>
-          ) : null}
-          <h2>Note : {Math.round(note.note * 10) / 10}</h2>
-          <h2>Commentaires : {comments.length}</h2>
+          <img
+            id="avatar-grower-profile-recipe"
+            src={"../src/assets/default.png"}
+            alt={recipe.titre}
+          />
+
+          <div className="recipe-like">
+            {profile &&
+            profile.id == recipe.id_utilisateur &&
+            profile.acces == 1 ? (
+              <Link to={`/recipe/edit/${idRecipe}`}>Modifier la recette</Link>
+            ) : null}
+            <h2>Note : {Math.round(note.note * 10) / 10}</h2>
+            <h2>Commentaires : {comments.length}</h2>
           </div>
-          
+
           {profile &&
           profile.id == recipe.id_utilisateur &&
           profile.acces == 1 ? (
             <button onClick={handleDelete}>Supprimer la recette</button>
           ) : null}
-        
         </div>
         <Stars recipeID={idRecipe} />
         <div className="ingredient">
@@ -115,9 +118,14 @@ function RecipeDetails(props) {
                 <div className="item-info-user">
                   <h2 className="user-avatar">{c.avatar}</h2>
                   <div className="comment-infos">
-                  <span className="note">{c.nom} {c.note ? <span className="note">{c.note}/5</span> : null}</span>
-                  <span className="publication">publié le {c.created_at}</span>
-                  </div>               
+                    <span className="note">
+                      {c.nom}{" "}
+                      {c.note ? <span className="note">{c.note}/5</span> : null}
+                    </span>
+                    <span className="publication">
+                      publié le {c.created_at}
+                    </span>
+                  </div>
                 </div>
                 <p className="recipe-review">{c.contenu}</p>
               </div>
