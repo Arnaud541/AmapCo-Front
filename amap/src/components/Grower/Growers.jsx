@@ -47,11 +47,11 @@ function Growers(props) {
       <div className="paginationdiv">
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel="page suivante >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< page précédente"
         renderOnZeroPageCount={null}
         containerClassName="pagination"
         activeClassName="active"

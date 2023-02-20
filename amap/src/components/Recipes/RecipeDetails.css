@@ -40,8 +40,8 @@
 }
 
 h3.ingredient-name {
-    margin-right: 1em;
-    margin-left: 1em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
 }
 
 .ingredients-list,.ustensils-list,.step-list,.comments-list{
@@ -119,10 +119,9 @@ h3.ingredient-name {
         font-size: 28px;
     }
 
-    .step-details{
+    .step-details,.recipe-review{
         font-size: 14px;
-    }
-    
+    }    
 }
 
 @media screen and (max-width:600px) {
@@ -150,7 +149,7 @@ h3.ingredient-name {
         font-size: 20px;
     }
 
-    .step-details{
+    .step-details,.recipe-review{
         font-size: 12px;
     }
 }
