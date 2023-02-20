@@ -24,16 +24,21 @@ function Recipes(props) {
   };
   return (
     <>
-      <div className="recipes">
+      <div className="Home-recipes">
         {currentItems?.map((recipe) => (
-          <Link className="Arecipes" to={`/recipes/${recipe.id}`}>
+          <Link className="Link-recipe" to={`/recipes/${recipe.id}`}>
+          <div className="Home-recipe-1by1">
+          
             <div className="recipe" key={recipe.id}>
               <h3 className="recipesh3">{recipe.titre}</h3>
             </div>
+          
+          </div>
           </Link>
         ))}
       </div>
       <Link className="create-new-recipe" to={"/recipe/create"}>Créer ma recette</Link>
+      <div className="paginationdiv">
       <ReactPaginate
         breakLabel="..."
         nextLabel="next >"
@@ -51,6 +56,7 @@ function Recipes(props) {
         pageLinkClassName="page-num-link"
         disabledClassName="button-disabled"
       />
+      </div>
     </>
   );
 }

@@ -3,3 +3,154 @@
     color: #f1f1f1;
     font-weight: bold;
 }
+
+.recipe-title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+}
+
+.recipe-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+#avatar-grower-profile-recipe {
+    width: 20%;
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 195px;
+    min-height: 195px;
+    padding:1em;
+}
+
+.recipe-like {
+    padding: 1em;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+h3.ingredient-name {
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.ingredients-list,.ustensils-list,.step-list,.comments-list{
+    color: black;
+    text-align: left;
+    margin-left: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+}
+
+.recipe-review,.step-details{
+    text-align: justify;
+    font-family: system-ui;
+    padding-bottom: 2em;
+    margin: 1em;
+}
+
+.step{
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+}
+
+.item-info-user,.step {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left:2em;
+}
+
+.comment-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.ustensile-items,.ingredient-items {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width:900px) {
+    .recipe-title{
+        font-size: 28px;
+    }
+
+    .recipe-like{
+        font-size:12px;
+    }
+
+    .ingredients-list,.ustensils-list,.step-list,.comments-list{
+        color: black;
+        text-align: center;
+        margin-left:0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 28px;
+    }
+
+    .ustensile-items,.ingredient-items {
+        font-size: 12px;
+    }
+
+    .step{
+        font-size: 28px;
+    }
+
+    .step-details{
+        font-size: 14px;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    .recipe-title{
+        font-size: 20px;
+    }
+
+    .recipe-like{
+        font-size:10px;
+    }
+
+    .ustensile-items,.ingredient-items {
+        font-size: 10px;
+    }
+
+    .ingredients-list,.ustensils-list,.step-list,.comments-list{
+        color: black;
+        text-align: center;
+        margin-left:0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+    }
+
+    .step{
+        font-size: 20px;
+    }
+
+    .step-details{
+        font-size: 12px;
+    }
+}

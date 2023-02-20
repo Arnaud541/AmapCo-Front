@@ -44,6 +44,7 @@ function Growers(props) {
           </Link>
         ))}
       </div>
+      <div className="paginationdiv">
       <ReactPaginate
         breakLabel="..."
         nextLabel="next >"
@@ -61,6 +62,7 @@ function Growers(props) {
         pageLinkClassName="page-num-link"
         disabledClassName="button-disabled"
       />
+      </div>
     </>
   );
 }

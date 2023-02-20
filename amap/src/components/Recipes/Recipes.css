@@ -32,26 +32,57 @@
     display: none;
 }
 
-.recipes{
+.Home-recipes{
     display: grid;
-    margin:2em;
-    align-items:stretch;
+    align-items:center;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1em;
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: auto;
     color: black;
-    margin:1em;
+    margin:0;
+    margin-top:4em;
+    margin-bottom:4em;
+    margin-left:1em;
+    margin-right:1em; 
     
 }
 
 
-.recipesh3 {
-    display: flex;
+.Link-recipe{
     background-color: #BA7D3C;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: ease-in-out.4s;
+}
+
+.Link-recipe:hover{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgb(153 255 0 / 80%);
+    transition: ease-in-out.4s;
+} 
+
+.recipesh3 {
+    font-size: 20px;
+    display: flex;
     padding: 2em;
     color: black;
-    height: 150px;
+    height: 100%;
     align-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: 0.3s;
+}
+
+.recipesh3:hover {
+    color: rgb(12, 226, 76);
+    transition: 0.3s;
+   
 }
 
 a.create-new-recipe {
@@ -59,12 +90,22 @@ a.create-new-recipe {
     color: black;
     padding: 1em;
     border-radius: 10px;
-    transition:0.5s
+    transition:0.5s;
 }
 
 a.create-new-recipe:hover{
     color:rgb(255, 0, 0);
     transition: 0.25s;
+}
+
+.paginationdiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-top:1em;
+    padding-bottom:1em;
 }
 
 .filters2{
@@ -128,7 +169,39 @@ a.create-new-recipe:hover{
     margin-left: 5em;
 }
 
+@media screen and (max-width:1000px) {
+    .Home-recipes{
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1em;
+        grid-auto-rows: minmax(100px, auto);     
+    }
+    .recipesh3 {
+        font-size: 16px;
+        display: flex;
+        background-color: #BA7D3C;
+        padding: 2em;
+        color: black;
+        height: 100%;
+        align-items: center;
+    }
+}
 
+@media screen and (max-width:750px) {
+    .Home-recipes{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1em;
+        grid-auto-rows: minmax(100px, auto);   
+    }
+    .recipesh3 {
+        font-size: 12px;
+        display: flex;
+        background-color: #BA7D3C;
+        padding: 2em;
+        color: black;
+        height: 100%;
+        align-items: center;
+    }
+}
 
 
 

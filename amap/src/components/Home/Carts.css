@@ -44,9 +44,9 @@
 }
 
 .HomePageTitle{
-    background-color: #BA7D3C;
-    padding:2em;
-    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+
 }
 
 .weekcart {
@@ -59,17 +59,19 @@
     justify-content: center;
 }
 
-.cartsHomeTitle{
+.cartsHometitle{
     width: 100%;
+    margin-left:1em;
+    margin-right:1em;
 }
 
 .wecarts {
     display: grid;
-    margin: 2em;
+    margin: 0.5em;
     grid-template-columns: repeat(4, 2fr);
-    grid-gap: 4em;
+    grid-gap: 1em;
     grid-auto-rows: minmax(100px, auto);
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
     width: 100%;
 }
 
@@ -84,14 +86,31 @@
     height: 100%;
 }
 
-/* @media screen and (min-width:750px) {
-    grid-template-columns: repeat(4, 2fr);
-    grid-gap: 4em;
-    grid-auto-rows: minmax(100px, auto);
-    padding-bottom: 1em;
-    width: 100%;
+ @media screen and (max-width:850px) {
+    .wecarts{
+        grid-template-columns: repeat(3, 2fr);
+        grid-auto-rows: minmax(100px, auto);
+        font-size: 14px;
+    }
+    .cartsHometitle{
+        font-size: 14px;
+    }
+    .HomePageTitle{
+        font-size: 30px;
+    }
 }
 
-@media screen and (max-width:750px) {
- 
-} */
+@media screen and (max-width:600px) {
+.wecarts{
+        grid-template-columns: repeat(2, 2fr);
+        grid-gap:2em;
+        grid-auto-rows: minmax(100px, auto);
+        font-size: 12px;
+    }
+    .cartsHometitle{
+        font-size: 12px;
+    }
+    .HomePageTitle{
+        font-size: 24px;
+    }
+} 

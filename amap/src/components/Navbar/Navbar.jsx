@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { FaSearch, FaSlidersH } from "react-icons/fa";
 import logo from "../../assets/img/Ham'apiens.png";
 
 function Navbar() {
@@ -38,6 +39,7 @@ function Navbar() {
           <Link className="signupNav" to="/signup">Inscription</Link>
         </>
       )}
+      <button className="burgerNav" ><FaSlidersH /></button>
     </nav>
   );
 }
