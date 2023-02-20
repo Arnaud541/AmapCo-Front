@@ -32,18 +32,25 @@ function Carts(props) {
          
           {currentItems?.map((cart) => (
             <div className="weekcart" key={cart.id}>
+              <img
+              className="cart-img"
+              src={cart?.img_url}
+              alt="CartPicture"
+              />
+              <div className="title-cart-week">
               <h3 className="weekcarts">{cart.nom}</h3>
+              </div>
             </div>
           ))}
         </div>
-        <div className="pagination">
+        <div className="paginationdiv">
         <ReactPaginate
           breakLabel="..."
-          nextLabel="Page suivante >"
+          nextLabel="Suivante >"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           pageCount={pageCount}
-          previousLabel="< page précédente"
+          previousLabel="< précédente"
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           activeClassName="active"

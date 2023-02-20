@@ -43,6 +43,7 @@
     align-items: center;
 }
 
+
 .HomePageTitle{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 38px;
@@ -51,12 +52,13 @@
 
 .weekcart {
     display: flex;
-    background-color: rgb(70, 181, 69);
+    
     padding: 1em;
     border-radius: 10px;
     text-align: center;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .cartsHometitle{
@@ -68,11 +70,21 @@
 .wecarts {
     display: grid;
     margin: 0.5em;
-    grid-template-columns: repeat(4, 2fr);
+    grid-template-columns: repeat(2, 2fr);
     grid-gap: 1em;
     grid-auto-rows: minmax(100px, auto);
     padding-bottom: 0.5em;
     width: 100%;
+}
+
+.title-cart-week {
+    display: flex;
+    background-color: orange;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -85,10 +97,30 @@
     flex-wrap: wrap;
     height: 100%;
 }
+.cart-img {
 
- @media screen and (max-width:850px) {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.title-cart-week {
+    width:100%;
+    background-color: orange;
+}
+.paginationdiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+
+ @media screen and (max-width:950px) {
     .wecarts{
-        grid-template-columns: repeat(3, 2fr);
+        grid-template-columns: repeat(1, 2fr);
         grid-auto-rows: minmax(100px, auto);
         font-size: 14px;
     }
@@ -100,9 +132,9 @@
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:750px) {
 .wecarts{
-        grid-template-columns: repeat(2, 2fr);
+        grid-template-columns: repeat(1, 2fr);
         grid-gap:2em;
         grid-auto-rows: minmax(100px, auto);
         font-size: 12px;
@@ -113,4 +145,35 @@
     .HomePageTitle{
         font-size: 24px;
     }
+    .cart-img{
+        min-width: none;
+
+        height:150px;
+    }
+    .pagination{
+        font-size: 12px;
+        gap:1px;
+    }
 } 
+
+@media screen and (max-width:500px) {
+    .cart-img{
+        min-width: none;
+        height:100px;
+        width: 200px;
+    }
+    .title-cart-week {
+        display: flex;
+        width: 200px;
+        background-color: orange;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .pagination{
+        font-size: 8px;
+        gap:1px;
+    }
+}
