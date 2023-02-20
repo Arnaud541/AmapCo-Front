@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SelectCartType from "./SelectCartType";
 import makeAnimated from "react-select/animated";
+import ButtonAddIngredientCart from "./ButtonAddIngredientCart";
+import axios from "axios";
 
 function FormCart() {
   const animatedComponents = makeAnimated();
@@ -9,6 +11,8 @@ function FormCart() {
     nom: "",
     description: "",
     type: "",
+    created_at: "",
+    end_at: "",
     ingredients: [],
   });
 
@@ -25,6 +29,13 @@ function FormCart() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // axios
+    //   .post("http://127.0.0.1/AmapCo-Back/index.php?action=cartDetails", {
+    //     cart,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //   });
     console.log(cart);
   };
 
@@ -41,14 +52,14 @@ function FormCart() {
 
       switch (true) {
         case str[0] == "ingredient":
-          const copyRecipeIngredients = { ...recipe };
-          copyRecipeIngredients["ingredients"][str[1]][str[0]] = data.id;
-          setRecipe(copyRecipeIngredients);
+          const copyCartIngredients = { ...cart };
+          copyCartIngredients["ingredients"][str[1]][str[0]] = data.id;
+          setCart(copyCartIngredients);
           break;
       }
     } else {
-      setRecipe(() => ({
-        ...recipe,
+      setCart(() => ({
+        ...cart,
         [event.name]: data.value,
       }));
     }
@@ -56,7 +67,7 @@ function FormCart() {
   return (
     <div className="container">
       <form className="search" onSubmit={handleSubmit}>
-        <div className="recette-info">
+        <div className="panier-info">
           <input
             className="login__input"
             type="text"
@@ -76,6 +87,41 @@ function FormCart() {
             onChange={handleChange}
             name="description"
           />
+          <label htmlFor="created_at">Date de début</label>
+          <input
+            id="created_at"
+            className="login__input"
+            type="datetime-local"
+            name="created_at"
+            onChange={handleChange}
+          />
+          <label htmlFor="end_at">Date de fin</label>
+          <input
+            id="end_at"
+            className="login__input"
+            type="datetime-local"
+            name="end_at"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="panier-info-ingredients">
+          <h1 className="h1-create-cart">Ingredients</h1>
+          <hr />
+          <div className="panier-info-ingredients-items">
+            <ButtonAddIngredientCart
+              cart={cart}
+              handleChangeSelect={handleChangeSelect}
+              style={customStyles}
+              animatedComponents={animatedComponents}
+              setCart={setCart}
+              type="button"
+            />
+          </div>
+        </div>
+        <div className="button-create-cart">
+          <button className="create-new-cart-btn" type="submit">
+            Créer le panier
+          </button>
         </div>
       </form>
     </div>
