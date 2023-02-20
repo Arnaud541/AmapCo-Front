@@ -1,0 +1,173 @@
+#User-avatar{
+    width: 20%;
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 195px;
+    min-height: 195px;
+}
+
+.profile-info{
+    margin-bottom:1em; 
+    margin-top:5em; 
+}
+
+.member-since{
+    margin-bottom:1em;
+    color:black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+}
+
+.user-name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    margin-bottom: 0.5em;
+}
+
+.my-recipes-title{
+    color:black;
+    text-align: left;
+    margin-left: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+    margin-top: 1em;
+}
+
+.my-recipes-items {
+    display: grid;
+    margin:2em;
+    align-items:stretch;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    color: black;
+    margin:1em;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+.link-my-recipes {
+    color: black;
+    background-color: #ca8d1e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;  
+    transition: ease-in-out.3s;
+}
+
+.link-my-recipes:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgb(153 255 0 / 80%);
+    transition: ease-in-out.2s;
+    color:rgb(238, 238, 38);
+
+}
+
+.perso-profile-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-carts-subscription {
+    display: grid;
+    margin:2em;
+    align-items:stretch;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    color: black;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+#my-cart-subcription-img{
+    width: 100%;
+    height: 350px;
+    object-fit:cover ;
+    transition: ease-in-out.4s;
+}
+
+.title-cart-subscribed{
+    background: linear-gradient(90deg, rgb(197, 157, 87) 0%, rgb(64, 183, 62) 50%,rgb(197, 157, 87) 100%);
+    padding: 0.5em;
+    margin-top: -4px;
+    border-radius: 4px;
+    transition: ease-in-out.4s;
+}
+
+.title-cart-subscribed:hover{
+    color:rgb(238, 238, 38);
+    transition: ease-in-out.4s;
+}
+
+.cart-name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    padding-top: 0;
+    margin-top:0.5em;
+    margin-bottom: 0.5em;
+}
+.grower-name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    padding-top: 0;
+    margin-top:0;
+    margin-bottom: 0.5em;
+}
+
+@media screen and (max-width:1000px) {
+    .my-carts-subscription,.my-recipes-items{
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    }
+    .my-recipes-title {
+        text-align: center;
+        font-size: 30px;
+        margin-left: 0;
+    }
+    .user-name{
+        font-size: 24px;
+    }
+    .member-since{
+        font-size: 20px;
+    }
+    .my-recipe-title{
+        font-size: 20px;
+    }
+    .cart-name{
+        font-size: 24px;
+    }
+    .grower-name{
+        font-size: 16px;
+    }
+   
+}
+
+@media screen and (max-width:750px) {
+    .my-recipes-title {
+        text-align: center;
+        font-size: 24px;
+        margin-left: 0;
+    }
+    .user-name{
+        font-size: 20px;
+    }
+    .member-since{
+        font-size: 16px;
+    }
+    .my-recipe-title{
+        font-size: 16px;
+    }
+    .cart-name{
+        font-size: 20px;
+    }
+    .grower-name{
+        font-size: 14px;
+    }
+}

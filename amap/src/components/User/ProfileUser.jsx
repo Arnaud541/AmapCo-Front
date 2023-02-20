@@ -1,41 +1,51 @@
 import { Link } from "react-router-dom";
+import "./profileUser.css";
+import avatarimg from "../../assets/default.png";
 
 function ProfileUser(props) {
   const { user, myRecipes, myCartsSubscription } = props;
   return (
     <div className="container">
       <div className="profile">
-        <div className="profile-avatar">
-          <img src={user.avatar} alt="" />
-        </div>
+        
         <div className="profile-info">
-          <h2>{user.nom?.split(" ")[1]}</h2>
-          <h3>
-            Membre depuis le{" "}
+          <div className="perso-profile-info">
+          <span className="user-name">Bonjour {user.nom?.split(" ")[1]}</span>
+          <span className="member-since">
+            Vous êtes membre depuis le{" "}
             {new Date(user.created_at).toLocaleDateString("fr-FR")}
-          </h3>
+          </span>
+          </div>
+          <div className="profile-avatar">
+        <img id="User-avatar" src={avatarimg} />
+        </div>
         </div>
       </div>
       <div className="my-recipes">
-        <h1>Mes recettes</h1>
+        <h1 className="my-recipes-title">Vos recettes</h1>
+        <hr></hr>
         <div className="my-recipes-items">
           {myRecipes.map((r) => (
-            <Link to={`/recipes/${r.id}`}>
+            <Link className="link-my-recipes" to={`/recipes/${r.id}`}>
               <div className="my-recipes-item" key={r.id}>
-                <img src={r.photo} alt={r.titre} />
-                <h2>{r.titre}</h2>
+                
+                <h2 className="my-recipe-title">{r.titre}</h2>
               </div>
             </Link>
           ))}
         </div>
       </div>
+        <h1 className="my-recipes-title">Paniers auxquels vous êtes abonné(e)s</h1>
+        <hr></hr>
       <div className="my-carts-subscription">
-        <h1>Mes paniers</h1>
         {myCartsSubscription.map((c) => (
           <div className="my-carts-subscription-item">
-            <img src={c.img_url} alt={c.nom} />
-            <h2>{c.nom}</h2>
-            <h3>Panier par {c.Nom}</h3>
+            <img id="my-cart-subcription-img" src={c.img_url} alt={c.nom} />
+            <div className="title-cart-subscribed">
+            <h2 className="cart-name">{c.nom}</h2>
+            <h3 className="grower-name">Panier par {c.Nom}</h3>
+            </div>
+
           </div>
         ))}
       </div>
