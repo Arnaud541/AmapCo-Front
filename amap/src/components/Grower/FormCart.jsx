@@ -50,7 +50,11 @@ function FormCart() {
       }));
     }
   };
-  return <div className="container"></div>;
+  return (
+    <div className="container">
+      <form className="search" onSubmit={handleSubmit}></form>
+    </div>
+  );
 }
 
 export default FormCart;
