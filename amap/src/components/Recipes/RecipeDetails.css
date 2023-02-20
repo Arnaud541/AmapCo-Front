@@ -44,7 +44,7 @@ h3.ingredient-name {
     margin-left: 0.5em;
 }
 
-.ingredients-list,.ustensils-list,.step-list,.comments-list{
+.ingredients-list,.ustensils-list,.step-list,.comments-list,.similar-recipes-title{
     color: black;
     text-align: left;
     margin-left: 2em;
@@ -93,6 +93,39 @@ h3.ingredient-name {
     align-items: center;
 }
 
+.recettes-similaires-items {
+    display: grid;
+    margin:2em;
+    align-items:stretch;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    color: black;
+    margin:1em;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+.link-similar-recipes {
+    color: black;
+    background-color: #ca8d1e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;  
+    transition: ease-in-out.3s;
+}
+
+.link-similar-recipes:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgb(153 255 0 / 80%);
+    transition: ease-in-out.2s;
+    color:rgb(238, 238, 38);
+}
+
+
 
 @media screen and (max-width:900px) {
     .recipe-title{
@@ -103,7 +136,7 @@ h3.ingredient-name {
         font-size:12px;
     }
 
-    .ingredients-list,.ustensils-list,.step-list,.comments-list{
+    .ingredients-list,.ustensils-list,.step-list,.comments-list,.similar-recipes-title{
         color: black;
         text-align: center;
         margin-left:0;
@@ -122,6 +155,9 @@ h3.ingredient-name {
     .step-details,.recipe-review{
         font-size: 14px;
     }    
+    .similar-recipe-title{
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width:600px) {
@@ -137,7 +173,7 @@ h3.ingredient-name {
         font-size: 10px;
     }
 
-    .ingredients-list,.ustensils-list,.step-list,.comments-list{
+    .ingredients-list,.ustensils-list,.step-list,.comments-list,.similar-recipes-title{
         color: black;
         text-align: center;
         margin-left:0;
@@ -150,6 +186,9 @@ h3.ingredient-name {
     }
 
     .step-details,.recipe-review{
+        font-size: 12px;
+    }
+    .similar-recipe-title{
         font-size: 12px;
     }
 }

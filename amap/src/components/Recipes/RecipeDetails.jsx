@@ -94,14 +94,13 @@ function RecipeDetails(props) {
           </div>
         </div>
         <div className="recettes-similaires">
-          <h2>Recettes similaires</h2>
+          <h2 className="similar-recipes-title">Recettes similaires</h2>
           <hr />
           <div className="recettes-similaires-items">
             {similarRecipes?.map((r) => (
-              <Link to={`/recipes/${r?.id}`}>
+              <Link className="link-similar-recipes" to={`/recipes/${r?.id}`}>
                 <div className="recette" key={r?.id}>
-                  <img src={r?.photo} alt={r?.titre} />
-                  <h3>{r?.titre}</h3>
+                  <h3 className="similar-recipe-title">{r?.titre}</h3>
                 </div>
               </Link>
             ))}
