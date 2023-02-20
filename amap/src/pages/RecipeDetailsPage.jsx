@@ -10,6 +10,7 @@ function RecipeDetailsPage() {
   const [ustensils, setUstensils] = useState([]);
   const [steps, setSteps] = useState([]);
   const [comments, setComments] = useState([]);
+  const [similarRecipes, setSimilarRecipes] = useState([]);
   const [note, setNote] = useState([]);
   const { id } = useParams();
   useEffect(() => {
@@ -21,7 +22,16 @@ function RecipeDetailsPage() {
       })
       .then((response) => {
         setRecipe(response.data.recette[0]);
-        console.log(response.data.recette[0]);
+      });
+
+    axios
+      .get("http://127.0.0.1/AmapCo-Back/index.php?action=getSimilarRecipe", {
+        params: {
+          recipe: id,
+        },
+      })
+      .then((response) => {
+        setSimilarRecipes(response.data.recettes);
       });
 
     axios
@@ -79,6 +89,7 @@ function RecipeDetailsPage() {
       <Navbar />
       <RecipeDetails
         recipe={recipe}
+        similarRecipes={similarRecipes}
         idRecipe={id}
         comments={comments}
         ustensils={ustensils}

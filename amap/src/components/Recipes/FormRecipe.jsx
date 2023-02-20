@@ -101,19 +101,22 @@ function FormRecipe() {
     <div className="container">
       <form className="search" onSubmit={handleSubmit}>
         <div className="recette-info">
-          <input  className="login__input"
+          <input
+            className="login__input"
             type="text"
             placeholder="Nom de la recette"
             onChange={handleChange}
             name="nom"
           />
-          <input className="login__input"
+          <input
+            className="login__input"
             type="text"
             placeholder="Description"
             onChange={handleChange}
             name="description"
           />
-          <input className="login__input"
+          <input
+            className="login__input"
             type="text"
             placeholder="Temps de la recette (minutes)"
             onChange={handleChange}
@@ -150,28 +153,27 @@ function FormRecipe() {
         </div>
         <div className="recette-info-ustensiles">
           <h1 className="h1-create-recipe">Ustensiles</h1>
-          <hr /><div className="select-ustensil">
-          <SelectUstensil
-            style={customStyles}
-            handleChangeSelectArray={handleChangeSelectArray}
-            animatedComponents={animatedComponents}
-          />
+          <hr />
+          <div className="select-ustensil">
+            <SelectUstensil
+              style={customStyles}
+              handleChangeSelectArray={handleChangeSelectArray}
+              animatedComponents={animatedComponents}
+            />
           </div>
         </div>
         <div className="recette-info-ingredients">
           <h1 className="h1-create-recipe">Ingredients</h1>
           <hr />
           <div className="recette-info-ingredients-items">
-            <ButtonAddIngredient 
+            <ButtonAddIngredient
               recipe={recipe}
               handleChangeSelect={handleChangeSelect}
               style={customStyles}
               animatedComponents={animatedComponents}
               setRecipe={setRecipe}
               type="button"
-              o
             />
-            
           </div>
         </div>
         <div className="recette-info-etapes">
@@ -188,7 +190,9 @@ function FormRecipe() {
           </div>
         </div>
         <div className="button-create-recipe">
-        <button className="create-new-recipe-btn" type="submit">Créer la recette</button>
+          <button className="create-new-recipe-btn" type="submit">
+            Créer la recette
+          </button>
         </div>
       </form>
     </div>
