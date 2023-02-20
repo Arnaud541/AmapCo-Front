@@ -39,11 +39,11 @@ function Carts(props) {
         <div className="pagination">
         <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel="Page suivante >"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           pageCount={pageCount}
-          previousLabel="< previous"
+          previousLabel="< page précédente"
           renderOnZeroPageCount={null}
           containerClassName="pagination"
           activeClassName="active"
