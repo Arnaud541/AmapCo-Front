@@ -99,19 +99,18 @@ function GrowerCart(props) {
           ))}
         </div>
         <div className="associatedRecipes">
-          <h3 className="titleAssociatedRecipes">Recettes associées</h3>
-          <div className="associatedRecipesItems">
+          <h3 className="titleAssociatedRecipes">Recettes associées à ce panier</h3>
+            <hr></hr>
+          <div className="associated-Recipes-Items">
             {associatedRecipes?.map((r) => (
-              <Link to={`/recipes/${r.id}`}>
+              <Link className="link-associated-recipe" to={`/recipes/${r.id}`}>
                 <div className="associatedRecipesItem">
-                  <img src={r.photo} alt={r.titre} />
-                  <h3>{r.titre}</h3>
+                  <h3 className="associated-recipe-title">{r.titre}</h3>
                 </div>
               </Link>
             ))}
           </div>
         </div>
-        <hr></hr>
       </div>
     </div>
   );

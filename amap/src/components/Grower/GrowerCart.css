@@ -89,16 +89,64 @@ hr {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 38px;
 }
+
+
+.associated-Recipes-Items{
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+    color: black;
+    margin: 1em;
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+
+.link-associated-recipe{
+    background-color: #e2a15c;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: ease-in-out.4s;
+    color:black;
+}
+
+.link-associated-recipe:hover{
+    color:yellow;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgb(153 255 0 / 80%);
+    transition: ease-in-out.4s;
+}
+
 @media screen and (max-width:750px) {
     
     
     .titldesc,.titleAssociatedRecipes,.productsTitle{
         text-align: center;
         margin-left:0;
+        font-size: 24px;
+    }
+    .growername{
+        font-size: 16px;
     }
     .carts-products-items {
         text-align: justify;
         width: fit-content; 
         margin:4em;
+    }
+    .associated-Recipes-Items{
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1em;
+        grid-auto-rows: minmax(100px, auto);
+    }
+    .associated-recipe-title{
+        font-size: 14px;
     }
 }
