@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import SelectCartType from "./SelectCartType";
+import makeAnimated from "react-select/animated";
 
 function FormCart() {
+  const animatedComponents = makeAnimated();
   const [cart, setCart] = useState({
     id_producteur: JSON.parse(localStorage.getItem("user")).id,
     nom: "",
@@ -52,7 +55,29 @@ function FormCart() {
   };
   return (
     <div className="container">
-      <form className="search" onSubmit={handleSubmit}></form>
+      <form className="search" onSubmit={handleSubmit}>
+        <div className="recette-info">
+          <input
+            className="login__input"
+            type="text"
+            placeholder="Nom du panier"
+            onChange={handleChange}
+            name="nom"
+          />
+          <SelectCartType
+            style={customStyles}
+            handleChangeSelect={handleChangeSelect}
+            animatedComponents={animatedComponents}
+          />
+          <input
+            className="login__input"
+            type="text"
+            placeholder="Description"
+            onChange={handleChange}
+            name="description"
+          />
+        </div>
+      </form>
     </div>
   );
 }
