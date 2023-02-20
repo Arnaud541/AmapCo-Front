@@ -5,8 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import "./RecipeDetails.css";
 
 function RecipeDetails(props) {
-  const { recipe, comments, ustensils, ingredients, steps, note, idRecipe } =
-    props;
+  const {
+    recipe,
+    comments,
+    ustensils,
+    ingredients,
+    steps,
+    note,
+    idRecipe,
+    similarRecipes,
+  } = props;
 
   const profile = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
@@ -82,6 +90,20 @@ function RecipeDetails(props) {
                 <h3 className="step">Etape {s.numero}</h3>
                 <p className="step-details">{s.contenu}</p>
               </div>
+            ))}
+          </div>
+        </div>
+        <div className="recettes-similaires">
+          <h2>Recettes similaires</h2>
+          <hr />
+          <div className="recettes-similaires-items">
+            {similarRecipes?.map((r) => (
+              <Link to={`/recipes/${r?.id}`}>
+                <div className="recette" key={r?.id}>
+                  <img src={r?.photo} alt={r?.titre} />
+                  <h3>{r?.titre}</h3>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
