@@ -39,12 +39,12 @@ function RecipeDetails(props) {
   return (
     <div className="container">
       <div className="recipe">
-        <h1 className="recipe-title">{recipe.titre}</h1>
+        <h1 className="recipe-title">{recipe?.titre}</h1>
         <div className="recipe-info">
           <img
             id="avatar-grower-profile-recipe"
             src={"../src/assets/default.png"}
-            alt={recipe.titre}
+            alt={recipe?.titre}
           />
 
           <div className="recipe-like">

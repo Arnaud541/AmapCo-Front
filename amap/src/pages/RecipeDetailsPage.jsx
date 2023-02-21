@@ -15,11 +15,14 @@ function RecipeDetailsPage() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get("https://amap.momomotus.frAmapCo-Back/index.php?action=recipeById", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeById",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         setRecipe(response.data.recette[0]);
       });
