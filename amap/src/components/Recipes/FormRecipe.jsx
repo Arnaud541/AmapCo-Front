@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SelectSeason from "./SelectSeason";
 import makeAnimated from "react-select/animated";
 import SelectDifficulty from "./SelectDifficulty";
@@ -8,8 +8,13 @@ import SelectUstensil from "./SelectUstensil";
 import ButtonAddIngredient from "./ButtonAddIngredient";
 import ButtonAddStep from "./ButtonAddStep";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function FormRecipe() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    !localStorage.getItem("user") ? navigate("/signup") : null;
+  });
   const animatedComponents = makeAnimated();
   const [recipe, setRecipe] = useState({
     id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
