@@ -1,0 +1,96 @@
+.perso-info-profile-grower {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.Grower-profile-name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 28px;
+    margin-bottom:0,25em;
+}
+
+.Grower-profile-created-date{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.cart-creation-link{
+    background-color: rgb(230, 168, 54);
+    color:black;
+    padding:1em;
+    border-radius:10px;
+    transition: ease-in-out.2s;
+}
+.cart-creation-link:hover{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 2px rgb(153 255 0 / 80%);
+    color:rgb(255, 255, 38);
+    transition: ease-in-out.2s;
+    
+}
+
+.grower-week-cart-profile{
+    color:black;
+    text-align: left;
+    margin-left: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 38px;
+    margin-top: 2em;
+}
+
+.panier-info-create {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-created-at,.label-end-at {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4em;
+    margin-bottom: -3em;
+}
+
+.add-ingredients,.button-create-cart{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+
+@media screen and (max-width:800px) {
+    
+    .grower-week-cart-profile{
+        text-align: center;
+        margin-left:0;
+        font-size:30px;
+    }
+    
+}
+
+@media screen and (max-width:600px) {
+    .grower-week-cart-profile{
+        font-size:20px;
+    }
+    .Grower-profile-name{
+        font-size:20px;
+    }
+    .Grower-profile-created-date{
+        font-size: 16px;
+    }
+}
+

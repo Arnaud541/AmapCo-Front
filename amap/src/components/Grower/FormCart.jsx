@@ -66,8 +66,8 @@ function FormCart() {
   };
   return (
     <div className="container">
-      <form className="search" onSubmit={handleSubmit}>
-        <div className="panier-info">
+      <form className="creation-cart" onSubmit={handleSubmit}>
+        <div className="panier-info-create">
           <input
             className="login__input"
             type="text"
@@ -87,7 +87,7 @@ function FormCart() {
             onChange={handleChange}
             name="description"
           />
-          <label htmlFor="created_at">Date de début</label>
+          <label className="label-created-at" htmlFor="created_at">Date de début</label>
           <input
             id="created_at"
             className="login__input"
@@ -95,7 +95,7 @@ function FormCart() {
             name="created_at"
             onChange={handleChange}
           />
-          <label htmlFor="end_at">Date de fin</label>
+          <label className="label-end-at" htmlFor="end_at">Date de fin</label>
           <input
             id="end_at"
             className="login__input"

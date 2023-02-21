@@ -28,11 +28,11 @@ nav.navbar{
     transition: 0.25s;
 }
 
-.signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav{
+.signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav,.profileGrowerNav{
     color: black;
     transition: 0.5s;
 }
-.signinNav:hover,.signupNav:hover,.growersNav:hover,.recipesNav:hover,.signoutNav:hover,.profileUserNav:hover{
+.signinNav:hover,.signupNav:hover,.growersNav:hover,.recipesNav:hover,.signoutNav:hover,.profileUserNav:hover,.profileGrowerNav:hover{
     color: rgb(64, 198, 151);
     transition: 0.25s;
 }
@@ -61,7 +61,7 @@ nav.navbar{
 
 
 
-.signinNav,.signupNav,.signoutNav,.profileUserNav{
+.signinNav,.signupNav,.signoutNav,.profileUserNav,.profileGrowerNav{
     background-color:white;
     padding: 0.5em;
     border-radius: 10px;
@@ -72,7 +72,7 @@ nav.navbar{
 }
 
 @media screen and (max-width:750px) {
-    .signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav{
+    .signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav,.profileGrowerNav{
         display: none;
     }
     .burgerNav{

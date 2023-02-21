@@ -1,3 +1,8 @@
+.btn-delete:hover{
+    color:greenyellow;
+    transition: 0.3s;
+}
+
 .header-cart > .btn-subscription {
     background-color: green;
     color: #f1f1f1;
@@ -82,7 +87,7 @@ hr {
     
 }
 
-.titldesc,.titleAssociatedRecipes,.productsTitle{
+.titldesc,.titleAssociatedRecipes,.productsTitle,.h1-create-cart{
     color:rgb(36, 36, 36);
     text-align: left;
     margin-left: 2em;
@@ -128,7 +133,7 @@ hr {
 @media screen and (max-width:750px) {
     
     
-    .titldesc,.titleAssociatedRecipes,.productsTitle{
+    .titldesc,.titleAssociatedRecipes,.productsTitle,.h1-create-cart{
         text-align: center;
         margin-left:0;
         font-size: 24px;

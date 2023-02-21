@@ -24,9 +24,9 @@ function ButtonAddIngredientCart(props) {
     setCart(cartChangeIngredient);
   };
   return (
-    <>
+    <><div className="add-ingredients">
       <button
-        className="button-add-ingredient"
+        className="button-add-ingredient-cart"
         type="button"
         onClick={() => handleAdd()}
       >
@@ -56,6 +56,7 @@ function ButtonAddIngredientCart(props) {
           </div>
         );
       })}
+      </div>
     </>
   );
 }
