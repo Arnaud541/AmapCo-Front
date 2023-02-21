@@ -29,13 +29,16 @@ function FormCart() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // axios
-    //   .post("https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails", {
-    //     cart,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //   });
+    axios
+      .post(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails",
+        {
+          cart,
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      });
     console.log(cart);
   };
 

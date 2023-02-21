@@ -26,41 +26,42 @@ function Carts(props) {
     <>
       <div className="HomePage">
         <div className="cartsHometitle">
-      <h3 className="HomePageTitle">Les paniers de la semaine</h3>
-      </div>
+          <h3 className="HomePageTitle">Les paniers de la semaine</h3>
+        </div>
         <div className="wecarts">
-         
           {currentItems?.map((cart) => (
-            <div className="weekcart" key={cart.id}>
-              <img
-              className="cart-img"
-              src={cart?.img_url}
-              alt="CartPicture"
-              />
-              <div className="title-cart-week">
-              <h3 className="weekcarts">{cart.nom}</h3>
+            <Link to={`/growers/${cart.id_producteur}/cart/${cart.id}`}>
+              <div className="weekcart" key={cart.id}>
+                <img
+                  className="cart-img"
+                  src={cart?.img_url}
+                  alt="CartPicture"
+                />
+                <div className="title-cart-week">
+                  <h3 className="weekcarts">{cart.nom}</h3>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="paginationdiv">
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="Suivante >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          previousLabel="< précédente"
-          renderOnZeroPageCount={null}
-          containerClassName="pagination"
-          activeClassName="active"
-          activeLinkClassName="active-link"
-          pageClassName="page-num"
-          previousLinkClassName="page-num"
-          nextLinkClassName="page-num"
-          pageLinkClassName="page-num-link"
-          disabledClassName="button-disabled"
-        />
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="Suivante >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="< précédente"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            activeClassName="active"
+            activeLinkClassName="active-link"
+            pageClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            pageLinkClassName="page-num-link"
+            disabledClassName="button-disabled"
+          />
         </div>
       </div>
     </>
