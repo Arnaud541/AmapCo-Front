@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import FormRecipe from "../components/Recipes/FormRecipe";
 
 function FormRecipePage() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/signup");
+    }
+  });
   return (
     <>
       <Navbar />

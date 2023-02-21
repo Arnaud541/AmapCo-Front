@@ -30,7 +30,7 @@ function FormCart() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // axios
-    //   .post("http://127.0.0.1/AmapCo-Back/index.php?action=cartDetails", {
+    //   .post("https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails", {
     //     cart,
     //   })
     //   .then((response) => {
@@ -87,7 +87,9 @@ function FormCart() {
             onChange={handleChange}
             name="description"
           />
-          <label className="label-created-at" htmlFor="created_at">Date de début</label>
+          <label className="label-created-at" htmlFor="created_at">
+            Date de début
+          </label>
           <input
             id="created_at"
             className="login__input"
@@ -95,7 +97,9 @@ function FormCart() {
             name="created_at"
             onChange={handleChange}
           />
-          <label className="label-end-at" htmlFor="end_at">Date de fin</label>
+          <label className="label-end-at" htmlFor="end_at">
+            Date de fin
+          </label>
           <input
             id="end_at"
             className="login__input"
