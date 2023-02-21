@@ -21,11 +21,14 @@ function RecipeDetails(props) {
 
   const handleDelete = () => {
     axios
-      .delete("http://127.0.0.1/AmapCo-Back/index.php?action=recipeById", {
-        data: {
-          id_recette: idRecipe,
-        },
-      })
+      .delete(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeById",
+        {
+          data: {
+            id_recette: idRecipe,
+          },
+        }
+      )
       .then((response) => {
         if (response.data.success) {
           navigate(`/profile/${profile.id}`);

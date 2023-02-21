@@ -7,7 +7,9 @@ function SelectUstensil(props) {
   const [ustensils, setUstensils] = useState([]);
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=allUstensils")
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=allUstensils"
+      )
       .then((response) => {
         setUstensils(response.data.ustensiles);
       });

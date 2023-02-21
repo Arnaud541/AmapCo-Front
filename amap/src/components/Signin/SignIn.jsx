@@ -21,7 +21,7 @@ function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://127.0.0.1/AmapCo-Back/index.php?action=signIn", {
+      .post("https://amap.momomotus.fr/AmapCo-Back/index.php?action=signIn", {
         user: user,
       })
       .then((response) => {
@@ -37,19 +37,23 @@ function SignIn() {
     <div className="screen-log">
       <h1>Connexion</h1>
       <form screen__content onSubmit={handleSubmit}>
-        <input className="login__input"
+        <input
+          className="login__input"
           type="text"
           name="email"
           placeholder="Email"
           onChange={handleChange}
         />
-        <input className="login__input"
+        <input
+          className="login__input"
           type="password"
           placeholder="Mot de passe"
           name="password"
           onChange={handleChange}
         />
-        <button className="login-submit" type="submit">Se connecter</button>
+        <button className="login-submit" type="submit">
+          Se connecter
+        </button>
       </form>
     </div>
   );

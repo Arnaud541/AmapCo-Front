@@ -14,11 +14,14 @@ function GrowerCart(props) {
 
   const handleDelete = () => {
     axios
-      .delete("http://127.0.0.1/AmapCo-Back/index.php?action=growercart", {
-        data: {
-          id_panier: idCart,
-        },
-      })
+      .delete(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growercart",
+        {
+          data: {
+            id_panier: idCart,
+          },
+        }
+      )
       .then((response) => {
         if (response.data.success) {
           navigate(`/profileGrower/${profile.id}`);
@@ -28,10 +31,13 @@ function GrowerCart(props) {
 
   const handleClick = () => {
     axios
-      .post("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
-        id_panier: idCart,
-        id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-      })
+      .post(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscription",
+        {
+          id_panier: idCart,
+          id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+        }
+      )
       .then((response) => {
         if (response.data.status === 200) {
           setSub(!sub);
@@ -99,8 +105,10 @@ function GrowerCart(props) {
           ))}
         </div>
         <div className="associatedRecipes">
-          <h3 className="titleAssociatedRecipes">Recettes associées à ce panier</h3>
-            <hr></hr>
+          <h3 className="titleAssociatedRecipes">
+            Recettes associées à ce panier
+          </h3>
+          <hr></hr>
           <div className="associated-Recipes-Items">
             {associatedRecipes?.map((r) => (
               <Link className="link-associated-recipe" to={`/recipes/${r.id}`}>

@@ -10,12 +10,14 @@ function RecipesPage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=allIngredients")
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=allIngredients"
+      )
       .then((response) => {
         setIngredients(response.data.ingredients);
       });
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipe")
+      .get("https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipe")
       .then((response) => {
         setRecipes(response.data.recettes);
       });

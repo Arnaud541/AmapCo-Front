@@ -11,7 +11,9 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=allIngredients")
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=allIngredients"
+      )
       .then((response) => {
         setIngredients(response.data.ingredients);
       });

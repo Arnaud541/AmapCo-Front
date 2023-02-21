@@ -40,7 +40,7 @@ function FormRecipe() {
     event.preventDefault();
 
     axios
-      .post("http://127.0.0.1/AmapCo-Back/index.php?action=recipe", {
+      .post("https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipe", {
         recipe: recipe,
       })
       .then((response) => {

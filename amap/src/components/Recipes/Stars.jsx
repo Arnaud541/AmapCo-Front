@@ -12,7 +12,7 @@ function Stars(props) {
     if (localStorage.getItem("user")) {
       axios
         .get(
-          "http://127.0.0.1/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
           {
             params: {
               id_recette: recipeID,
@@ -30,11 +30,14 @@ function Stars(props) {
 
   const handleRating = (rate) => {
     axios
-      .post("http://127.0.0.1/AmapCo-Back/index.php?action=recipeNote", {
-        note: rate,
-        id_recette: recipeID,
-        id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-      })
+      .post(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeNote",
+        {
+          note: rate,
+          id_recette: recipeID,
+          id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+        }
+      )
       .then((response) => {
         if (response.data.status === 200) {
           setRating(rate);

@@ -11,11 +11,14 @@ function FormRecipeEditPage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeById", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeById",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         setRecipeToEdit(response.data.recette[0]);
       });

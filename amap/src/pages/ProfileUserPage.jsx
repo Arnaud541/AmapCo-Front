@@ -12,7 +12,7 @@ function ProfileUserPage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=userById", {
+      .get("https://amap.momomotus.fr/AmapCo-Back/index.php?action=userById", {
         params: {
           id,
         },
@@ -24,22 +24,28 @@ function ProfileUserPage() {
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscribedCart", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscribedCart",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data.subscribedCart);
         setMyCartsSubscription(response.data.subscribedCart);
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipesByIdUser", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipesByIdUser",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         setMyRecipes(response.data.recipes);
       });

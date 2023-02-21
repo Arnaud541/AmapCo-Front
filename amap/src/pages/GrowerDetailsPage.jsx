@@ -1,46 +1,63 @@
-import React from 'react'
-import GrowerDetails from '../components/Grower/GrowerDetails';
-import { useEffect,useState } from 'react';
-import Navbar from '../components/Navbar/Navbar';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import GrowerDetails from "../components/Grower/GrowerDetails";
+import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function GrowerDetailsPage() {
-    const [grower, setGrower] = useState({});
-    const [growercart, setGrowerCart] = useState([]);
-    const [growerreview, setGrowerReview] = useState([]);
-    const {id}=useParams();
-    useEffect(() => {
-      axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerbyid",{
-          params:{
-            id
-          }
-        }).then((response) => {
-          console.log(response)
-          setGrower(response.data.producteur);
-        });
-      axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growercart",{params:{id}})
-        .then((response) => {
-          console.log(response)
-          setGrowerCart(response.data.carts);
-        });
-        axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=growerreview",{params:{id}})
-        .then((response) => {
-          console.log(response)
-          setGrowerReview(response.data.reviews);
-        });
+  const [grower, setGrower] = useState({});
+  const [growercart, setGrowerCart] = useState([]);
+  const [growerreview, setGrowerReview] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    axios
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerbyid",
+        {
+          params: {
+            id,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setGrower(response.data.producteur);
+      });
+    axios
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growercart",
+        {
+          params: { id },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setGrowerCart(response.data.carts);
+      });
+    axios
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerreview",
+        {
+          params: { id },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setGrowerReview(response.data.reviews);
+      });
+  }, []);
 
-    }, []);
-  
-    return (
-      <>
-        <Navbar />
-        <GrowerDetails grower={grower} growerreview={growerreview} growercart={growercart} />
-      </>
-    );
-  }
+  return (
+    <>
+      <Navbar />
+      <GrowerDetails
+        grower={grower}
+        growerreview={growerreview}
+        growercart={growercart}
+      />
+    </>
+  );
+}
 
-export default GrowerDetailsPage
+export default GrowerDetailsPage;

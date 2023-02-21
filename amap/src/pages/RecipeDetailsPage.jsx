@@ -15,7 +15,7 @@ function RecipeDetailsPage() {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeById", {
+      .get("https://amap.momomotus.frAmapCo-Back/index.php?action=recipeById", {
         params: {
           id,
         },
@@ -25,17 +25,20 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=getSimilarRecipe", {
-        params: {
-          recipe: id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getSimilarRecipe",
+        {
+          params: {
+            recipe: id,
+          },
+        }
+      )
       .then((response) => {
         setSimilarRecipes(response.data.recettes);
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=ustensils", {
+      .get("https://amap.momomotus.fr/AmapCo-Back/index.php?action=ustensils", {
         params: {
           id,
         },
@@ -45,17 +48,20 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=ingredient", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=ingredient",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         setIngredients(response.data.ingredients);
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=comments", {
+      .get("https://amap.momomotus.fr/AmapCo-Back/index.php?action=comments", {
         params: {
           id,
         },
@@ -65,7 +71,7 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=steps", {
+      .get("https://amap.momomotus.fr/AmapCo-Back/index.php?action=steps", {
         params: {
           id,
         },
@@ -75,11 +81,14 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeNote", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeNote",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         setNote(response.data.note);
       });

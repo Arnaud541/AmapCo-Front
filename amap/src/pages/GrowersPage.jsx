@@ -7,7 +7,7 @@ function GrowersPage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=grower")
+      .get("https://amap.momomotus.fr/AmapCo-Back/index.php?action=grower")
       .then((response) => {
         setGrowers(response.data.producteurs);
       });

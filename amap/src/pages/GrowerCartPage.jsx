@@ -12,11 +12,14 @@ function GrowerCartPage() {
   const { idcart } = useParams();
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=cartDetails", {
-        params: {
-          idcart,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails",
+        {
+          params: {
+            idcart,
+          },
+        }
+      )
       .then((response) => {
         if (response.data.status === 200) {
           setCartDetails(response.data.detail);
@@ -25,7 +28,7 @@ function GrowerCartPage() {
 
     axios
       .get(
-        "http://127.0.0.1/AmapCo-Back/index.php?action=getSimilarRecipeCart",
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getSimilarRecipeCart",
         {
           params: {
             cart: idcart,
@@ -40,12 +43,15 @@ function GrowerCartPage() {
 
     if (localStorage.getItem("user")) {
       axios
-        .get("http://127.0.0.1/AmapCo-Back/index.php?action=subscription", {
-          params: {
-            id_panier: idcart,
-            id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-          },
-        })
+        .get(
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscription",
+          {
+            params: {
+              id_panier: idcart,
+              id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+            },
+          }
+        )
         .then((response) => {
           setSub(response.data.sub);
         });

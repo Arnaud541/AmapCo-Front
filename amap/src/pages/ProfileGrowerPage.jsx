@@ -10,11 +10,14 @@ function ProfileGrowerPage() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=growercart", {
-        params: {
-          id,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growercart",
+        {
+          params: {
+            id,
+          },
+        }
+      )
       .then((response) => {
         if (response.data.status === 200) {
           setMyCarts(response.data.carts);

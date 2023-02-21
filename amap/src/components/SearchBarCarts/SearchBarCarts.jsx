@@ -4,7 +4,7 @@ import makeAnimated from "react-select/animated";
 import { FaSearch, FaSlidersH } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
-import './SearchBarCarts.css';
+import "./SearchBarCarts.css";
 
 function SearchBarCarts(props) {
   const { setCart, ingredients } = props;
@@ -30,11 +30,14 @@ function SearchBarCarts(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=CartSearch", {
-        params: {
-          search: search,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=CartSearch",
+        {
+          params: {
+            search: search,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data.producerCart);
         setCart(response.data.producerCart);
@@ -87,17 +90,22 @@ function SearchBarCarts(props) {
   };
 
   return (
-    
     <form className="search" onSubmit={handleSubmit}>
-      <input className="input-home" type="text" placeholder="Votre recherche" onChange={handleChange} name="search"/>
+      <input
+        className="input-home"
+        type="text"
+        placeholder="Votre recherche"
+        onChange={handleChange}
+        name="search"
+      />
       <button className="search-button" type="submit">
         <FaSearch />
       </button>
-    
+
       <button className="burger-button" type="button" onClick={handleClick}>
         <FaSlidersH />
       </button>
-    
+
       {showFilters ? (
         <div className="filters">
           <Select

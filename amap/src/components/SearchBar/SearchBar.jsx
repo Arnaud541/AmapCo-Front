@@ -73,11 +73,14 @@ function SearchBar(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .get("http://127.0.0.1/AmapCo-Back/index.php?action=recipeSearch", {
-        params: {
-          search: search,
-        },
-      })
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeSearch",
+        {
+          params: {
+            search: search,
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         setRecipes(response.data.recettes);
