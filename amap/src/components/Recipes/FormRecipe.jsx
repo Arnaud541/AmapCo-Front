@@ -11,13 +11,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function FormRecipe() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    !localStorage.getItem("user") ? navigate("/signup") : null;
-  });
   const animatedComponents = makeAnimated();
   const [recipe, setRecipe] = useState({
-    id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+    id_utilisateur: localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user")).id
+      : null,
     nom: "",
     description: "",
     temps: 0,

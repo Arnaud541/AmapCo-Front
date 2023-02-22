@@ -6,7 +6,8 @@ import FormRecipe from "../components/Recipes/FormRecipe";
 function FormRecipePage() {
   const navigate = useNavigate();
   useEffect(() => {
-    localStorage.getItem("user") ? navigate("/signup") : null;
+    const user = JSON.parse(localStorage.getItem("user"));
+    !user ? navigate("/signin") : null;
   });
   return (
     <>
