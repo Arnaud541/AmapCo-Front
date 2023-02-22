@@ -7,6 +7,7 @@ import ProfileUser from "../components/User/ProfileUser";
 function ProfileUserPage() {
   const [user, setUser] = useState({});
   const [myRecipes, setMyRecipes] = useState([]);
+  const [myFavoriteRecipes, setMyFavoriteRecipes] = useState([]);
   const [myCartsSubscription, setMyCartsSubscription] = useState([]);
   const { id } = useParams();
 
@@ -49,6 +50,19 @@ function ProfileUserPage() {
       .then((response) => {
         setMyRecipes(response.data.recipes);
       });
+
+    axios
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeFavorite",
+        {
+          params: {
+            id_utilisateur: id,
+          },
+        }
+      )
+      .then((response) => {
+        setMyFavoriteRecipes(response.data.recipes);
+      });
   }, []);
 
   return (
@@ -58,6 +72,7 @@ function ProfileUserPage() {
         user={user}
         myRecipes={myRecipes}
         myCartsSubscription={myCartsSubscription}
+        myFavoriteRecipes={myFavoriteRecipes}
       />
     </>
   );
