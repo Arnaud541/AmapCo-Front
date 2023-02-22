@@ -106,9 +106,9 @@ function RecipeDetails(props) {
             <button onClick={handleDelete}>Supprimer la recette</button>
           ) : null}
           {favorite ? (
-            <AiFillHeart onClick={handleClick} />
+            <AiFillHeart onClick={handleClick}style={{height: 53, width: 46,color:"red"}}/>
           ) : (
-            <AiOutlineHeart onClick={handleClick} />
+            <AiOutlineHeart onClick={handleClick}style={{height: 43, width: 36,color:"red"}} />
           )}
         </div>
         <Stars recipeID={idRecipe} />
