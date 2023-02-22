@@ -13,36 +13,42 @@ function GrowerCart(props) {
     : null;
 
   const handleDelete = () => {
-    axios
-      .delete(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growercart",
-        {
-          data: {
-            id_panier: idCart,
-          },
-        }
-      )
-      .then((response) => {
-        if (response.data.success) {
-          navigate(`/profileGrower/${profile.id}`);
-        }
-      });
+    if (!profile) {
+      axios
+        .delete(
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growercart",
+          {
+            data: {
+              id_panier: idCart,
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.success) {
+            navigate(`/profileGrower/${profile.id}`);
+          }
+        });
+    }
   };
 
   const handleClick = () => {
-    axios
-      .post(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscription",
-        {
-          id_panier: idCart,
-          id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-        }
-      )
-      .then((response) => {
-        if (response.data.status === 200) {
-          setSub(!sub);
-        }
-      });
+    if (!profile) {
+      navigate("/signin");
+    } else {
+      axios
+        .post(
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscription",
+          {
+            id_panier: idCart,
+            id_utilisateur: profile.id,
+          }
+        )
+        .then((response) => {
+          if (response.data.status === 200) {
+            setSub(!sub);
+          }
+        });
+    }
   };
   return (
     <div className="containerGrowerCart">

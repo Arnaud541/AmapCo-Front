@@ -3,6 +3,7 @@ import Stars from "./Stars";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./RecipeDetails.css";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 function RecipeDetails(props) {
   const {
@@ -14,10 +15,52 @@ function RecipeDetails(props) {
     note,
     idRecipe,
     similarRecipes,
+    favorite,
+    setFavorite,
   } = props;
 
   const profile = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (profile) {
+      if (favorite) {
+        axios
+          .delete(
+            "https://amap.momomotus.fr/AmapCo-Back/index.php?action=favorite",
+            {
+              data: {
+                id_recette: idRecipe,
+                id_utilisateur: profile.id,
+              },
+            }
+          )
+          .then((response) => {
+            if (response.data.status === 200) {
+              setFavorite(false);
+              alert(response.data.message);
+            }
+          });
+      } else {
+        axios
+          .post(
+            "https://amap.momomotus.fr/AmapCo-Back/index.php?action=favorite",
+            {
+              id_recette: idRecipe,
+              id_utilisateur: profile.id,
+            }
+          )
+          .then((response) => {
+            if (response.data.status === 200) {
+              setFavorite(true);
+              alert(response.data.message);
+            }
+          });
+      }
+    } else {
+      navigate("/signin");
+    }
+  };
 
   const handleDelete = () => {
     axios
@@ -62,6 +105,11 @@ function RecipeDetails(props) {
           profile.acces == 1 ? (
             <button onClick={handleDelete}>Supprimer la recette</button>
           ) : null}
+          {favorite ? (
+            <AiFillHeart onClick={handleClick} />
+          ) : (
+            <AiOutlineHeart onClick={handleClick} />
+          )}
         </div>
         <Stars recipeID={idRecipe} />
         <div className="ingredient">

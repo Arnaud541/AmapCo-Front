@@ -12,8 +12,10 @@ function RecipeDetailsPage() {
   const [comments, setComments] = useState([]);
   const [similarRecipes, setSimilarRecipes] = useState([]);
   const [note, setNote] = useState([]);
+  const [favorite, setFavorite] = useState(false);
   const { id } = useParams();
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
     axios
       .get(
         "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeById",
@@ -95,6 +97,24 @@ function RecipeDetailsPage() {
       .then((response) => {
         setNote(response.data.note);
       });
+
+    if (user) {
+      axios
+        .get(
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=favorite",
+          {
+            params: {
+              id_user: user.id,
+              id_recipe: id,
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status === 200) {
+            setFavorite(response.data.favorite);
+          }
+        });
+    }
   }, [id]);
   return (
     <>
@@ -108,6 +128,8 @@ function RecipeDetailsPage() {
         ingredients={ingredients}
         steps={steps}
         note={note}
+        favorite={favorite}
+        setFavorite={setFavorite}
       />
     </>
   );

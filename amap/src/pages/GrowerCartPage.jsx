@@ -11,6 +11,7 @@ function GrowerCartPage() {
   const [sub, setSub] = useState(false);
   const { idcart } = useParams();
   useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
     axios
       .get(
         "https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails",
@@ -41,14 +42,14 @@ function GrowerCartPage() {
         }
       });
 
-    if (localStorage.getItem("user")) {
+    if (user) {
       axios
         .get(
           "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscription",
           {
             params: {
               id_panier: idcart,
-              id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+              id_utilisateur: user.id,
             },
           }
         )
