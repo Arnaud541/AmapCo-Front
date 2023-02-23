@@ -72,6 +72,7 @@ function RecipeDetailsPage() {
         },
       })
       .then((response) => {
+        console.log(response);
         setComments(response.data.commentaires);
       });
 
@@ -124,6 +125,7 @@ function RecipeDetailsPage() {
         similarRecipes={similarRecipes}
         idRecipe={id}
         comments={comments}
+        setComments={setComments}
         ustensils={ustensils}
         ingredients={ingredients}
         steps={steps}

@@ -175,7 +175,6 @@ function FormRecipe() {
               style={customStyles}
               animatedComponents={animatedComponents}
               setRecipe={setRecipe}
-              type="button"
             />
           </div>
         </div>

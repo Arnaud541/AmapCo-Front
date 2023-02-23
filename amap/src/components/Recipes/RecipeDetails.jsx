@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Stars from "./Stars";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./RecipeDetails.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import ButtonAddComment from "./ButtonAddComment";
 
 function RecipeDetails(props) {
   const {
@@ -21,6 +22,12 @@ function RecipeDetails(props) {
 
   const profile = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
+
+  const [comment, setComment] = useState({
+    id_utilisateur: profile ? profile.id : null,
+    id_recette: idRecipe,
+    contenu: "",
+  });
 
   const handleClick = () => {
     if (profile) {
@@ -106,9 +113,15 @@ function RecipeDetails(props) {
             <button onClick={handleDelete}>Supprimer la recette</button>
           ) : null}
           {favorite ? (
-            <AiFillHeart onClick={handleClick}style={{height: 53, width: 46,color:"red"}}/>
+            <AiFillHeart
+              onClick={handleClick}
+              style={{ height: 53, width: 46, color: "red" }}
+            />
           ) : (
-            <AiOutlineHeart onClick={handleClick}style={{height: 43, width: 36,color:"red"}} />
+            <AiOutlineHeart
+              onClick={handleClick}
+              style={{ height: 43, width: 36, color: "red" }}
+            />
           )}
         </div>
         <Stars recipeID={idRecipe} />
@@ -163,11 +176,19 @@ function RecipeDetails(props) {
         <div className="commentaires">
           <h2 className="comments-list">Commentaires</h2>
           <hr />
+          {profile && profile.acces === 1 ? (
+            <ButtonAddComment
+              comment={comment}
+              setComment={setComment}
+              idRecipe={idRecipe}
+            />
+          ) : null}
+
           <div className="commentaire-items">
             {comments.map((c) => (
               <div className="item" key={c.id}>
                 <div className="item-info-user">
-                  <h2 className="user-avatar">{c.avatar}</h2>
+                  <img src={`../src/assets/${c.avatar}`} alt="" />
                   <div className="comment-infos">
                     <span className="note">
                       {c.nom}{" "}
