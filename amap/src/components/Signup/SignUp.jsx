@@ -31,6 +31,7 @@ function SignUp() {
       })
       .then((response) => {
         if (response.data.status === 200) {
+          console.log(response);
           navigate("/signup");
         } else {
           if (response.data.status === 400) alert(response.data.message);
@@ -52,14 +53,14 @@ function SignUp() {
         <input
           className="sign__input"
           type="text"
-          name="lastName"
+          name="lastname"
           placeholder="Nom"
           onChange={handleChange}
         />
         <input
           className="sign__input"
           type="text"
-          name="firstName"
+          name="firstname"
           placeholder="Prenom"
           onChange={handleChange}
         />
