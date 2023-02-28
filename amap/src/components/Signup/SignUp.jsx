@@ -5,12 +5,12 @@ import "./Signup.css";
 
 function SignUp() {
   const [user, setUser] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
+    description: "",
     confirmPassword: "",
-    profilePicture: "",
   });
 
   const navigate = useNavigate();
@@ -30,9 +30,12 @@ function SignUp() {
         user,
       })
       .then((response) => {
-        console.log(response);
+        if (response.data.status === 200) {
+          navigate("/signup");
+        } else {
+          if (response.data.status === 400) alert(response.data.message);
+        }
       });
-    navigate("/signup");
   };
 
   return (
@@ -60,11 +63,10 @@ function SignUp() {
           placeholder="Prenom"
           onChange={handleChange}
         />
-        <input
+        <textarea
           className="sign__input"
-          type="file"
-          name="profilePicture"
-          accept="image/*"
+          name="description"
+          placeholder="Description"
           onChange={handleChange}
         />
         <input
