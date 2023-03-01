@@ -115,12 +115,12 @@ function RecipeDetails(props) {
           {favorite ? (
             <AiFillHeart
               onClick={handleClick}
-              style={{ height: 53, width: 46, color: "red" }}
+              style={{ height: 46, width: 36, color: "red" }}
             />
           ) : (
             <AiOutlineHeart
               onClick={handleClick}
-              style={{ height: 43, width: 36, color: "red" }}
+              style={{ height: 46, width: 36, color: "red" }}
             />
           )}
         </div>
@@ -188,8 +188,8 @@ function RecipeDetails(props) {
             {comments.map((c) => (
               <div className="item" key={c.id}>
                 <div className="item-info-user">
-                  <img src={`../src/assets/${c.avatar}`} alt="" />
                   <div className="comment-infos">
+                  <img id="avatar-comment" src={`../src/assets/${c.avatar}`} alt="" />
                     <span className="note">
                       {c.nom}{" "}
                       {c.note ? <span className="note">{c.note}/5</span> : null}

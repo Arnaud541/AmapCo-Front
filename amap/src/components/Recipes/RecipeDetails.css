@@ -19,6 +19,15 @@
     justify-content: center;
 }
 
+#avatar-comment{
+    width: 20%;
+    max-width: 185px;
+    max-height: 185px;
+    min-width: 125px;
+    min-height: 125px;
+    padding: 1em;
+}
+
 #avatar-grower-profile-recipe {
     width: 20%;
     max-width: 200px;
@@ -126,7 +135,34 @@ h3.ingredient-name {
     color:rgb(238, 238, 38);
 }
 
+.form-add-comment {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding-top:1em;
+}
 
+textarea.textarea-add-comment {
+    border: none;
+    border-bottom: solid 1px;
+    width: 500px;
+}
+
+.submit-new-comment {
+    margin-left: 1em;
+}
+
+.button-add-comment,.submit-new-comment {
+    color: #000000;
+    transition: 0.5s;
+}
+
+.button-add-comment:hover,.submit-new-comment:hover {
+    color: #03ab03;
+    transition: 0.3s;
+}
 
 @media screen and (max-width:900px) {
     .recipe-title{
