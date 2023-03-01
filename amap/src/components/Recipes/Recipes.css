@@ -184,6 +184,54 @@ a.create-new-recipe:hover{
         height: 100%;
         align-items: center;
     }
+    .h1-create-recipe {
+        text-align: center;
+        margin:0;
+        font-size: 28px;
+        margin-top:2em;
+    }
+    .filters2{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 1em;
+        justify-content: center;
+        gap: 2em;
+    }
+    .select-ustensil {
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .recette-info-ingredients-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-add-ingredient {
+        margin:0;
+    }
+    .create-new-recipe-btn {
+        width: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .recette-info-etapes-items, .button-create-recipe {
+        margin-bottom: 0.5em;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        width:auto;
+    }
+    
 }
 
 @media screen and (max-width:750px) {
@@ -200,6 +248,54 @@ a.create-new-recipe:hover{
         color: black;
         height: 100%;
         align-items: center;
+    }
+    .h1-create-recipe {
+        text-align: center;
+        margin:0;
+        margin-top:2em;
+        font-size:20px
+    }
+    .filters2{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 1em;
+        justify-content: center;
+        gap: 1em;
+    }
+    .select-ustensil {
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .recette-info-ingredients-items{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-add-ingredient {
+        margin:0;
+    }
+    .create-new-recipe-btn {
+        width: 200px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .recette-info-etapes-items, .button-create-recipe {
+        margin:0;
+        margin-bottom: 0.5em;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        width: auto;
     }
 }
 

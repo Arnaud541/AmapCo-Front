@@ -35,7 +35,7 @@ function SignIn() {
 
   return (
     <div className="screen-log">
-      <h1>Connexion</h1>
+      <h1 className="h1-connexion">Connexion</h1>
       <form screen__content onSubmit={handleSubmit}>
         <input
           className="login__input"

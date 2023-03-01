@@ -41,7 +41,7 @@ function SignUp() {
 
   return (
     <div className="screen-sign">
-      <h1>Inscription</h1>
+      <h1 className="h1-signup">Inscription</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="sign__input"

@@ -24,7 +24,7 @@
     margin-bottom: 0.5em;
 }
 
-.my-recipes-title{
+.my-recipes-title,.my-favorite-recipes{
     color:black;
     text-align: left;
     margin-left: 2em;
@@ -125,7 +125,7 @@
     grid-gap: 1em;
     grid-auto-rows: minmax(100px, auto);
     }
-    .my-recipes-title {
+    .my-recipes-title,.my-favorite-recipes {
         text-align: center;
         font-size: 30px;
         margin-left: 0;
@@ -149,7 +149,7 @@
 }
 
 @media screen and (max-width:750px) {
-    .my-recipes-title {
+    .my-recipes-title,.my-favorite-recipes {
         text-align: center;
         font-size: 24px;
         margin-left: 0;

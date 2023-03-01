@@ -48,7 +48,7 @@ function ProfileUser(props) {
           </div>
         ))}
       </div>
-      <h1>Les recettes que vous aimez</h1>
+      <h1 className="my-favorite-recipes">Les recettes que vous aimez</h1>
       <hr />
       <div className="my-favorite-recipes">
         {myFavoriteRecipes?.map((r) => (
