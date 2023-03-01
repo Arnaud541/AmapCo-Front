@@ -102,7 +102,7 @@ function FormRecipe() {
 
   return (
     <div className="container">
-      <form className="search" onSubmit={handleSubmit}>
+      <form className="search-recipe" onSubmit={handleSubmit}>
         <div className="recette-info">
           <input
             className="login__input"
