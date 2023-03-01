@@ -31,7 +31,7 @@ function ButtonAddIngredient(props) {
       >
         Ajouter un ingrédient
       </button>
-      {div.map((data, i) => {
+      {div.map((data, i) => (
         <div className="recette-info-ingredients-item">
           <SelectIngredientUnique
             style={style}
@@ -51,8 +51,8 @@ function ButtonAddIngredient(props) {
             onChange={(e) => handleChange(e, i)}
             name={"unite-" + i}
           />
-        </div>;
-      })}
+        </div>
+      ))}
     </>
   );
 }

@@ -24,7 +24,7 @@ function ProfileUser(props) {
         <h1 className="my-recipes-title">Vos recettes</h1>
         <hr />
         <div className="my-recipes-items">
-          {myRecipes.map((r) => (
+          {myRecipes?.map((r) => (
             <Link className="link-my-recipes" to={`/recipes/${r.id}`}>
               <div className="my-recipes-item" key={r.id}>
                 <h2 className="my-recipe-title">{r.titre}</h2>
@@ -38,7 +38,7 @@ function ProfileUser(props) {
       </h1>
       <hr />
       <div className="my-carts-subscription">
-        {myCartsSubscription.map((c) => (
+        {myCartsSubscription?.map((c) => (
           <div className="my-carts-subscription-item">
             <img id="my-cart-subcription-img" src={c.img_url} alt={c.nom} />
             <div className="title-cart-subscribed">
@@ -51,7 +51,7 @@ function ProfileUser(props) {
       <h1>Les recettes que vous aimez</h1>
       <hr />
       <div className="my-favorite-recipes">
-        {myFavoriteRecipes.map((r) => (
+        {myFavoriteRecipes?.map((r) => (
           <Link to={`/recipes/${r.id}`}>
             <div className="my-favorite-recipes-item" key={r.id}>
               <h2>{r.titre}</h2>

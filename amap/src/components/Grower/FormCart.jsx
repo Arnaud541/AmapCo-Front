@@ -39,7 +39,6 @@ function FormCart() {
       .then((response) => {
         console.log(response);
       });
-    console.log(cart);
   };
 
   const handleChange = (event) => {
