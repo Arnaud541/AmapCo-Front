@@ -34,7 +34,6 @@ function ProfileUserPage() {
         }
       )
       .then((response) => {
-        console.log(response.data.subscribedCart);
         setMyCartsSubscription(response.data.subscribedCart);
       });
 
@@ -56,7 +55,7 @@ function ProfileUserPage() {
         "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeFavorite",
         {
           params: {
-            id_utilisateur: id,
+            id_user: id,
           },
         }
       )
