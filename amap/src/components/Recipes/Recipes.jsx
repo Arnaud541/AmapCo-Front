@@ -27,35 +27,35 @@ function Recipes(props) {
       <div className="Home-recipes">
         {currentItems?.map((recipe) => (
           <Link className="Link-recipe" to={`/recipes/${recipe.id}`}>
-          <div className="Home-recipe-1by1">
-          
-            <div className="recipe" key={recipe.id}>
-              <h3 className="recipesh3">{recipe.titre}</h3>
+            <div className="Home-recipe-1by1">
+              <div className="recipe" key={recipe.id}>
+                <h3 className="recipesh3">{recipe.titre}</h3>
+              </div>
             </div>
-          
-          </div>
           </Link>
         ))}
       </div>
-      <Link className="create-new-recipe" to={"/recipe/create"}>Créer ma recette</Link>
+      <Link className="create-new-recipe" to={"/recipe/create"}>
+        Créer ma recette
+      </Link>
       <div className="paginationdiv">
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel="Suivante >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        pageCount={pageCount}
-        previousLabel="< Précédente"
-        renderOnZeroPageCount={null}
-        containerClassName="pagination"
-        activeClassName="active"
-        activeLinkClassName="active-link"
-        pageClassName="page-num"
-        previousLinkClassName="page-num"
-        nextLinkClassName="page-num"
-        pageLinkClassName="page-num-link"
-        disabledClassName="button-disabled"
-      />
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="Suivante >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< Précédente"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          activeClassName="active"
+          activeLinkClassName="active-link"
+          pageClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          pageLinkClassName="page-num-link"
+          disabledClassName="button-disabled"
+        />
       </div>
     </>
   );

@@ -21,7 +21,6 @@ function GrowerDetailsPage() {
         }
       )
       .then((response) => {
-        console.log(response);
         setGrower(response.data.producteur);
       });
     axios
@@ -32,7 +31,6 @@ function GrowerDetailsPage() {
         }
       )
       .then((response) => {
-        console.log(response);
         setGrowerCart(response.data.carts);
       });
     axios
@@ -43,7 +41,6 @@ function GrowerDetailsPage() {
         }
       )
       .then((response) => {
-        console.log(response);
         setGrowerReview(response.data.reviews);
       });
   }, []);

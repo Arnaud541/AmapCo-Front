@@ -1,9 +1,28 @@
 import { Link } from "react-router-dom";
 import "./profileUser.css";
 import avatarimg from "../../assets/default.png";
+import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 
 function ProfileUser(props) {
   const { user, myRecipes, myCartsSubscription, myFavoriteRecipes } = props;
+
+  const [currentItems, setCurrentItems] = useState([]);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+  const itemsPerPage = 8;
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(myFavoriteRecipes?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(myFavoriteRecipes?.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, myFavoriteRecipes]);
+
+  const handlePageClick = (event) => {
+    const newOffset =
+      (event.selected * itemsPerPage) % myFavoriteRecipes?.length;
+    setItemOffset(newOffset);
+  };
   return (
     <div className="container">
       <div className="profile">
@@ -51,13 +70,32 @@ function ProfileUser(props) {
       <h1 className="my-favorite-recipes">Les recettes que vous aimez</h1>
       <hr />
       <div className="my-favorite-recipes">
-        {myFavoriteRecipes?.map((r) => (
+        {currentItems?.map((r) => (
           <Link to={`/recipes/${r.id}`}>
             <div className="my-favorite-recipes-item" key={r.id}>
               <h2>{r.titre}</h2>
             </div>
           </Link>
         ))}
+        <div className="paginationdiv">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="Suivante >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="< Précédente"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            activeClassName="active"
+            activeLinkClassName="active-link"
+            pageClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            pageLinkClassName="page-num-link"
+            disabledClassName="button-disabled"
+          />
+        </div>
       </div>
     </div>
   );
