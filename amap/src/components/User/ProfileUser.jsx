@@ -69,14 +69,15 @@ function ProfileUser(props) {
       </div>
       <h1 className="my-favorite-recipes">Les recettes que vous aimez</h1>
       <hr />
-      <div className="my-favorite-recipes">
+      <div className="my-recipes-items">
         {currentItems?.map((r) => (
-          <Link to={`/recipes/${r.id}`}>
-            <div className="my-favorite-recipes-item" key={r.id}>
-              <h2>{r.titre}</h2>
+          <Link className="link-my-recipes" to={`/recipes/${r.id}`}>
+            <div className="my-recipes-item" key={r.id}>
+              <h2 className="my-recipe-title">{r.titre}</h2>
             </div>
           </Link>
         ))}
+      </div>
         <div className="paginationdiv">
           <ReactPaginate
             breakLabel="..."
@@ -96,7 +97,6 @@ function ProfileUser(props) {
             disabledClassName="button-disabled"
           />
         </div>
-      </div>
     </div>
   );
 }
