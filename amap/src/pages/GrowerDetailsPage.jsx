@@ -55,7 +55,6 @@ function GrowerDetailsPage() {
         }
       )
       .then((response) => {
-        console.log(response);
         setNote(response.data.note);
       });
   }, [id]);

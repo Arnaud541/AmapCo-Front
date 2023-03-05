@@ -72,7 +72,6 @@ function RecipeDetailsPage() {
         },
       })
       .then((response) => {
-        console.log(response);
         setComments(response.data.commentaires);
       });
 

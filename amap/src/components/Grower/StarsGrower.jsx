@@ -3,19 +3,23 @@ import React, { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { HiOutlineStar } from "react-icons/hi";
 import { HiStar } from "react-icons/hi";
+import { useNavigate, useParams } from "react-router-dom";
 
-function StarsGrower(props) {
+function StarsGrower() {
   const [rating, setRating] = useState(0);
-  const { idGrower } = props;
+  const { id } = useParams();
+  const [isRated, setIsRated] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("user")) {
       axios
         .get(
-          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getUserNoteByIdGrower",
           {
             params: {
-              id_producteur: idGrower,
+              id_producteur: id,
               id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
             },
           }
@@ -23,26 +27,46 @@ function StarsGrower(props) {
         .then((response) => {
           if (response.data.note) {
             setRating(response.data.note.note);
+            setIsRated(true);
           }
         });
     }
   }, []);
 
   const handleRating = (rate) => {
-    axios
-      .post(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerNote",
-        {
-          note: rate,
-          id_producteur: idGrower,
-          id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
-        }
-      )
-      .then((response) => {
-        if (response.data.status === 200) {
-          setRating(rate);
-        }
-      });
+    if (isRated) {
+      axios
+        .put(
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerNote",
+          {
+            id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+            id_producteur: id,
+            note: rate,
+          }
+        )
+        .then((response) => {
+          if (response.data.status === 200) {
+            setRating(rate);
+            window.location.reload();
+          }
+        });
+    } else {
+      axios
+        .post(
+          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerNote",
+          {
+            note: rate,
+            id_producteur: id,
+            id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
+          }
+        )
+        .then((response) => {
+          if (response.data.status === 200) {
+            setRating(rate);
+            setIsRated(true);
+          }
+        });
+    }
   };
 
   return (

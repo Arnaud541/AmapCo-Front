@@ -49,7 +49,7 @@ function GrowerDetails(props) {
         <div className="growerlike">
           <h2>Note : {Math.round(note.note * 10) / 10}</h2>
           <h2>Commentaires : {growerreview.length}</h2>
-          <StarsGrower idGrower={grower.id} />
+          <StarsGrower />
         </div>
 
       <div className="growerpresentation">
