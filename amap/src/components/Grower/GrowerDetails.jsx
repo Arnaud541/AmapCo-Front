@@ -5,9 +5,10 @@ import avatarimg from "../../assets/default.png";
 import { Link } from "react-router-dom";
 import ButtonAddOpinion from "./ButtonAddOpinion";
 import ReactPaginate from "react-paginate";
+import StarsGrower from "./StarsGrower";
 
 function GrowerDetails(props) {
-  const { grower, growerreview, growercart } = props;
+  const { grower, growerreview, growercart, note } = props;
   const profile = JSON.parse(localStorage.getItem("user"));
 
   const [currentItems, setCurrentItems] = useState([]);
@@ -40,9 +41,14 @@ function GrowerDetails(props) {
         <div className="growerdata">
           <span className="data">{grower.nom}</span>
           <span className="inscriptionDate">
-            Date d'inscription {grower.created_at}
+            Date d'inscription : {grower.created_at}
           </span>
           <p className="growerdesc"> {grower.description}</p>
+        </div>
+        <div className="growerlike">
+          <h2>Note : {Math.round(note.note * 10) / 10}</h2>
+          <h2>Commentaires : {growerreview.length}</h2>
+          <StarsGrower idGrower={grower.id} />
         </div>
       </div>
 

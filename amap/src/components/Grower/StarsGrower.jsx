@@ -1,12 +1,12 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { HiOutlineStar } from "react-icons/hi";
 import { HiStar } from "react-icons/hi";
-import axios from "axios";
 
-function Stars(props) {
+function StarsGrower() {
   const [rating, setRating] = useState(0);
-  const { recipeID } = props;
+  const { idGrower } = props;
 
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -15,7 +15,7 @@ function Stars(props) {
           "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
           {
             params: {
-              id_recette: recipeID,
+              id_producteur: idGrower,
               id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
             },
           }
@@ -31,10 +31,10 @@ function Stars(props) {
   const handleRating = (rate) => {
     axios
       .post(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeNote",
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerNote",
         {
           note: rate,
-          id_recette: recipeID,
+          id_producteur: idGrower,
           id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
         }
       )
@@ -44,6 +44,7 @@ function Stars(props) {
         }
       });
   };
+
   return (
     <>
       <Rating
@@ -58,4 +59,4 @@ function Stars(props) {
   );
 }
 
-export default Stars;
+export default StarsGrower;

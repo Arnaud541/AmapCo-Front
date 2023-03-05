@@ -9,6 +9,7 @@ function GrowerDetailsPage() {
   const [grower, setGrower] = useState({});
   const [growercart, setGrowerCart] = useState([]);
   const [growerreview, setGrowerReview] = useState([]);
+  const [note, setNote] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     axios
@@ -43,7 +44,21 @@ function GrowerDetailsPage() {
       .then((response) => {
         setGrowerReview(response.data.reviews);
       });
-  }, []);
+
+    axios
+      .get(
+        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerNote",
+        {
+          params: {
+            id,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setNote(response.data.note);
+      });
+  }, [id]);
 
   return (
     <>
@@ -52,6 +67,7 @@ function GrowerDetailsPage() {
         grower={grower}
         growerreview={growerreview}
         growercart={growercart}
+        note={note}
       />
     </>
   );
