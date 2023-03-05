@@ -145,6 +145,16 @@ img#growercartimg:hover {
     padding-top: 0.2em;
 }
 
+.growerlike {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
 hr {
     padding-top:1em;
     opacity: 15%;

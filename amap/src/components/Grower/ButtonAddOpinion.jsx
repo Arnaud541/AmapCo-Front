@@ -34,21 +34,21 @@ function ButtonAddOpinion(props) {
   return (
     <>
       <button
-        className="button-add-opinion"
+        className="button-add-comment"
         type="button"
         onClick={() => setShow(!show)}
       >
         {show ? "Cacher" : "Ajouter un avis"}
       </button>
       {show ? (
-        <form className="form-add-opinion" onSubmit={handleSubmit}>
+        <form className="form-add-comment" onSubmit={handleSubmit}>
           <textarea
-            className="textarea-add-opinion"
+            className="textarea-add-comment"
             placeholder="Ajouter un avis"
             name="avis"
             onChange={handleChange}
           />
-          <button className="submit-new-opinion" type="submit">
+          <button className="submit-new-comment" type="submit">
             Envoyer
           </button>
         </form>

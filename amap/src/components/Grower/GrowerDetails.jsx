@@ -45,12 +45,12 @@ function GrowerDetails(props) {
           </span>
           <p className="growerdesc"> {grower.description}</p>
         </div>
+      </div>
         <div className="growerlike">
           <h2>Note : {Math.round(note.note * 10) / 10}</h2>
           <h2>Commentaires : {growerreview.length}</h2>
           <StarsGrower idGrower={grower.id} />
         </div>
-      </div>
 
       <div className="growerpresentation">
         <h2 id="titleCartspresentation">Paniers disponibles</h2>

@@ -31,9 +31,6 @@
     object-fit: cover;
 }
 
-.Cart-Name{
-    font-size:24px ;
-}
 
 .backToGrower{
     color: rgb(255, 0, 0);
@@ -153,5 +150,8 @@ hr {
     }
     .associated-recipe-title{
         font-size: 14px;
+    }
+    .cartimg{
+        min-width: 200px;
     }
 }
