@@ -178,13 +178,14 @@
         font-size: 12px;
         gap:1px;
     }
+    .Cart-Name{
+        font-size: 18px;
+    }   
 } 
 
 @media screen and (max-width:500px) {
     .cart-img{
-        min-width: none;
-        height:100px;
-        width: 200px;
+        min-width: 200px;
     }
     .title-cart-week {
         display: flex;
@@ -200,4 +201,15 @@
         font-size: 8px;
         gap:1px;
     }
+    .search{
+        width: auto;
+    }
+    .paginationdiv {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
 }
