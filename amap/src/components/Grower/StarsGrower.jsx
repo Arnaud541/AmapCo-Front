@@ -4,7 +4,7 @@ import { Rating } from "react-simple-star-rating";
 import { HiOutlineStar } from "react-icons/hi";
 import { HiStar } from "react-icons/hi";
 
-function StarsGrower() {
+function StarsGrower(props) {
   const [rating, setRating] = useState(0);
   const { idGrower } = props;
 
