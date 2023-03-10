@@ -3,6 +3,11 @@
     transition: 0.3s;
 }
 
+.header-cart
+{
+    width: 100%;
+}
+
 .header-cart > .btn-subscription {
     background-color: green;
     color: #f1f1f1;
