@@ -6,6 +6,7 @@ import axios from "axios";
 
 function FormCart() {
   const animatedComponents = makeAnimated();
+  const navigate = useNavigate();
   const [cart, setCart] = useState({
     id_producteur: JSON.parse(localStorage.getItem("user")).id,
     nom: "",
@@ -37,7 +38,11 @@ function FormCart() {
         }
       )
       .then((response) => {
-        console.log(response);
+        if (response.data.status === 200) {
+          navigate(
+            `/profileGrower/${JSON.parse(localStorage.getItem("user")).id}`
+          );
+        }
       });
   };
 

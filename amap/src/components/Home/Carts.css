@@ -68,7 +68,6 @@
 
 .weekcart {
     display: flex;
-    
     padding: 1em;
     border-radius: 10px;
     text-align: center;
@@ -76,6 +75,8 @@
     justify-content: center;
     flex-direction: column;
 }
+
+
 
 .cartsHometitle{
     width: 100%;
@@ -105,7 +106,7 @@
 }
 
 
-.HomePage{
+.HomePage {
     text-align: center;
     display: inline-flex;
     flex-direction: row;
@@ -114,11 +115,21 @@
     flex-wrap: wrap;
     height: 100%;
 }
-.cart-img {
+
+.weekcart > .cart-img {
 
     height: 300px;
     object-fit: cover;
     width: 100%;
+    filter: brightness(0.7);
+    position: relative;
+}
+
+.weekcart > .cart-img + .content {
+    position: absolute;
+    color: #f1f1f1;
+    font-weight: bold;
+    font-size: 1.4rem;
 }
 
 .paginationdiv {
@@ -133,13 +144,13 @@
 
 .weekcarts {
     color: black;
-    transition: ease-in-out.4s;
+    transition: ease-in-out .4s;
 }
 
 .weekcarts:hover {
     color: rgb(245, 245, 6);
     border-radius: 10px;
-    transition: ease-in-out.2s;
+    transition: ease-in-out .2s;
 }
 
  @media screen and (max-width:950px) {

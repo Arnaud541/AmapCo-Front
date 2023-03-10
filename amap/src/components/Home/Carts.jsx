@@ -38,6 +38,9 @@ function Carts(props) {
                   src={cart?.img_url}
                   alt="CartPicture"
                 />
+                <div className="content">
+                  <p>Temps restant : {cart?.heures_restantes}</p>
+                </div>
                 <div className="title-cart-week">
                   <h3 className="weekcarts">{cart.nom}</h3>
                 </div>

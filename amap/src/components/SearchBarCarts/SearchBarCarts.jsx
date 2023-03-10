@@ -39,7 +39,6 @@ function SearchBarCarts(props) {
         }
       )
       .then((response) => {
-        console.log(response.data.producerCart);
         setCart(response.data.producerCart);
       });
   };
