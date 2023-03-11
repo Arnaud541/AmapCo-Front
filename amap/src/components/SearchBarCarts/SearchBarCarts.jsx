@@ -39,7 +39,6 @@ function SearchBarCarts(props) {
         }
       )
       .then((response) => {
-        console.log(response.data.producerCart);
         setCart(response.data.producerCart);
       });
   };
@@ -121,7 +120,7 @@ function SearchBarCarts(props) {
             styles={customStyles}
           />
           <Select
-            closeMenuOnSelect={false}
+            closeMenuOnSelect={true}
             components={animatedComponents}
             isMulti
             options={type}

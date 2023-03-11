@@ -55,13 +55,11 @@ function GrowerCart(props) {
       <div className="header-cart">
         <div className="cart1">
           <h1 className="Cart-Name">{cartDetails[0]?.PanierProducteurNom}</h1>
-
           <img
             className="cartimg"
             src={cartDetails[0]?.img_url}
             alt="CartPicture"
           />
-
           <h3 className="growername">
             {"Panier proposé par "}
             <Link

@@ -3,16 +3,18 @@ import SelectCartType from "./SelectCartType";
 import makeAnimated from "react-select/animated";
 import ButtonAddIngredientCart from "./ButtonAddIngredientCart";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function FormCart() {
   const animatedComponents = makeAnimated();
+  const navigate = useNavigate();
   const [cart, setCart] = useState({
     id_producteur: JSON.parse(localStorage.getItem("user")).id,
     nom: "",
     description: "",
     type: "",
     created_at: "",
-    end_at: "",
+    image: "",
     ingredients: [],
   });
 
@@ -27,8 +29,39 @@ function FormCart() {
     container: (styles) => ({ ...styles, width: "200px" }),
   };
 
+  const chooseImage = (type) => {
+    const updateCart = { ...cart };
+    switch (type) {
+      case "fruit":
+        updateCart["image"] =
+          "https://medias.toutelanutrition.com/blog/2020/08/banner-fruits.jpg";
+        updateCart["type"] = type;
+        setCart(updateCart);
+        break;
+      case "légume":
+        updateCart["image"] =
+          "https://img-3.journaldesfemmes.fr/HwUgYMFAXpGcR9A7Xrw4oF67Mf4=/1500x/smart/409e102e633d42759746f73e286431a3/ccmcms-jdf/11057068.jpg";
+        updateCart["type"] = type;
+        setCart(updateCart);
+        break;
+      case "viande":
+        updateCart["image"] =
+          "https://images.ctfassets.net/3s5io6mnxfqz/5GlOYuzg0nApcehTPlbJMy/140abddf0f3f93fa16568f4d035cd5e6/AdobeStock_175165460.jpeg";
+        updateCart["type"] = type;
+        setCart(updateCart);
+        break;
+      case "mélange":
+        updateCart["image"] =
+          "https://ychef.files.bbci.co.uk/976x549/p04tx3m6.jpg";
+        updateCart["type"] = type;
+        setCart(updateCart);
+        break;
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(cart);
     axios
       .post(
         "https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails",
@@ -37,7 +70,11 @@ function FormCart() {
         }
       )
       .then((response) => {
-        console.log(response);
+        if (response.data.status === 200) {
+          navigate(
+            `/profileGrower/${JSON.parse(localStorage.getItem("user")).id}`
+          );
+        }
       });
   };
 
@@ -60,10 +97,14 @@ function FormCart() {
           break;
       }
     } else {
-      setCart(() => ({
-        ...cart,
-        [event.name]: data.value,
-      }));
+      if (event.name == "type") {
+        chooseImage(data.value);
+      } else {
+        setCart(() => ({
+          ...cart,
+          [event.name]: data.value,
+        }));
+      }
     }
   };
   return (
@@ -97,16 +138,6 @@ function FormCart() {
             className="login__input"
             type="datetime-local"
             name="created_at"
-            onChange={handleChange}
-          />
-          <label className="label-end-at" htmlFor="end_at">
-            Date de fin
-          </label>
-          <input
-            id="end_at"
-            className="login__input"
-            type="datetime-local"
-            name="end_at"
             onChange={handleChange}
           />
         </div>
