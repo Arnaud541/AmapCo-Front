@@ -1,14 +1,31 @@
-nav.navbar{
+.navbar{
     display: flex;
     justify-content: flex-end;
     gap: 3em;
-    height: 60px;
+    height: 80px;
     background-color: #D3F8A4;
     width: 100%;
     padding-top: 2em;
     padding-bottom: 2em;
     margin-bottom: 2em;
     align-items: center;
+    z-index: 2;
+    position: fixed;
+}
+
+.navbar1{
+    display: flex;
+    justify-content: flex-end;
+    gap: 3em;
+    height: 80px;
+    background-color: #D3F8A4;
+    width: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    align-items: center;
+    z-index: 2;
+    position: fixed;
 }
 
 .a-logo{
@@ -18,10 +35,9 @@ nav.navbar{
 .logo{
     align-items: center;
     border-radius: 50%;
-    width: 75px;
-    height: 75px;   
+    width: 100px;
+    height: 100px;   
     margin-right: auto;
-    margin-left:1em;
     transition: 0.5s;
 }
 .logo:hover{
@@ -40,6 +56,8 @@ nav.navbar{
 .signupNav,.profileUserNav{
     margin-right:2em;
 }
+
+
 
 .growersNav::after,.recipesNav::after {
     content: '';
@@ -60,7 +78,6 @@ nav.navbar{
   }
 
 
-
 .signinNav,.signupNav,.signoutNav,.profileUserNav,.profileGrowerNav{
     background-color:white;
     padding: 0.5em;
@@ -71,8 +88,15 @@ nav.navbar{
     display: none;
 }
 
+@media screen and (min-width:750px) {
+    .burger-menu,.navbar1,.burger-menu-options{
+        display: none;
+    }
+}
+
+
 @media screen and (max-width:750px) {
-    .signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav,.profileGrowerNav{
+    .signinNav,.signupNav,.growersNav,.recipesNav,.signoutNav,.profileUserNav,.profileGrowerNav,.navbar{
         display: none;
     }
     .burgerNav{
@@ -85,4 +109,46 @@ nav.navbar{
         justify-content: center;
         margin-right: 1em;
     }
+    .burger-menu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        height: 100%;
+        width: 3em;
+        flex-wrap: nowrap;
+        padding-top:0.1em;
+    
+    
+    }
+    
+    .burger-bar{
+        width:4em;
+        height: 0.5em;
+        background-color: rgb(177, 83, 83);
+        border-radius: 0.5em;
+        position: fixed;
+        z-index: 4;
+    
+    }
+    
+    .menu{
+        width: 50%;
+        height: 100%;
+        top:79px;
+        background: rgba(13, 14, 13, 0.8); 
+        position: fixed;
+        z-index: 1;
+        margin-left:50%;
+    }
+    
+    .hidden{
+        display: none;
+    }
+    .visible{
+        display: inherit;
+    }
 }
+
+
