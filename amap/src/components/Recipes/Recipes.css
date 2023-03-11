@@ -129,12 +129,14 @@ a.create-new-recipe:hover{
 }
 .recette-info-etapes-items,.button-create-recipe{
     text-align: start;
-    margin-left: 3em;
+    
     width: 200px;
     margin-bottom:0.5em;
 }
 
-
+.recette-info {
+    padding-top: 8em;
+}
 
 .create-new-recipe-btn{
     width: 200px;

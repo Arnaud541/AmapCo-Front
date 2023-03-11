@@ -102,7 +102,7 @@ function FormRecipeEdit(props) {
   };
   return (
     <div className="container">
-      <form className="search" onSubmit={handleSubmit}>
+      <form className="search1" onSubmit={handleSubmit}>
         <div className="recette-info">
           <input
             defaultValue={recipeToEdit.titre}
