@@ -60,7 +60,9 @@
 }
 .growers{
     display: grid;
-    margin:2em;
+    margin-left:2em;
+    margin-right:2em;
+    padding-top:8em;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5em;
     grid-auto-rows: minmax(100px, auto);

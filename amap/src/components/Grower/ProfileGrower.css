@@ -49,6 +49,16 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    padding-top: 8em;
+}
+
+.panier-info-ingredients-item {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 2em;
 }
 
 .label-created-at,.label-end-at {

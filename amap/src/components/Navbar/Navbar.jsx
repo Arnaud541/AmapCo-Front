@@ -48,22 +48,22 @@ function Navbar() {
       <div className="burger-menu-options">
       <>
       
-         <div className="recipes-burger-menu"><Link to="/recipes">Recettes</Link></div>
-         <div className="growers-burger-menu"><Link to="/growers">Producteurs</Link></div>
+         <div className="recipes-burger-menu"><Link className="link-burger-menu" to="/recipes">Recettes</Link></div>
+         <div className="growers-burger-menu"><Link className="link-burger-menu"  to="/growers">Producteurs</Link></div>
        </>  
        {JSON.parse(localStorage.getItem("connected")) ? (
         <>
-          <div className="signout-burger-menu"><Link to="/signout">Deconnexion</Link></div>
+          <div className="signout-burger-menu"><Link className="link-burger-menu"  to="/signout">Deconnexion</Link></div>
           {access == 2 ? (
-            <div className="grower-profile-burger-menu"><Link  to={`/profileGrower/${idUser}`}>Mon profil</Link> </div>
+            <div className="grower-profile-burger-menu"><Link className="link-burger-menu"   to={`/profileGrower/${idUser}`}>Mon profil</Link> </div>
           ) : (
-            <div className="user-profile-burger-menu"><Link to={`/profile/${idUser}`}>Mon profil</Link></div>
+            <div className="user-profile-burger-menu"><Link className="link-burger-menu"  to={`/profile/${idUser}`}>Mon profil</Link></div>
           )}
         </>
       ) : (
         <>
-          <div className="signin-burger-menu"><Link to="/signin">Connexion</Link></div>
-          <div className="signup-burger-menu"><Link to="/signup">Inscription</Link></div>
+          <div className="signin-burger-menu"><Link className="link-burger-menu"  to="/signin">Connexion</Link></div>
+          <div className="signup-burger-menu"><Link className="link-burger-menu"  to="/signup">Inscription</Link></div>
         
         </>
         

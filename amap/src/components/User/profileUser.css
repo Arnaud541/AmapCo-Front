@@ -33,6 +33,10 @@
     margin-top: 1em;
 }
 
+.profile {
+    padding-top: 5em;
+}
+
 .my-recipes-items {
     display: grid;
     margin:2em;
