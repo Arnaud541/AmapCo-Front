@@ -12,17 +12,19 @@ function ProfileGrower(props) {
       <div className="profile">
         <div className="profile-info">
           <div className="perso-info-profile-grower">
-          <span className="Grower-profile-name">Bonjour {profile.nom}</span>
-          <span className="Grower-profile-created-date">
-            Vous êtes membre depuis le{" "}
-            {new Date(profile.created_at).toLocaleDateString("fr-FR")}
-          </span>
+            <span className="Grower-profile-name">Bonjour {profile.nom}</span>
+            <span className="Grower-profile-created-date">
+              Vous êtes membre depuis le{" "}
+              {new Date(profile.created_at).toLocaleDateString("fr-FR")}
+            </span>
           </div>
-        <div className="profile-avatar">
-          <img id="avatargrowerprofile" src={avatarimg} alt={profile.nom} />
+          <div className="profile-avatar">
+            <img id="avatargrowerprofile" src={avatarimg} alt={profile.nom} />
+          </div>
         </div>
-        </div>
-        <a className="cart-creation-link" href="/growers/cart/create">Créer un panier</a>
+        <Link to={`/growers/cart/create`} className="cart-creation-link">
+          Créer un panier
+        </Link>
       </div>
       <div className="my-carts">
         <h1 className="grower-week-cart-profile">Mes paniers de la semaine</h1>
