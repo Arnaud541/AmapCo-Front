@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate";
 
 function ProfileUser(props) {
   const { user, myRecipes, myCartsSubscription, myFavoriteRecipes } = props;
+  console.log(myCartsSubscription);
 
   const [currentItems, setCurrentItems] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
@@ -58,13 +59,15 @@ function ProfileUser(props) {
       <hr />
       <div className="my-carts-subscription">
         {myCartsSubscription?.map((c) => (
-          <div className="my-carts-subscription-item">
-            <img id="my-cart-subcription-img" src={c.img_url} alt={c.nom} />
-            <div className="title-cart-subscribed">
-              <h2 className="cart-name">{c.nom}</h2>
-              <h3 className="grower-name">Panier par {c.Nom}</h3>
+          <Link to={`/growers/${c.id_producteur}/cart/${c.id_panier}`}>
+            <div className="my-carts-subscription-item">
+              <img id="my-cart-subcription-img" src={c.img_url} alt={c.nom} />
+              <div className="title-cart-subscribed">
+                <h2 className="cart-name">{c.nom}</h2>
+                <h3 className="grower-name">Panier par {c.Nom}</h3>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <h1 className="my-favorite-recipes">Les recettes que vous aimez</h1>
@@ -78,25 +81,25 @@ function ProfileUser(props) {
           </Link>
         ))}
       </div>
-        <div className="paginationdiv">
-          <ReactPaginate
-            breakLabel="..."
-            nextLabel="Suivante >"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            pageCount={pageCount}
-            previousLabel="< Précédente"
-            renderOnZeroPageCount={null}
-            containerClassName="pagination"
-            activeClassName="active"
-            activeLinkClassName="active-link"
-            pageClassName="page-num"
-            previousLinkClassName="page-num"
-            nextLinkClassName="page-num"
-            pageLinkClassName="page-num-link"
-            disabledClassName="button-disabled"
-          />
-        </div>
+      <div className="paginationdiv">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="Suivante >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< Précédente"
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          activeClassName="active"
+          activeLinkClassName="active-link"
+          pageClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          pageLinkClassName="page-num-link"
+          disabledClassName="button-disabled"
+        />
+      </div>
     </div>
   );
 }
