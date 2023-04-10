@@ -39,12 +39,15 @@ function ButtonAddComment(props) {
       </button>
       {show ? (
         <form className="form-add-comment" onSubmit={handleSubmit}>
-          <textarea className="textarea-add-comment"
+          <textarea
+            className="textarea-add-comment"
             placeholder="Ajouter un commentaire"
             name="contenu"
             onChange={handleChange}
           />
-          <button className="submit-new-comment" type="submit">Envoyer</button>
+          <button className="submit-new-comment" type="submit">
+            Envoyer
+          </button>
         </form>
       ) : null}
     </>

@@ -4,6 +4,8 @@ import makeAnimated from "react-select/animated";
 import ButtonAddIngredientCart from "./ButtonAddIngredientCart";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function FormCart() {
   const animatedComponents = makeAnimated();
@@ -61,7 +63,6 @@ function FormCart() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(cart);
     axios
       .post(
         "https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails",
@@ -71,9 +72,21 @@ function FormCart() {
       )
       .then((response) => {
         if (response.data.status === 200) {
-          navigate(
-            `/profileGrower/${JSON.parse(localStorage.getItem("user")).id}`
-          );
+          toast.success("Le panier à bien été crée !", {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            onClose: () => {
+              navigate(
+                `/profileGrower/${JSON.parse(localStorage.getItem("user")).id}`
+              );
+            },
+          });
         }
       });
   };
@@ -161,6 +174,18 @@ function FormCart() {
           </button>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

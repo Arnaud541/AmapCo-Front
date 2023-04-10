@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./RecipeDetails.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import ButtonAddComment from "./ButtonAddComment";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function RecipeDetails(props) {
   const {
@@ -45,7 +47,17 @@ function RecipeDetails(props) {
           .then((response) => {
             if (response.data.status === 200) {
               setFavorite(false);
-              alert(response.data.message);
+              toast.info("La recette a été enlevé de vos favoris", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                icon: "❤️",
+              });
             }
           });
       } else {
@@ -60,7 +72,17 @@ function RecipeDetails(props) {
           .then((response) => {
             if (response.data.status === 200) {
               setFavorite(true);
-              alert(response.data.message);
+              toast.success("La recette a été ajouté à vos favoris", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                icon: "❤️",
+              });
             }
           });
       }
@@ -189,7 +211,11 @@ function RecipeDetails(props) {
               <div className="item" key={c.id}>
                 <div className="item-info-user">
                   <div className="comment-infos">
-                  <img id="avatar-comment" src={`../src/assets/${c.avatar}`} alt="" />
+                    <img
+                      id="avatar-comment"
+                      src={`../src/assets/${c.avatar}`}
+                      alt=""
+                    />
                     <span className="note">
                       {c.nom}{" "}
                       {c.note ? <span className="note">{c.note}/5</span> : null}
@@ -206,6 +232,7 @@ function RecipeDetails(props) {
         </div>
         <div className="recipe-like"></div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
