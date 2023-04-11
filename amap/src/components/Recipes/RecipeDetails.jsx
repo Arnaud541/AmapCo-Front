@@ -110,12 +110,12 @@ function RecipeDetails(props) {
 
   return (
     <div className="container">
-      <div className="recipe">
+      <div className="recipe-title-info">
         <h1 className="recipe-title">{recipe?.titre}</h1>
         <div className="recipe-info">
           <img
             id="avatar-grower-profile-recipe"
-            src={"../src/assets/default.png"}
+            src={`../src/assets/${recipe?.photo}`}
             alt={recipe?.titre}
           />
 
@@ -154,7 +154,9 @@ function RecipeDetails(props) {
             {ingredients.map((i) => (
               <div className="item" key={i.id}>
                 <h3 className="ingredient-name">{i.nom}</h3>
-                <h3 className="ingredient-qty">Quantité : {i.quantite}</h3>
+                <h3 className="ingredient-qty">
+                  Quantité : {i.quantite} {i.unite}
+                </h3>
               </div>
             ))}
           </div>

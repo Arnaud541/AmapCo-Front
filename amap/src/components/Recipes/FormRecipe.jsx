@@ -42,6 +42,7 @@ function FormRecipe() {
   };
 
   const handleSubmit = (event) => {
+    console.log(recipe);
     event.preventDefault();
 
     axios

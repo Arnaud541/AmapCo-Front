@@ -21,6 +21,10 @@
     padding-top: 1.5em;
 }
 
+.recipe-title-info {
+    padding-top: 13em;
+}
+
 #avatar-comment{
     width: 20%;
     max-width: 185px;
