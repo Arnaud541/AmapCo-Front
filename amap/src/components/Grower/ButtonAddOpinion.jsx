@@ -19,7 +19,7 @@ function ButtonAddOpinion(props) {
     event.preventDefault();
     axios
       .post(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growerreview",
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growerreview",
         {
           opinion,
         }

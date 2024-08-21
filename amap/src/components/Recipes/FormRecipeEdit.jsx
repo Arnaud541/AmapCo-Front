@@ -44,7 +44,7 @@ function FormRecipeEdit(props) {
     event.preventDefault();
 
     axios
-      .put("https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipe", {
+      .put("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipe", {
         recipe: recipe,
       })
       .then((response) => {

@@ -36,7 +36,7 @@ function RecipeDetails(props) {
       if (favorite) {
         axios
           .delete(
-            "https://amap.momomotus.fr/AmapCo-Back/index.php?action=favorite",
+            "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=favorite",
             {
               data: {
                 id_recette: idRecipe,
@@ -63,7 +63,7 @@ function RecipeDetails(props) {
       } else {
         axios
           .post(
-            "https://amap.momomotus.fr/AmapCo-Back/index.php?action=favorite",
+            "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=favorite",
             {
               id_recette: idRecipe,
               id_utilisateur: profile.id,
@@ -94,7 +94,7 @@ function RecipeDetails(props) {
   const handleDelete = () => {
     axios
       .delete(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeById",
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipeById",
         {
           data: {
             id_recette: idRecipe,

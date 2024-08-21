@@ -14,7 +14,7 @@ function GrowerCartPage() {
     const user = JSON.parse(localStorage.getItem("user"));
     axios
       .get(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=cartDetails",
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=cartDetails",
         {
           params: {
             idcart,
@@ -29,7 +29,7 @@ function GrowerCartPage() {
 
     axios
       .get(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getSimilarRecipeCart",
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=getSimilarRecipeCart",
         {
           params: {
             cart: idcart,
@@ -45,7 +45,7 @@ function GrowerCartPage() {
     if (user) {
       axios
         .get(
-          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=subscription",
+          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=subscription",
           {
             params: {
               id_panier: idcart,

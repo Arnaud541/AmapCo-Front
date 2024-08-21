@@ -12,7 +12,7 @@ function FormRecipeEditPage() {
   useEffect(() => {
     axios
       .get(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeById",
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipeById",
         {
           params: {
             id,

@@ -12,14 +12,14 @@ function HomePage() {
   useEffect(() => {
     axios
       .get(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=allIngredients"
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=allIngredients"
       )
       .then((response) => {
         setIngredients(response.data.ingredients);
       });
     axios
       .get(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=producerCart"
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=producerCart"
       )
       .then((response) => {
         setCart(response.data.producerCart);

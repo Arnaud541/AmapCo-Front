@@ -11,7 +11,7 @@ function ProfileGrowerPage() {
   useEffect(() => {
     axios
       .get(
-        "https://amap.momomotus.fr/AmapCo-Back/index.php?action=growercart",
+        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growercart",
         {
           params: {
             id,

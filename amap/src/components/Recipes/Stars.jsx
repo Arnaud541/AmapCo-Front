@@ -13,7 +13,7 @@ function Stars(props) {
     if (localStorage.getItem("user")) {
       axios
         .get(
-          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
+          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
           {
             params: {
               id_recette: recipeID,
