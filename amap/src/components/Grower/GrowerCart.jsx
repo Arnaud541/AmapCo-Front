@@ -16,7 +16,7 @@ function GrowerCart(props) {
     if (!profile) {
       axios
         .delete(
-          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growercart",
+          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growercart",
           {
             data: {
               id_panier: idCart,
@@ -37,7 +37,7 @@ function GrowerCart(props) {
     } else {
       axios
         .post(
-          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=subscription",
+          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=subscription",
           {
             id_panier: idCart,
             id_utilisateur: profile.id,

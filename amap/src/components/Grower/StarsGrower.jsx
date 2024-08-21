@@ -16,7 +16,7 @@ function StarsGrower() {
     if (localStorage.getItem("user")) {
       axios
         .get(
-          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=getUserNoteByIdGrower",
+          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=getUserNoteByIdGrower",
           {
             params: {
               id_producteur: id,
@@ -37,7 +37,7 @@ function StarsGrower() {
     if (isRated) {
       axios
         .put(
-          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growerNote",
+          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growerNote",
           {
             id_utilisateur: JSON.parse(localStorage.getItem("user")).id,
             id_producteur: id,
@@ -53,7 +53,7 @@ function StarsGrower() {
     } else {
       axios
         .post(
-          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growerNote",
+          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growerNote",
           {
             note: rate,
             id_producteur: id,

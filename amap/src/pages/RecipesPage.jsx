@@ -11,13 +11,13 @@ function RecipesPage() {
   useEffect(() => {
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=allIngredients"
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=allIngredients"
       )
       .then((response) => {
         setIngredients(response.data.ingredients);
       });
     axios
-      .get("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipe")
+      .get("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipe")
       .then((response) => {
         setRecipes(response.data.recettes);
       });

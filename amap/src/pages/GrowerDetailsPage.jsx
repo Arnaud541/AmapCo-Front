@@ -14,7 +14,7 @@ function GrowerDetailsPage() {
   useEffect(() => {
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growerbyid",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growerbyid",
         {
           params: {
             id,
@@ -26,7 +26,7 @@ function GrowerDetailsPage() {
       });
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growercart",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growercart",
         {
           params: { id },
         }
@@ -36,7 +36,7 @@ function GrowerDetailsPage() {
       });
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growerreview",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growerreview",
         {
           params: { id },
         }
@@ -47,7 +47,7 @@ function GrowerDetailsPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=growerNote",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growerNote",
         {
           params: {
             id,

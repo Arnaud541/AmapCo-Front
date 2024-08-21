@@ -18,7 +18,7 @@ function RecipeDetailsPage() {
     const user = JSON.parse(localStorage.getItem("user"));
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipeById",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipeById",
         {
           params: {
             id,
@@ -31,7 +31,7 @@ function RecipeDetailsPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=getSimilarRecipe",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=getSimilarRecipe",
         {
           params: {
             recipe: id,
@@ -43,7 +43,7 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=ustensils", {
+      .get("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=ustensils", {
         params: {
           id,
         },
@@ -54,7 +54,7 @@ function RecipeDetailsPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=ingredient",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=ingredient",
         {
           params: {
             id,
@@ -66,7 +66,7 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=comments", {
+      .get("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=comments", {
         params: {
           id,
         },
@@ -76,7 +76,7 @@ function RecipeDetailsPage() {
       });
 
     axios
-      .get("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=steps", {
+      .get("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=steps", {
         params: {
           id,
         },
@@ -87,7 +87,7 @@ function RecipeDetailsPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipeNote",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipeNote",
         {
           params: {
             id,
@@ -101,7 +101,7 @@ function RecipeDetailsPage() {
     if (user) {
       axios
         .get(
-          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=favorite",
+          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=favorite",
           {
             params: {
               id_user: user.id,

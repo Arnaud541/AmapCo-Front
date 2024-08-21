@@ -8,7 +8,7 @@ function SelectUstensil(props) {
   useEffect(() => {
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=allUstensils"
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=allUstensils"
       )
       .then((response) => {
         setUstensils(response.data.ustensiles);

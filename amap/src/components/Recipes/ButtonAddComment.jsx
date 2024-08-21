@@ -18,7 +18,7 @@ function ButtonAddComment(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=comments", {
+      .post("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=comments", {
         comment,
       })
       .then((response) => {

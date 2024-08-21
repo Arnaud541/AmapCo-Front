@@ -65,7 +65,7 @@ function FormCart() {
     event.preventDefault();
     axios
       .post(
-        "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=cartDetails",
+        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=cartDetails",
         {
           cart,
         }

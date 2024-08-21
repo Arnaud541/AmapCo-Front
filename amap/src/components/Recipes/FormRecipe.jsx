@@ -46,7 +46,7 @@ function FormRecipe() {
     event.preventDefault();
 
     axios
-      .post("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipe", {
+      .post("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipe", {
         recipe: recipe,
       })
       .then((response) => {
