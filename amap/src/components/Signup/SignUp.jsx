@@ -26,7 +26,7 @@ function SignUp() {
     event.preventDefault();
 
     axios
-      .post("https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=signUp", {
+      .post("https://amap-co.fr/index.php?action=signUp", {
         user,
       })
       .then((response) => {

@@ -7,7 +7,7 @@ function GrowersPage() {
 
   useEffect(() => {
     axios
-      .get("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=grower")
+      .get("https://amap-co.fr/index.php?action=grower")
       .then((response) => {
         setGrowers(response.data.producteurs);
       });

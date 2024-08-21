@@ -74,7 +74,7 @@ function SearchBar(props) {
     event.preventDefault();
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipeSearch",
+        "https://amap-co.fr/index.php?action=recipeSearch",
         {
           params: {
             search: search,

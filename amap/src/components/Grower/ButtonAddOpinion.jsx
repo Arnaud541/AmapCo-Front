@@ -19,7 +19,7 @@ function ButtonAddOpinion(props) {
     event.preventDefault();
     axios
       .post(
-        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=growerreview",
+        "https://amap-co.fr/index.php?action=growerreview",
         {
           opinion,
         }

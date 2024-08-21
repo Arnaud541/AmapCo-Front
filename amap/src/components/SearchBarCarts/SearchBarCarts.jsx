@@ -31,7 +31,7 @@ function SearchBarCarts(props) {
     event.preventDefault();
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=CartSearch",
+        "https://amap-co.fr/index.php?action=CartSearch",
         {
           params: {
             search: search,

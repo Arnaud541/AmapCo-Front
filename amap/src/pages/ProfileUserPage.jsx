@@ -13,7 +13,7 @@ function ProfileUserPage() {
 
   useEffect(() => {
     axios
-      .get("https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=userById", {
+      .get("https://amap-co.fr/index.php?action=userById", {
         params: {
           id,
         },
@@ -26,7 +26,7 @@ function ProfileUserPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=subscribedCart",
+        "https://amap-co.fr/index.php?action=subscribedCart",
         {
           params: {
             id,
@@ -39,7 +39,7 @@ function ProfileUserPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipesByIdUser",
+        "https://amap-co.fr/index.php?action=recipesByIdUser",
         {
           params: {
             id,
@@ -52,7 +52,7 @@ function ProfileUserPage() {
 
     axios
       .get(
-        "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipeFavorite",
+        "https://amap-co.fr/index.php?action=recipeFavorite",
         {
           params: {
             id_user: id,

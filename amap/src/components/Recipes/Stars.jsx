@@ -13,7 +13,7 @@ function Stars(props) {
     if (localStorage.getItem("user")) {
       axios
         .get(
-          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=getUserNoteByIdRecipe",
+          "https://amap-co.fr/index.php?action=getUserNoteByIdRecipe",
           {
             params: {
               id_recette: recipeID,
@@ -34,7 +34,7 @@ function Stars(props) {
     if (isRated) {
       axios
         .put(
-          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipeNote",
+          "https://amap-co.fr/index.php?action=recipeNote",
           {
             note: rate,
             id_recette: recipeID,
@@ -50,7 +50,7 @@ function Stars(props) {
     } else {
       axios
         .post(
-          "https://amap-co.infinityfreeapp.com/AmapCo-Back/index.php?action=recipeNote",
+          "https://amap-co.fr/index.php?action=recipeNote",
           {
             note: rate,
             id_recette: recipeID,
