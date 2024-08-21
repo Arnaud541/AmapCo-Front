@@ -34,7 +34,7 @@ function Stars(props) {
     if (isRated) {
       axios
         .put(
-          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeNote",
+          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipeNote",
           {
             note: rate,
             id_recette: recipeID,
@@ -50,7 +50,7 @@ function Stars(props) {
     } else {
       axios
         .post(
-          "https://amap.momomotus.fr/AmapCo-Back/index.php?action=recipeNote",
+          "https://amap-co.infinityfreeapp.com/htdocs/AmapCo-Back/index.php?action=recipeNote",
           {
             note: rate,
             id_recette: recipeID,
