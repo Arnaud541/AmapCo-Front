@@ -13,10 +13,14 @@ function ProfileUser(props) {
   const itemsPerPage = 8;
 
   useEffect(() => {
-    if (Array.isArray(myFavoriteRecipes)) { // Assurez-vous que myFavoriteRecipes est un tableau
+    if (Array.isArray(myFavoriteRecipes) && myFavoriteRecipes.length > 0) {
       const endOffset = itemOffset + itemsPerPage;
       setCurrentItems(myFavoriteRecipes.slice(itemOffset, endOffset));
       setPageCount(Math.ceil(myFavoriteRecipes.length / itemsPerPage));
+    } else {
+      // Gestion des cas où myFavoriteRecipes est vide ou non défini
+      setCurrentItems([]);
+      setPageCount(0);
     }
   }, [itemOffset, itemsPerPage, myFavoriteRecipes]);
 
@@ -40,6 +44,7 @@ function ProfileUser(props) {
           </div>
         </div>
       </div>
+
       <div className="my-recipes">
         <h1 className="my-recipes-title">Vos recettes</h1>
         <hr />
@@ -53,9 +58,10 @@ function ProfileUser(props) {
           ))}
         </div>
       </div>
-      <h1 className="my-recipes-title">Paniers auxquels vous êtes abonné(e)s</h1>
-      <hr />
+
       <div className="my-carts-subscription">
+        <h1 className="my-recipes-title">Paniers auxquels vous êtes abonné(e)s</h1>
+        <hr />
         {myCartsSubscription.map((c) => (
           <Link to={`/growers/${c.id_producteur}/cart/${c.id_panier}`} key={c.id_panier}>
             <div className="my-carts-subscription-item">
@@ -68,35 +74,38 @@ function ProfileUser(props) {
           </Link>
         ))}
       </div>
-      <h1 className="my-favorite-recipes">Les recettes que vous aimez</h1>
-      <hr />
-      <div className="my-recipes-items">
-        {currentItems.map((r) => (
-          <Link className="link-my-recipes" to={`/recipes/${r.id}`} key={r.id}>
-            <div className="my-recipes-item">
-              <h2 className="my-recipe-title">{r.titre}</h2>
-            </div>
-          </Link>
-        ))}
-      </div>
-      <div className="paginationdiv">
-        <ReactPaginate
-          breakLabel="..."
-          nextLabel="Suivante >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={pageCount}
-          previousLabel="< Précédente"
-          renderOnZeroPageCount={null}
-          containerClassName="pagination"
-          activeClassName="active"
-          activeLinkClassName="active-link"
-          pageClassName="page-num"
-          previousLinkClassName="page-num"
-          nextLinkClassName="page-num"
-          pageLinkClassName="page-num-link"
-          disabledClassName="button-disabled"
-        />
+
+      <div className="my-favorite-recipes">
+        <h1 className="my-favorite-recipes-title">Les recettes que vous aimez</h1>
+        <hr />
+        <div className="my-recipes-items">
+          {currentItems.map((r) => (
+            <Link className="link-my-recipes" to={`/recipes/${r.id}`} key={r.id}>
+              <div className="my-recipes-item">
+                <h2 className="my-recipe-title">{r.titre}</h2>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="paginationdiv">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="Suivante >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="< Précédente"
+            renderOnZeroPageCount={null}
+            containerClassName="pagination"
+            activeClassName="active"
+            activeLinkClassName="active-link"
+            pageClassName="page-num"
+            previousLinkClassName="page-num"
+            nextLinkClassName="page-num"
+            pageLinkClassName="page-num-link"
+            disabledClassName="button-disabled"
+          />
+        </div>
       </div>
     </div>
   );

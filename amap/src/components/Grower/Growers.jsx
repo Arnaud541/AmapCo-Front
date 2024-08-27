@@ -1,33 +1,40 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
 import "./Growers.css";
 
 function Growers(props) {
-  const { growers } = props;
+  const { growers = [] } = props;
   const [currentItems, setCurrentItems] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const itemsPerPage = 6;
 
   useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(growers?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(growers?.length / itemsPerPage));
+    if (Array.isArray(growers) && growers.length > 0) {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(growers.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(growers.length / itemsPerPage));
+    } else {
+      // Gestion des cas où growers est vide ou non défini
+      setCurrentItems([]);
+      setPageCount(0);
+    }
   }, [itemOffset, itemsPerPage, growers]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % growers?.length;
-    setItemOffset(newOffset);
+    if (Array.isArray(growers) && growers.length > 0) {
+      const newOffset = (event.selected * itemsPerPage) % growers.length;
+      setItemOffset(newOffset);
+    }
   };
+
   return (
     <>
       <div className="growers">
-        {currentItems?.map((grower) => (
-          <Link to={`/growers/${grower.id}`}>
-            <div className="grower" key={grower.id}>
+        {currentItems.map((grower) => (
+          <Link to={`/growers/${grower.id}`} key={grower.id}>
+            <div className="grower">
               <img
                 className="avatargrow"
                 src={"./src/assets/default.png"}

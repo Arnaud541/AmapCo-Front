@@ -25,17 +25,33 @@ function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Validation basique
+    if (!user.email || !user.password || !user.confirmPassword || !user.firstname || !user.lastname) {
+      alert("Tous les champs doivent être remplis.");
+      return;
+    }
+
+    if (user.password !== user.confirmPassword) {
+      alert("Les mots de passe ne correspondent pas.");
+      return;
+    }
+
     axios
       .post("https://amap-co.fr/index.php?action=signUp", {
         user,
       })
       .then((response) => {
         if (response.data.status === 200) {
-          console.log(response);
-          navigate("/signup");
+          // Redirection vers la page de connexion après une inscription réussie
+          alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
+          navigate("/signin"); // Redirige vers la page de connexion
         } else {
-          if (response.data.status === 400) alert(response.data.message);
+          alert(response.data.message); // Affiche un message d'erreur si l'inscription échoue
         }
+      })
+      .catch((error) => {
+        console.error("Erreur lors de l'inscription :", error);
+        alert("Une erreur est survenue lors de l'inscription.");
       });
   };
 
@@ -61,7 +77,7 @@ function SignUp() {
           className="sign__input"
           type="text"
           name="firstname"
-          placeholder="Prenom"
+          placeholder="Prénom"
           onChange={handleChange}
         />
         <textarea

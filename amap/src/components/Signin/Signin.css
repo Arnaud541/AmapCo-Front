@@ -66,6 +66,12 @@
     justify-content:center;
 }
 
+.error-message {
+	color: red;
+	margin-top: 10px;
+	font-size: 14px;
+  }
+
 .login-submit:active,
 .login-submit:focus,
 .login-submit:hover {

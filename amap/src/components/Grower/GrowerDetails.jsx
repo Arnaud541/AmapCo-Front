@@ -23,19 +23,27 @@ function GrowerDetails(props) {
   });
 
   useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(growerreview?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(growerreview?.length / itemsPerPage));
+    if (growerreview && growerreview.length > 0) {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(growerreview.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(growerreview.length / itemsPerPage));
+    } else {
+      // Gérer le cas où growerreview est vide ou undefined
+      setCurrentItems([]);
+      setPageCount(0);
+    }
   }, [itemOffset, itemsPerPage, growerreview]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % growerreview?.length;
-    setItemOffset(newOffset);
+    if (growerreview && growerreview.length > 0) {
+      const newOffset = (event.selected * itemsPerPage) % growerreview.length;
+      setItemOffset(newOffset);
+    }
   };
 
   return (
     <div className="container">
-      <img id="growerimg" src={growerimg} />
+      <img id="growerimg" src={growerimg} alt="Background" />
       <div className="growerinfo">
         <img id="avatargrowerprofile" src={avatarimg} alt="Avatar" />
         <div className="growerdata">
@@ -43,28 +51,28 @@ function GrowerDetails(props) {
           <span className="inscriptionDate">
             Date d'inscription : {grower.created_at}
           </span>
-          <p className="growerdesc"> {grower.description}</p>
+          <p className="growerdesc">{grower.description}</p>
         </div>
       </div>
-        <div className="growerlike">
-          <h2>Note : {Math.round(note.note * 10) / 10}</h2>
-          <h2>Commentaires : {growerreview.length}</h2>
-          <StarsGrower />
-        </div>
+      <div className="growerlike">
+        <h2>Note : {Math.round(note.note * 10) / 10}</h2>
+        <h2>Commentaires : {growerreview ? growerreview.length : 0}</h2>
+        <StarsGrower />
+      </div>
 
       <div className="growerpresentation">
         <h2 id="titleCartspresentation">Paniers disponibles</h2>
         <hr />
         <div className="growerCarts">
           {growercart?.map((cart) => (
-            <Link to={`/growers/${grower.id}/cart/${cart.id}`}>
+            <Link to={`/growers/${grower.id}/cart/${cart.id}`} key={cart.id}>
               <div className="growerCart">
                 <div className="growercartimgprofile">
                   <img
                     id="growercartimg"
                     src={cart.img_url}
                     alt="CartPicture"
-                  ></img>
+                  />
                 </div>
                 <div className="titlewithgrowercart">
                   <h3 className="titlecart">{cart.nom}</h3>
@@ -73,12 +81,6 @@ function GrowerDetails(props) {
               </div>
             </Link>
           ))}
-
-          {growercart.map((cart) => {
-            {
-              cart.nom;
-            }
-          })}
         </div>
       </div>
       <div className="userReview">
@@ -92,9 +94,9 @@ function GrowerDetails(props) {
           />
         ) : null}
         {currentItems?.map((gr) => (
-          <div className="growerReview">
+          <div className="growerReview" key={gr.id}>
             <span className="note">
-              {gr.nom} {gr.note}/5{" "}
+              {gr.nom} {gr.note}/5
             </span>
             <br />
             <span className="publication">Publié le {gr.created_at}</span>
