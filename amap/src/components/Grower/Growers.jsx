@@ -37,7 +37,7 @@ function Growers(props) {
             <div className="grower">
               <img
                 className="avatargrow"
-                src={"./src/assets/default.png"}
+                src={"./assets/default.png"}
                 alt="Avatar"
               />
               <div className="grower-description">
