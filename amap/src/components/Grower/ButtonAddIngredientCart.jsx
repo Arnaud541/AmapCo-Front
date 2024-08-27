@@ -2,62 +2,69 @@ import React, { useState } from "react";
 import SelectIngredientUnique from "../Recipes/SelectIngredientUnique";
 
 function ButtonAddIngredientCart(props) {
-  const { handleChangeSelect, style, animatedComponents, setCart, cart } =
-    props;
+  const { handleChangeSelect, style, animatedComponents, setCart, cart } = props;
 
+  // État pour stocker les nouveaux champs d'ingrédients ajoutés
   const [div, setDiv] = useState([]);
+
+  // Fonction pour ajouter un nouvel ingrédient
   const handleAdd = () => {
-    const test = { ingredient: "", quantite: "", unite: "" };
-    const abc = [...div, []];
-    const newCart = { ...cart };
-    newCart["ingredients"].push(test);
+    const newIngredient = { ingredient: "", quantite: "", unite: "" };
+    const updatedDiv = [...div, {}]; // Ajout d'un objet vide pour représenter un nouvel ingrédient
+    const updatedCart = { ...cart };
 
-    setCart(newCart);
-    setDiv(abc);
+    if (!updatedCart.ingredients) {
+      updatedCart.ingredients = []; // Initialisation du tableau si nécessaire
+    }
+    
+    updatedCart.ingredients.push(newIngredient);
+
+    setCart(updatedCart);
+    setDiv(updatedDiv);
   };
 
-  const handleChange = (event, i) => {
-    let str = event.target.name.split("-");
+  // Fonction pour gérer les changements dans les inputs
+  const handleChange = (event, index) => {
+    const [field, ingredientIndex] = event.target.name.split("-");
 
-    const cartChangeIngredient = { ...cart };
-    cartChangeIngredient["ingredients"][str[1]][str[0]] = event.target.value;
-    setCart(cartChangeIngredient);
+    const updatedCart = { ...cart };
+    updatedCart.ingredients[ingredientIndex][field] = event.target.value;
+    setCart(updatedCart);
   };
+
   return (
-    <><div className="add-ingredients">
+    <div className="add-ingredients">
       <button
         className="button-add-ingredient-cart"
         type="button"
-        onClick={() => handleAdd()}
+        onClick={handleAdd}
       >
         Ajouter un ingrédient
       </button>
-      {div.map((data, i) => {
-        return (
-          <div className="panier-info-ingredients-item">
-            <SelectIngredientUnique
-              style={style}
-              handleChangeSelect={handleChangeSelect}
-              animatedComponents={animatedComponents}
-              id={i}
-            />
-            <input
-              type="text"
-              placeholder="Quantité"
-              onChange={(e) => handleChange(e, i)}
-              name={"quantite-" + i}
-            />
-            <input
-              type="text"
-              placeholder="Unité de mesure"
-              onChange={(e) => handleChange(e, i)}
-              name={"unite-" + i}
-            />
-          </div>
-        );
-      })}
-      </div>
-    </>
+
+      {div.map((_, index) => (
+        <div className="panier-info-ingredients-item" key={index}>
+          <SelectIngredientUnique
+            style={style}
+            handleChangeSelect={handleChangeSelect}
+            animatedComponents={animatedComponents}
+            id={index}
+          />
+          <input
+            type="text"
+            placeholder="Quantité"
+            onChange={(e) => handleChange(e, index)}
+            name={`quantite-${index}`}
+          />
+          <input
+            type="text"
+            placeholder="Unité de mesure"
+            onChange={(e) => handleChange(e, index)}
+            name={`unite-${index}`}
+          />
+        </div>
+      ))}
+    </div>
   );
 }
 

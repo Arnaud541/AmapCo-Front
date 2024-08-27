@@ -5,8 +5,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
 function ProfileUser(props) {
-  const { user, myRecipes, myCartsSubscription, myFavoriteRecipes } = props;
-  console.log(myCartsSubscription);
+  const { user, myRecipes = [], myCartsSubscription = [], myFavoriteRecipes = [] } = props;
 
   const [currentItems, setCurrentItems] = useState([]);
   const [itemOffset, setItemOffset] = useState(0);
@@ -14,29 +13,30 @@ function ProfileUser(props) {
   const itemsPerPage = 8;
 
   useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(myFavoriteRecipes?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(myFavoriteRecipes?.length / itemsPerPage));
+    if (Array.isArray(myFavoriteRecipes)) { // Assurez-vous que myFavoriteRecipes est un tableau
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(myFavoriteRecipes.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(myFavoriteRecipes.length / itemsPerPage));
+    }
   }, [itemOffset, itemsPerPage, myFavoriteRecipes]);
 
   const handlePageClick = (event) => {
-    const newOffset =
-      (event.selected * itemsPerPage) % myFavoriteRecipes?.length;
+    const newOffset = (event.selected * itemsPerPage) % myFavoriteRecipes.length;
     setItemOffset(newOffset);
   };
+
   return (
     <div className="container">
       <div className="profile">
         <div className="profile-info">
           <div className="perso-profile-info">
-            <span className="user-name">Bonjour {user.nom?.split(" ")[1]}</span>
+            <span className="user-name">Bonjour {user.nom?.split(" ")[1] || "Utilisateur"}</span>
             <span className="member-since">
-              Vous êtes membre depuis le{" "}
-              {new Date(user.created_at).toLocaleDateString("fr-FR")}
+              Vous êtes membre depuis le {new Date(user.created_at).toLocaleDateString("fr-FR")}
             </span>
           </div>
           <div className="profile-avatar">
-            <img id="User-avatar" src={avatarimg} />
+            <img id="User-avatar" src={avatarimg} alt="Avatar utilisateur" />
           </div>
         </div>
       </div>
@@ -44,24 +44,22 @@ function ProfileUser(props) {
         <h1 className="my-recipes-title">Vos recettes</h1>
         <hr />
         <div className="my-recipes-items">
-          {myRecipes?.map((r) => (
-            <Link className="link-my-recipes" to={`/recipes/${r.id}`}>
-              <div className="my-recipes-item" key={r.id}>
+          {myRecipes.map((r) => (
+            <Link className="link-my-recipes" to={`/recipes/${r.id}`} key={r.id}>
+              <div className="my-recipes-item">
                 <h2 className="my-recipe-title">{r.titre}</h2>
               </div>
             </Link>
           ))}
         </div>
       </div>
-      <h1 className="my-recipes-title">
-        Paniers auxquels vous êtes abonné(e)s
-      </h1>
+      <h1 className="my-recipes-title">Paniers auxquels vous êtes abonné(e)s</h1>
       <hr />
       <div className="my-carts-subscription">
-        {myCartsSubscription?.map((c) => (
-          <Link to={`/growers/${c.id_producteur}/cart/${c.id_panier}`}>
+        {myCartsSubscription.map((c) => (
+          <Link to={`/growers/${c.id_producteur}/cart/${c.id_panier}`} key={c.id_panier}>
             <div className="my-carts-subscription-item">
-              <img id="my-cart-subcription-img" src={c.img_url} alt={c.nom} />
+              <img id="my-cart-subcription-img" src={c.img_url} alt={`Panier ${c.nom}`} />
               <div className="title-cart-subscribed">
                 <h2 className="cart-name">{c.nom}</h2>
                 <h3 className="grower-name">Panier par {c.Nom}</h3>
@@ -73,9 +71,9 @@ function ProfileUser(props) {
       <h1 className="my-favorite-recipes">Les recettes que vous aimez</h1>
       <hr />
       <div className="my-recipes-items">
-        {currentItems?.map((r) => (
-          <Link className="link-my-recipes" to={`/recipes/${r.id}`}>
-            <div className="my-recipes-item" key={r.id}>
+        {currentItems.map((r) => (
+          <Link className="link-my-recipes" to={`/recipes/${r.id}`} key={r.id}>
+            <div className="my-recipes-item">
               <h2 className="my-recipe-title">{r.titre}</h2>
             </div>
           </Link>
