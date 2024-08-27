@@ -115,7 +115,7 @@ function RecipeDetails(props) {
         <div className="recipe-info">
           <img
             id="avatar-grower-profile-recipe"
-            src={`../src/assets/${recipe?.photo}`}
+            src={recipe?.photo}
             alt={recipe?.titre}
           />
 
@@ -215,7 +215,7 @@ function RecipeDetails(props) {
                   <div className="comment-infos">
                     <img
                       id="avatar-comment"
-                      src={`../src/assets/${c.avatar}`}
+                      src={"../assets/default.png"}
                       alt=""
                     />
                     <span className="note">
