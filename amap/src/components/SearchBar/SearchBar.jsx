@@ -28,14 +28,6 @@ function SearchBar(props) {
     },
   ];
 
-  const notes = [
-    { value: 1, nom: "1" },
-    { value: 2, nom: "2" },
-    { value: 3, nom: "3" },
-    { value: 4, nom: "4" },
-    { value: 5, nom: "5" },
-  ];
-
   const typeDishes = [
     { value: "Entrée", nom: "Entrée" },
     { value: "Plat", nom: "Plat" },
@@ -63,7 +55,7 @@ function SearchBar(props) {
       difficulte: [],
       regimeAlimentaire: [],
       typePlat: [],
-      note: [],
+
     },
   });
 
@@ -111,9 +103,6 @@ function SearchBar(props) {
           break;
         case "typePlat":
           copySearch.filters.typePlat = array;
-          break;
-        case "note":
-          copySearch.filters.note = array;
           break;
         case "regimeAlimentaire":
           copySearch.filters.regimeAlimentaire = array;
@@ -210,18 +199,6 @@ function SearchBar(props) {
             onChange={handleFilters}
             name="filter-typePlat"
             placeholder="Type de plat"
-            styles={customStyles}
-          />
-          <Select
-            closeMenuOnSelect={false}
-            components={animatedComponents}
-            isMulti
-            options={notes}
-            getOptionLabel={(option) => option.nom}
-            getOptionValue={(option) => option.value}
-            onChange={handleFilters}
-            name="filter-note"
-            placeholder="Notation"
             styles={customStyles}
           />
           <Select

@@ -59,9 +59,10 @@ function ProfileUser(props) {
         </div>
       </div>
 
-      <div className="my-carts-subscription">
         <h1 className="my-recipes-title">Paniers auxquels vous êtes abonné(e)s</h1>
         <hr />
+      <div className="my-carts-subscription">
+      
         {myCartsSubscription.map((c) => (
           <Link to={`/growers/${c.id_producteur}/cart/${c.id_panier}`} key={c.id_panier}>
             <div className="my-carts-subscription-item">
@@ -75,9 +76,9 @@ function ProfileUser(props) {
         ))}
       </div>
 
-      <div className="my-favorite-recipes">
         <h1 className="my-favorite-recipes-title">Les recettes que vous aimez</h1>
         <hr />
+      <div className="my-favorite-recipes">
         <div className="my-recipes-items">
           {currentItems.map((r) => (
             <Link className="link-my-recipes" to={`/recipes/${r.id}`} key={r.id}>

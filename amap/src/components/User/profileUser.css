@@ -24,12 +24,21 @@
     margin-bottom: 0.5em;
 }
 
-.my-recipes-title,.my-favorite-recipes{
+.my-favorite-recipes{
+    color:black;
+    text-align: left;
+    margin-left: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 36px;
+    margin-top: 1em;
+}
+
+.my-recipes-title{
     color:black;
     text-align: left;
     margin-left: 2em;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 38px;
+    font-size: 36px;
     margin-top: 1em;
 }
 
@@ -78,7 +87,6 @@
 
 .my-carts-subscription {
     display: grid;
-    margin:2em;
     align-items:stretch;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1em;
@@ -86,6 +94,19 @@
     color: black;
     margin-top: 2em;
     margin-bottom: 4em;
+}
+
+h1.my-favorite-recipes-title {
+    font-size: 36px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin-left: 2em;
+}
+
+.my-recipe-title {
+    font-size: 24px;
 }
 
 #my-cart-subcription-img{
@@ -149,6 +170,14 @@
     .grower-name{
         font-size: 16px;
     }
+    h1.my-favorite-recipes-title {
+        text-align: center;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+    }
    
 }
 
@@ -157,6 +186,9 @@
         text-align: center;
         font-size: 24px;
         margin-left: 0;
+    }
+    h1.my-favorite-recipes-title {
+        font-size: 24px;
     }
     .user-name{
         font-size: 20px;
