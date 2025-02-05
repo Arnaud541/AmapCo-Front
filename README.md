@@ -1,5 +1,5 @@
 # AmapCo-Front
 
-Pour accéder au site déployer :
+Pour accéder au site déployé :
 
-https://aquamarine-cannoli-a3b274.netlify.app/
+https://amap-co.fr
